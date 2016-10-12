@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="693px" height="490px" viewBox="0 0 693 490" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
+    <title>Untitled 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mountains">
+            <polygon id="bg" fill="#ffffff" points="0 0 0 0.98 345.69 489.91 346.49 489.91 692.97 0"></polygon>
+            <polygon id="top" fill="#4f1ecb" points="346.24 0 243.82 145.28 173.2 245.44 345.44 489.91 346.24 489.91 518.88 244.95"></polygon>
+            <polygon id="mid" fill="#8a69dc" points="209.86 297.3 345.57 489.91 482.22 296.91 346.2 103.92"></polygon>
+            <polygon id="bot" fill="#d8cdf3" points="346.15 211.83 247.93 351.14 345.7 489.91 346.15 489.91 444.15 350.87"></polygon>
+            <polygon id="top" fill="#4f1ecb" points="519.28 82.75 461.96 164.06 519.02 245.05 519.28 245.05 576.48 163.9"></polygon>
+            <polygon id="mid" fill="#8a69dc" points="476.2 184.21 519.07 245.05 562.23 184.09 519.27 123.13"></polygon>
+            <polygon id="bot" fill="#d8cdf3" points="519.25 162 489.92 203.61 519.12 245.05 519.25 245.05 548.52 203.52"></polygon>
+            <polygon id="top" fill="#4f1ecb" points="115.94 164.06 173 245.05 230.46 163.9 173.27 82.75"></polygon>
+            <polygon id="mid" fill="#8a69dc" points="130.19 184.21 173.05 245.05 216.21 184.09 173.25 123.13"></polygon>
+            <polygon id="bot" fill="#d8cdf3" points="173.23 162 143.9 203.61 173.1 245.05 173.23 245.05 202.5 203.52"></polygon>
+        </g>
+    </g>
+</svg>

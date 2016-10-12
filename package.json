@@ -1,0 +1,19 @@
+{
+  "name": "zacarellano",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start --directory --server --files '.js,*.html,*.css,*'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zacarellano/zacarellano.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zacarellano/zacarellano.com/issues"
+  },
+  "homepage": "https://github.com/zacarellano/zacarellano.com#readme"
+}
