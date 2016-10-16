@@ -5,18 +5,19 @@
   <title>asapzacy</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yellowtail">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
   <div id="app">
     <header>
-      <span class="menu-btn js_menu-btn">
+      <a class="logo menu-item"><img src="../img/z.svg" /></a>
+      <a class="menu-item menu-btn js_menu-btn">
         <span class="line line-top"></span>
         <span class="line line-bottom"></span>
-      </span>
+      </a>
       <nav class="menu-nav">
         <ul>
-          <li><a href="#home"><i class="fa fa-map-signs"></i>home</a></li>
+          <li><a href="#landing"><i class="fa fa-map-signs"></i>home</a></li>
           <li><a href="#about"><i class="fa fa-futbol-o"></i>about</a></li>
           <li><a href="#projects"><i class="fa fa-floppy-o"></i>projects</a></li>
         </ul>
@@ -25,7 +26,7 @@
 
     <main>
 
-      <section id="home" class="page landing page-shown">
+      <section id="landing" class="page landing page-shown">
         <p class="greeting">Welcome,<br> to my own <code><span class="js_pixels">0</span>px<sup>2</sup></code> area on the Internet.
         <strong>frontend developer.</strong> I enjoy creating minimal and engaging interfaces for others to use.</p>
       </section>
@@ -41,7 +42,7 @@
     </main>
 
     <footer>
-      <nav>
+      <nav class="social-nav">
         <ul>
           <li><a href="#">twitter</a></li>
           <li><a href="#">github</a></li>
@@ -51,6 +52,6 @@
     </footer>
   </div>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
-  <script src="main.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
