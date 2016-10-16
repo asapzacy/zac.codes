@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app & browser-sync start --proxy 'localhost:9000' --files 'build'"
+    "start": "node app & browser-sync start --proxy 'localhost:8080' --files 'build'"
   },
   "repository": {
     "url": "https://github.com/zacarellano/zacarellano.com",
