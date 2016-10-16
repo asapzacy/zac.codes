@@ -1,6 +1,13 @@
 
 (function() {
 
+  // remove url bar
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      window.scrollTo(0,1)
+    },0)
+  })
+
   // pixels + findArea function
   const code = document.querySelector('.js_pixels')
   const findArea = () => {
