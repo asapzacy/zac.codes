@@ -73,12 +73,13 @@ header {
 .menu-btn .line-bottom { transform:translateY(4px) }
 .menu-open .line-top { transform:rotate(-45deg) }
 .menu-open .line-bottom { transform:rotate(45deg) }
-// .menu-open .line { background:#ddd }
+.menu-open .menu-btn:hover .line { background: #fff }
+.menu-open .line { background:#ddd }
 .menu-nav {
   flex:1;
   position:fixed;
   top:0;right:0;bottom:0;left:0;
-  background:#fff;color:#000;
+  background:#30049e;color:#ddd;
   text-align:center;
   z-index:99;
   visibility:hidden;
@@ -105,7 +106,7 @@ header {
   transition:color 0.26s;
 }
 .menu-nav i { width:100%;font-size:2em }
-.menu-nav a:hover { color:#30049e }
+.menu-nav a:hover { color:#fff }
 
 /* main */
 main { flex:6.75 }

@@ -151,6 +151,12 @@ header {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
+.menu-open .menu-btn:hover .line {
+  background: #fff;
+}
+.menu-open .line {
+  background: #ddd;
+}
 .menu-nav {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -160,8 +166,8 @@ header {
   right: 0;
   bottom: 0;
   left: 0;
-  background: #fff;
-  color: #000;
+  background: #30049e;
+  color: #ddd;
   text-align: center;
   z-index: 99;
   visibility: hidden;
@@ -204,7 +210,7 @@ header {
   font-size: 2em;
 }
 .menu-nav a:hover {
-  color: #30049e;
+  color: #fff;
 }
 /* main */
 main {
