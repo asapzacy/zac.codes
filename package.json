@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app & browser-sync start --proxy 'localhost:8080' --files 'build'"
+    "watch-css": "stylus -w app/css/styles.styl -o build/css/styles.css",
+    "sync": "browser-sync start --proxy 'localhost:9000' --files 'build'",
+    "start": "yarn sync && yarn watch-css & node app.js"
   },
   "repository": {
     "url": "https://github.com/zacarellano/zacarellano.com",
@@ -12,8 +14,16 @@
   "author": "Zac Arellano <zaccc@email.arizona.edu>",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
     "browser-sync": "^2.17.3",
-    "express": "^4.14.0",
-    "stylus": "^0.54.5"
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-pug": "^3.1.0",
+    "gulp-stylus": "^2.5.0"
   }
 }

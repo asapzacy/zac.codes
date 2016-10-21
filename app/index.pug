@@ -1,0 +1,65 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1.0')
+    title asapzacy
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Yellowtail')
+    link(rel='stylesheet', href='../css/styles.css')
+  body
+    #app
+      header
+        a.logo.menu-item
+          img(src='../img/zacarellano.svg')
+        a.menu-item.menu-btn.js_menu-btn
+          span.line.line-top
+          span.line.line-bottom
+        nav.menu-nav
+          ul
+            li
+              a(href='#landing')
+                i.fa.fa-map-signs
+                | home
+            li
+              a(href='#about')
+                i.fa.fa-futbol-o
+                | about
+            li
+              a(href='#projects')
+                i.fa.fa-floppy-o
+                | projects
+      main
+        section#landing.page.landing.page-shown
+          p.greeting
+            | Welcome,
+            br
+            |  to my own
+            code
+              span.js_pixels 0
+              | px
+              sup 2
+            |  area on the Internet. 
+            strong frontend developer.
+            |  I enjoy creating minimal and engaging interfaces for others to use.
+        section#about.page.about
+          p.greeting
+            | About,
+            br
+            |  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ullamcorper velit, nec tempor elit. Nam cursus dolor sagittis purus aliquam posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi elit lorem, luctus et sapien cursus, lacinia placerat tortor.
+        section#projects.page.projects
+          p.greeting
+            | Projects,
+            br
+            |  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ullamcorper velit, nec tempor elit. Nam cursus dolor sagittis purus aliquam posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi elit lorem, luctus et sapien cursus, lacinia placerat tortor.
+      footer
+        nav.social-nav
+          ul
+            li
+              a(href='#') twitter
+            li
+              a(href='#') github
+            li
+              a(href='#') contact
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css')
+    script(src='../js/main.js')

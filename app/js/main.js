@@ -11,6 +11,10 @@
   findArea()
   window.addEventListener('resize', findArea, { passive: true })
 
+  // change logo img to inverted
+  const img = document.querySelector('.logo').children[0].src.split('.')
+  console.log(img)
+
 
   // menu button + navigation
   const header = document.querySelector('header')
