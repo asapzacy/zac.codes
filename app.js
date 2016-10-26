@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 const express = require('express')
 const compression = require('compression')
-const app = express()
 const port = process.env.PORT || 8080
-
-const env = app.get('env')
-console.log(env)
+const app = express()
 
 app.use(compression())
 app.use(express.static('app'))
