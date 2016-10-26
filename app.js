@@ -1,15 +1,14 @@
 #!/usr/bin/env node
-var express = require('express')
-var app = express()
+const express = require('express')
+const compression = require('compression')
+const app = express()
+const port = process.env.PORT || 8080
 
-app.use(express.static(__dirname + '/app'))
+const env = app.get('env')
+console.log(env)
 
-app.get('*', function(req, res) {
-  res.sendFile('index.html')
-})
-
-app.listen(9000, function() {
-  console.log('app listening on port 9000')
-})
+app.use(compression())
+app.use(express.static('app'))
+app.listen(port, () => console.log(`server listening on port ${port}`))
 
 module.exports = app
