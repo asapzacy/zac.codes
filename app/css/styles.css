@@ -73,13 +73,13 @@ header {
 .menu-btn .line-bottom { transform:translateY(4px) }
 .menu-open .line-top { transform:rotate(-45deg) }
 .menu-open .line-bottom { transform:rotate(45deg) }
-.menu-open .line { background:#eee }
+.menu-open .line { background:#bbb }
 .menu-open .menu-btn:hover .line { background:#fff }
 .menu-nav {
   flex:1;
   position:absolute;
   top:0;right:0;bottom:0;left:0;
-  background:#30049e;color:#eee;
+  background:#30049e;color:#bbb;
   text-align:center;
   z-index:99;
   visibility:hidden;
