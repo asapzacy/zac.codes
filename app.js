@@ -6,6 +6,6 @@ const app = express()
 
 app.use(compression())
 app.use(express.static('app'))
-app.listen(port, () => console.log(`server listening on port ${port}`))
+app.listen(port, console.log(`server listening on port ${port}`))
 
 module.exports = app
