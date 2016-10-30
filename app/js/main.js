@@ -9,12 +9,8 @@
       code.textContent = area
     }
   }
-
-  // event listeners for landing page
-  if (location.pathname === '/' || location.pathname === '/index.html') {
-    window.addEventListener('load', findArea, { passive: true })
-    window.addEventListener('resize', findArea, { passive: true })
-  }
+  window.addEventListener('load', findArea, { passive: true })
+  window.addEventListener('resize', findArea, { passive: true })
 
   // menu button + navigation
   const header = document.querySelector('header')
@@ -29,8 +25,10 @@
     navItems[i].addEventListener('click', function(e) {
       e.preventDefault()
       header.classList.remove('menu-open')
-      history.pushState(null, null, e.currentTarget.pathname)
-      updatePage()
+      if (e.currentTarget.pathname !== location.pathname) {
+        history.pushState(null, null, e.currentTarget.pathname)
+        updatePage()
+      }
     })
   }
 
@@ -44,8 +42,13 @@
       wrapper.innerHTML = responseText
       const oldPage = document.querySelector('.page')
       const newPage = wrapper.querySelector('.page')
+      const newTitle = wrapper.title
+      console.log(wrapper)
       main.removeChild(oldPage)
       main.appendChild(newPage)
+      if (location.pathname === '/' || location.pathname === '/index.html') {
+        findArea()
+      }
     })
   }
 
