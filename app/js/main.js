@@ -1,5 +1,8 @@
 (function() {
 
+  require('es6-promise').polyfill()
+  require('isomorphic-fetch')
+
   // pixels + findArea function
   const findArea = () => {
     const code = document.querySelector('.js_pixels')
@@ -42,28 +45,36 @@
       wrapper.innerHTML = responseText
       const oldPage = document.querySelector('.page')
       const newPage = wrapper.querySelector('.page')
-      const newTitle = wrapper.title
-      console.log(wrapper)
       main.removeChild(oldPage)
       main.appendChild(newPage)
+      document.title = wrapper.getElementsByTagName('title')[0].innerHTML
       if (location.pathname === '/' || location.pathname === '/index.html') {
         findArea()
       }
     })
   }
 
-  const cache = {}
   function loadPage(url) {
+    return fetch(url).then((response) => response.text())
+  }
+
+  // fetch get + load + cache new url
+  const cache = {}
+  function loadPage2(url) {
     if (cache[url]) {
-      return new Promise(function(resolve) {
-        resolve(cache[url])
-      })
+      return new Promise((resolve) => resolve(cache[url]))
     }
     return fetch(url, {
       method: 'GET'
-    }).then(function(response) {
-      cache[url] = response.text()
-      return cache[url]
+    }).then((response) => {
+        if (response.ok) {
+          cache[url] = response.text()
+          return cache[url]
+        } else {
+          console.log('network response was not ok.')
+        }
+    }).catch((err) => {
+        console.log(`there has been am error with your fetch operation: ${err.message}`)
     })
   }
 
