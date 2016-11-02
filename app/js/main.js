@@ -1,7 +1,7 @@
 (function() {
 
-  require('es6-promise').polyfill()
-  require('isomorphic-fetch')
+  // require('es6-promise').polyfill()
+  // require('isomorphic-fetch')
 
   // pixels + findArea function
   const findArea = () => {
@@ -35,6 +35,7 @@
     })
   }
 
+
   window.addEventListener('popstate', updatePage)
 
   const main = document.querySelector('main')
@@ -54,28 +55,22 @@
     })
   }
 
-  function loadPage(url) {
-    return fetch(url).then((response) => response.text())
-  }
-
   // fetch get + load + cache new url
   const cache = {}
-  function loadPage2(url) {
+  function loadPage(url) {
     if (cache[url]) {
-      return new Promise((resolve) => resolve(cache[url]))
+      return Promise.resolve(cache[url])
     }
-    return fetch(url, {
-      method: 'GET'
-    }).then((response) => {
+    return fetch(url)
+      .then((response) => {
         if (response.ok) {
           cache[url] = response.text()
           return cache[url]
         } else {
           console.log('network response was not ok.')
         }
-    }).catch((err) => {
-        console.log(`there has been am error with your fetch operation: ${err.message}`)
-    })
+      })
+      .catch((err) => console.log(`there has been an error requesting (${url}): ${err.message}`))
   }
 
 })()

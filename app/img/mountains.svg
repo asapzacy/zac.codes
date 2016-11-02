@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="693px" height="490px" viewBox="0 0 693 490" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
-    <title>Untitled 2</title>
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>everything</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="mountains">
-            <polygon id="bg" fill="#ffffff" points="0 0 0 0.98 345.69 489.91 346.49 489.91 692.97 0"></polygon>
-            <polygon id="top" fill="#4f1ecb" points="346.24 0 243.82 145.28 173.2 245.44 345.44 489.91 346.24 489.91 518.88 244.95"></polygon>
-            <polygon id="mid" fill="#8a69dc" points="209.86 297.3 345.57 489.91 482.22 296.91 346.2 103.92"></polygon>
-            <polygon id="bot" fill="#d8cdf3" points="346.15 211.83 247.93 351.14 345.7 489.91 346.15 489.91 444.15 350.87"></polygon>
-            <polygon id="top" fill="#4f1ecb" points="519.28 82.75 461.96 164.06 519.02 245.05 519.28 245.05 576.48 163.9"></polygon>
-            <polygon id="mid" fill="#8a69dc" points="476.2 184.21 519.07 245.05 562.23 184.09 519.27 123.13"></polygon>
-            <polygon id="bot" fill="#d8cdf3" points="519.25 162 489.92 203.61 519.12 245.05 519.25 245.05 548.52 203.52"></polygon>
-            <polygon id="top" fill="#4f1ecb" points="115.94 164.06 173 245.05 230.46 163.9 173.27 82.75"></polygon>
-            <polygon id="mid" fill="#8a69dc" points="130.19 184.21 173.05 245.05 216.21 184.09 173.25 123.13"></polygon>
-            <polygon id="bot" fill="#d8cdf3" points="173.23 162 143.9 203.61 173.1 245.05 173.23 245.05 202.5 203.52"></polygon>
+        <g id="everything">
+            <g id="diamonds_and_background">
+                <polygon id="transparent_background" fill-opacity="0" fill="#FFFFFF" transform="translate(346.388275, 245.000000) scale(1, -1) translate(-346.388275, -245.000000) " points="345 0 692.744141 490 0.032409668 490"></polygon>
+                <g id="diamonds" transform="translate(115.000000, 0.000000)">
+                    <g id="side_diamond_right" transform="translate(346.000000, 83.000000)">
+                        <polygon id="side_top" fill="#4F1ECB" points="58 0 24 48 0.716552734 81 57.6069336 161.996338 115.263794 81"></polygon>
+                        <polygon id="side_middle" fill="#8A69DC" points="58 40 33 76 14.8684082 101.006348 57.6300049 162.012695 100.990601 101"></polygon>
+                        <polygon id="side_bottom" fill="#D8CDF3" points="58 79 41 104 28.9078369 121 57.607666 161.96936 86.7891846 121"></polygon>
+                    </g>
+                    <g id="side_diamond_left" transform="translate(0.000000, 83.000000)">
+                        <polygon id="side_top" fill="#4F1ECB" points="58 0 24 48 0.628173828 81 57.842041 161.936279 115.055908 81.3320313"></polygon>
+                        <polygon id="side_middle" fill="#8A69DC" points="58 40 33 76 14.779541 101 57.6384277 161.705078 100.987793 101"></polygon>
+                        <polygon id="side_bottom" fill="#D8CDF3" points="58 79 41 104 28.9023438 121 57.8081665 161.791748 86.7139893 121"></polygon>
+                    </g>
+                    <g id="main_diamond" transform="translate(57.000000, 0.000000)">
+                        <polygon id="main_top" fill="#4F1ECB" points="174 5.68434189e-14 72 145 0.803710938 245 173 490 346.561279 245"></polygon>
+                        <polygon id="main_middle" fill="#8A69DC" points="37.3737793 297 173 490 309.681885 297 173 104"></polygon>
+                        <polygon id="main__bottom" fill="#D8CDF3" points="173 212 75.3391113 351 173 490 271.364746 351"></polygon>
+                    </g>
+                </g>
+            </g>
+            <g id="sides" fill="#30049e">
+                <polyline id="front_half_left" points="345.014282 490 0 490 0 0"></polyline>
+                <polyline id="front_half_right" transform="translate(518.876404, 245.014282) scale(-1, 1) translate(-518.876404, -245.014282) " points="692.752808 490 345 490 345 0.0285644531"></polyline>
+            </g>
         </g>
     </g>
 </svg>

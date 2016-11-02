@@ -21,6 +21,7 @@ h1, h2, h3, h4, h5, h6 { margin:0 }
 ul { padding:0;margin:0;list-style-type:none }
 input { border:0;background:inherit;font-family:inherit }
 input:focus { outline:0 }
+p { margin:0 }
 hr { border:0 }
 nav { letter-spacing:1px }
 ::selection { background:#bfbfbf;color:#30049e;text-shadow:0 0 transparent }
@@ -32,7 +33,6 @@ nav { letter-spacing:1px }
 #app {
   width:100%;
   height:100%;
-  font-size:1.2em;
   display:flex;
   align-items:center;
   justify-content:flex-end;
@@ -116,10 +116,27 @@ header {
 /* main */
 main { display:flex;width:100%;flex:6.75 }
 .page { width:80%;margin:0 auto }
-.page-shown { display:block }
+
+/* landing */
+.landing { font-size:1.2em }
 .greeting { text-indent:-15px }
-.greeting::first-line { font:400 3.6em/1.2 'Yellowtail',cursive }
-code { display:initial }
+.greeting::first-line { font:400 4em/1.2 'Yellowtail',cursive }
+
+/* about */
+.about {
+  margin-bottom:4em;
+}
+/* svg + emoji = svmogi */
+.svmogi {
+  height:16px;width:20px;display:inline-block;
+  background-color:transparent;
+  background-position:center center;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+}
+.ua { background-image:url(../img/university-of-arizona.svg) }
+.page h1 { font:400 1.6em/1.2 monospace }
+
 /* footer */
 footer {
   width:100%;
@@ -127,11 +144,10 @@ footer {
   align-items:center;
   z-index:98;
   flex:2;
-  background:#30049e url(../img/mountains.svg) repeat-x center -1px;
-  background-size:100px 72px;
+  background:rgba(255,255,255,0.6) url(../img/mountains.svg) 1px 1px / 100px 72px repeat-x;
   padding-top:72px;margin-top:-72px;
 }
-.social-nav { width:100%;font-size:.9em;color:#fff }
+.social-nav { width:100%;height:100%;font-size:.9em;color:#fff;background:#30049e;display:flex;align-items:center }
 .social-nav ul { display:flex;flex-wrap:wrap;width:80%;margin:0 auto }
 .social-nav li { width:50%;position:relative;text-align:center;line-height:2.6em }
 .social-nav li::after { content:'';background:#fff;position:absolute;transform:rotate(-45deg) }
