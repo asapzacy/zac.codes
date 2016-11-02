@@ -4,6 +4,7 @@
   "main": "app.js",
   "scripts": {
     "sync": "browser-sync start --proxy 'localhost:8080' --files 'app'",
+    "browser-sync": "browser-sync start --directory --server --files 'app'",
     "node": "node app.js",
     "start": "yarn sync & yarn node"
   },
