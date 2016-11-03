@@ -8,7 +8,7 @@ html, body {
 body {
   color:#070707;
   background:#fff;
-  font:400 16px/1.6 'Open Sans',sans-serif;
+  font:400 16px/1.45 'Open Sans',sans-serif;
   text-rendering:optimizeLegibility;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale
@@ -41,19 +41,20 @@ nav { letter-spacing:1px }
 }
 
 /* header */
-header {
+/*header {
   width:100%;
   display:flex;
   align-items:center;
   justify-content:flex-end;
   flex:1.25;
-}
-.menu-btn { width:52px;height:52px;z-index:100;margin-right:2%;position:relative;cursor:pointer }
+}*/
+.menu-btn { width:52px;height:52px;position:fixed;z-index:100;top:0;right:0;background:#fff;cursor:pointer }
+.menu-open .menu-btn { background:transparent }
 .menu-btn .line  {
   height:2px;
   width:24px;
   display:block;
-  background:#070707;
+  background:#30049e;
   position:absolute;
   top:25px;left:14px;
   transition:all 0.22s;
@@ -103,13 +104,13 @@ header {
 .floppy-o::before { content:"\f0c7" }
 
 /* main */
-main { display:flex;width:100%;flex:7;margin-bottom:72px }
-.page { width:100%;padding:0 6%;overflow-y:auto }
+main { display:flex;width:100%;flex:7.5;margin-bottom:76px }
+.page { width:100%;padding:6em 6% 0;overflow-y:auto }
 
 /* landing */
 .landing { font-size:1.2em }
-.greeting { text-indent:-16px }
-.greeting::first-line { font:400 3.6em/1 'Yellowtail',cursive }
+.greeting { text-indent:-12px }
+.greeting::first-line { font:400 3.2em/1 'Yellowtail',cursive }
 
 /* about */
 .about div { margin-bottom:6em }
@@ -122,11 +123,11 @@ main { display:flex;width:100%;flex:7;margin-bottom:72px }
   background-size:100% 100%;
   background-repeat:no-repeat;
 }
-.ua { background-image:url(../img/university-of-arizona.svg) }
+.ua { background-image:url(../img/icons/university-of-arizona.svg) }
 .page h1 { font:400 1.6em/1.2 monospace }
 
 /* footer */
-footer { width:100%;display:flex;z-index:98;flex:1.75;background:#30049e url(../img/mountains.svg) -1px -1px / 100px 72px repeat-x;padding-top:72px;margin-top:-72px;box-shadow:0 0 2em 2em #fff;border-top:0.4em solid #fff }
+footer { width:100%;display:flex;z-index:98;flex:2.5;background:#30049e url(../img/mountains.svg) -1px -1px / 100px 72px repeat-x;padding-top:72px;margin-top:-76px;box-shadow:0 0 2em 2em #fff;border-top:4px solid #fff }
 .social-nav { width:100%;display:flex;align-items:center }
 .social-nav ul { width:66.6%;margin:0 auto;color:#fff;font-size:0.9em;font-weight:600 }
 .social-nav li { width:50%;float:left;position:relative;text-align:center;line-height:2.4em }
