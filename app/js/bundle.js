@@ -1,84 +1,80 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-(function() {
+'use strict';
 
-  require('es6-promise').polyfill()
-  require('isomorphic-fetch')
+(function () {
+
+  require('es6-promise').polyfill();
+  require('isomorphic-fetch');
 
   // pixels + findArea function
-  const findArea = () => {
-    const code = document.querySelector('.js_pixels')
+  var findArea = function findArea() {
+    var code = document.querySelector('.js_pixels');
     if (code && code.textContent !== null) {
-      let area = window.innerWidth * window.innerHeight
-      area = String(area).replace(/(?=(?:\d{3})+\b)(?!\b)/g,',')
-      code.textContent = area
+      var area = window.innerWidth * window.innerHeight;
+      area = String(area).replace(/(?=(?:\d{3})+\b)(?!\b)/g, ',');
+      code.textContent = area;
     }
-  }
-  window.addEventListener('load', findArea, { passive: true })
-  window.addEventListener('resize', findArea, { passive: true })
+  };
+  window.addEventListener('load', findArea, { passive: true });
+  window.addEventListener('resize', findArea, { passive: true });
 
   // menu button + navigation
-  const header = document.querySelector('header')
-  const menuBtn = document.querySelector('.js_menu-btn')
-  menuBtn.addEventListener('click', function() {
-    header.classList.toggle('menu-open')
-  })
+  var header = document.querySelector('header');
+  var menuBtn = document.querySelector('.js_menu-btn');
+  menuBtn.addEventListener('click', function () {
+    header.classList.toggle('menu-open');
+  });
 
   // state + page navigation
-  const navItems = document.querySelectorAll('header a')
-  for (let i = 0; i < navItems.length; i++) {
-    navItems[i].addEventListener('click', function(e) {
-      e.preventDefault()
-      const link = e.currentTarget.getAttribute('href')
-      history.pushState(null, null, e.currentTarget.pathname)
-      updatePage()
-      header.classList.remove ('menu-open')
-    })
-  }
-
-  window.addEventListener('popstate', updatePage)
-
-  const main = document.querySelector('main')
-  function updatePage() {
-    const url = window.location.href
-    loadPage(url).then(function(responseText) {
-      const wrapper = document.createElement('div')
-      wrapper.innerHTML = responseText
-      const oldPage = document.querySelector('.page')
-      const newPage = wrapper.querySelector('.page')
-      main.removeChild(oldPage)
-      main.appendChild(newPage)
-      document.title = wrapper.getElementsByTagName('title')[0].innerHTML
-      if (location.pathname === '/' || location.pathname === '/index.html') {
-        findArea()
+  var navItems = document.querySelectorAll('.menu-nav a');
+  for (var i = 0; i < navItems.length; i++) {
+    navItems[i].addEventListener('click', function (e) {
+      e.preventDefault();
+      header.classList.remove('menu-open');
+      if (e.currentTarget.pathname !== location.pathname) {
+        history.pushState(null, null, e.currentTarget.pathname);
+        updatePage();
       }
-    })
+    });
   }
 
-  function loadPage(url) {
-    return fetch(url).then((response) => response.text())
+  window.addEventListener('popstate', updatePage);
+
+  var main = document.querySelector('main');
+  function updatePage() {
+    var url = window.location.href;
+    loadPage(url).then(function (responseText) {
+      var wrapper = document.createElement('div');
+      wrapper.innerHTML = responseText;
+      var oldPage = document.querySelector('.page');
+      var newPage = wrapper.querySelector('.page');
+      main.removeChild(oldPage);
+      main.appendChild(newPage);
+      document.title = wrapper.getElementsByTagName('title')[0].innerHTML;
+      if (location.pathname === '/' || location.pathname === '/index.html') {
+        findArea();
+      }
+    });
   }
 
   // fetch get + load + cache new url
-  const cache = {}
-  function loadPage2(url) {
+  var cache = {};
+  function loadPage(url) {
     if (cache[url]) {
-      return new Promise((resolve) => resolve(cache[url]))
+      return Promise.resolve(cache[url]);
     }
-    return fetch(url, {
-      method: 'GET'
-    }).then((response) => {
-        if (response.ok) {
-          cache[url] = response.text()
-          return cache[url]
-        } else {
-          console.log('network response was not ok.')
-        }
-    }).catch((err) => {
-        console.log(`there has been am error with your fetch operation: ${err.message}`)
-    })
+    return fetch(url).then(function (response) {
+      if (response.ok) {
+        cache[url] = response.text();
+        return cache[url];
+      } else {
+        console.log('network response was not ok.');
+      }
+    }).catch(function (err) {
+      return console.log('there has been an error requesting (' + url + '): ' + err.message);
+    });
   }
-
-})()
+})();
 
 },{"es6-promise":2,"isomorphic-fetch":3}],2:[function(require,module,exports){
 (function (process,global){

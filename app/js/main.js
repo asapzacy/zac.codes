@@ -1,7 +1,7 @@
-(function() {
+(() => {
 
-  // require('es6-promise').polyfill()
-  // require('isomorphic-fetch')
+  require('es6-promise').polyfill()
+  require('isomorphic-fetch')
 
   // pixels + findArea function
   const findArea = () => {
@@ -23,7 +23,7 @@
   })
 
   // state + page navigation
-  const navItems = document.querySelectorAll('header a')
+  const navItems = document.querySelectorAll('.menu-nav a')
   for (let i = 0; i < navItems.length; i++) {
     navItems[i].addEventListener('click', function(e) {
       e.preventDefault()
@@ -34,7 +34,6 @@
       }
     })
   }
-
 
   window.addEventListener('popstate', updatePage)
 
