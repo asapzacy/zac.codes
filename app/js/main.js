@@ -1,7 +1,7 @@
 (() => {
 
-  require('es6-promise').polyfill()
-  require('isomorphic-fetch')
+  // require('es6-promise').polyfill()
+  // require('isomorphic-fetch')
 
   // pixels + findArea function
   const findArea = () => {

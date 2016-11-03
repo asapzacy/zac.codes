@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "browserify": "browserify ./app/js/main.js -o ./app/js/bundle.js",
-    "sync": "browser-sync start --proxy 'localhost:8080' --files 'app'",
-    "sync-local": "browser-sync start --directory --server --files 'app'",
-    "start": "yarn sync & node app.js"
+    "bundle": "browserify ./app/js/main.js -o ./app/js/bundle.js",
+    "local": "browser-sync start --directory --server --files 'app'",
+    "server": "browser-sync start --proxy 'localhost:8080' --files 'app'",
+    "start": "yarn server & node app.js"
   },
   "repository": {
     "url": "https://github.com/zacarellano/zacarellano.com",
