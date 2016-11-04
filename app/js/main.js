@@ -40,13 +40,13 @@
   const main = document.querySelector('main')
   function updatePage() {
     const url = window.location.href
-    loadPage(url).then(function(responseText) {
+    loadPage(url).then((responseText) => {
       const wrapper = document.createElement('div')
       wrapper.innerHTML = responseText
       const oldPage = document.querySelector('.page')
       const newPage = wrapper.querySelector('.page')
-      main.removeChild(oldPage)
       main.appendChild(newPage)
+      animate(oldPage, newPage)
       document.title = wrapper.getElementsByTagName('title')[0].innerHTML
       if (location.pathname === '/' || location.pathname === '/index.html') {
         findArea()
@@ -70,6 +70,20 @@
         }
       })
       .catch((err) => console.log(`there has been an error requesting (${url}): ${err.message}`))
+  }
+
+  // animate old page out + new page in
+  function animate(oldPage, newPage) {
+    oldPage.style.position = 'absolute'
+    const fadeOut = oldPage.animate({
+      opacity: [1,0]
+    },1000)
+    const fadeIn = newPage.animate({
+      opacity: [0,1]
+    },1000)
+    fadeIn.onfinish = function() {
+      oldPage.parentNode.removeChild(oldPage)
+    }
   }
 
 })()
