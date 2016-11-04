@@ -9,6 +9,7 @@ body {
   color:#070707;
   background:#fff;
   font:400 16px/1.45 'Open Sans',sans-serif;
+  font-family:"Avenir Next",Avenir,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
   text-rendering:optimizeLegibility;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale
@@ -41,20 +42,13 @@ nav { letter-spacing:1px }
 }
 
 /* header */
-/*header {
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  flex:1.25;
-}*/
 .menu-btn { width:52px;height:52px;position:fixed;z-index:100;top:0;right:0;background:#fff;cursor:pointer }
 .menu-open .menu-btn { background:transparent }
 .menu-btn .line  {
   height:2px;
   width:24px;
   display:block;
-  background:#30049e;
+  background:#070707;
   position:absolute;
   top:25px;left:14px;
   transition:all 0.22s;
@@ -104,30 +98,39 @@ nav { letter-spacing:1px }
 .floppy-o::before { content:"\f0c7" }
 
 /* main */
-main { display:flex;width:100%;flex:7.5;margin-bottom:76px }
-.page { width:100%;padding:6em 6% 0;overflow-y:auto }
+main { display:flex;width:100%;flex:8;margin-bottom:74px }
+.page { width:100%;padding:5em 5% 0;overflow-y:auto }
+.page h1 { font:400 1.6em/1.2 monospace }
+.page a { border-bottom:1px solid #070707 }
 
 /* landing */
 .landing { font-size:1.2em }
 .greeting { text-indent:-12px }
-.greeting::first-line { font:400 3.2em/1 'Yellowtail',cursive }
+.greeting::first-line { font:400 3em/1 'Yellowtail',cursive }
 
 /* about */
-.about div { margin-bottom:6em }
+.about div { margin:2em 0 4em }
 
-/* svg + emoji = svmogi */
-.svmogi {
-  height:16px;width:20px;display:inline-block;
-  background-color:transparent;
-  background-position:center center;
-  background-size:100% 100%;
-  background-repeat:no-repeat;
-}
-.ua { background-image:url(../img/icons/university-of-arizona.svg) }
-.page h1 { font:400 1.6em/1.2 monospace }
+/* svmogies */
+.svmogi { height:100%;width:20px;display:inline-block;position:absolute;background: transparent center center / contain no-repeat }
+/*.ua   { background-image:url(../img/icons/university-of-arizona.svg) }*/
+.ua   { display:none }
+.sfg  { background-image:url(../img/icons/san-francisco-giants.svg);margin-left:-1px }
+.sf49 { background-image:url(../img/icons/san-francisco-49ers.svg);margin-left:3px }
+.gsw  { background-image:url(../img/icons/golden-state-warriors.svg);margin-left:1px }
+
+.outer { font-size:0.9em;line-height:1.3;padding-left:2em;margin:2em 0 }
+.inner { font-size:0.9em;padding-left:2em }
+.outer li { margin:1em 0;position:relative }
+.inner li { margin:0.5em 0 }
+.outer li::before { content:'+';position:absolute;left:-16px;font-weight:600 }
+.inner li::before { content:'-';left:-12px }
+
+.outer li { clear:both }
+.inner li { width:50%;float:left;clear:inherit }
 
 /* footer */
-footer { width:100%;display:flex;z-index:98;flex:2.5;background:#30049e url(../img/mountains.svg) -1px -1px / 100px 72px repeat-x;padding-top:72px;margin-top:-76px;box-shadow:0 0 2em 2em #fff;border-top:4px solid #fff }
+footer { width:100%;display:flex;z-index:98;flex:2;background:#30049e url(../img/mountains.svg) -1px -1px / 100px 72px repeat-x;padding-top:72px;margin-top:-74px;box-shadow:0 0 2em 2em #fff;border-top:2px solid #fff }
 .social-nav { width:100%;display:flex;align-items:center }
 .social-nav ul { width:66.6%;margin:0 auto;color:#fff;font-size:0.9em;font-weight:600 }
 .social-nav li { width:50%;float:left;position:relative;text-align:center;line-height:2.4em }
