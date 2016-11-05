@@ -87,7 +87,8 @@
   }
 
   // scroll to top
-  document.querySelector('.top').addEventListener('click', function() {
+  const topArrow = document.querySelector('.top')
+  topArrow.addEventListener('click', function() {
     scrollToTop(this.parentNode)
   })
   function scrollToTop(el) {
