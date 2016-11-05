@@ -86,4 +86,17 @@
     }
   }
 
+  // scroll to top
+  document.querySelector('.top').addEventListener('click', function() {
+    scrollToTop(this.parentNode)
+  })
+  function scrollToTop(el) {
+    if (el.scrollTop !== 0) {
+      setTimeout(function() {
+        el.scrollTop = el.scrollTop - 25
+        scrollToTop(el)
+      },0)
+    }
+  }
+
 })()

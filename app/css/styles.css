@@ -42,8 +42,8 @@ nav { letter-spacing:1px }
 }
 
 /* header */
-.menu-btn { width:52px;height:52px;position:fixed;z-index:100;top:0;right:0;background:#fff;cursor:pointer }
-.menu-open .menu-btn { background:transparent }
+.menu-btn { width:52px;height:52px;position:fixed;z-index:100;top:0;right:0;background:#fff;cursor:pointer;transition:background 0s 0.22s ease }
+.menu-open .menu-btn { background:transparent;transition:background 0s ease }
 .menu-btn .line  {
   height:2px;
   width:24px;
@@ -51,7 +51,7 @@ nav { letter-spacing:1px }
   background:#070707;
   position:absolute;
   top:25px;left:14px;
-  transition:background 0.22s;
+  transition:background 0.22s ease,transform 0.22s ease
 }
 .menu-btn .line-top { transform:translateY(-4px) }
 .menu-btn .line-bottom { transform:translateY(4px) }
@@ -59,7 +59,6 @@ nav { letter-spacing:1px }
 .menu-open .line-bottom { transform:rotate(45deg) }
 .menu-open .line { background:#fff }
 .menu-nav {
-  flex:1;
   position:absolute;
   top:0;right:0;bottom:0;left:0;
   background:#30049e;color:#fff;
@@ -67,13 +66,16 @@ nav { letter-spacing:1px }
   z-index:99;
   visibility:hidden;
   opacity:0;
-  transition:visibility 0s linear 0.2s,opacity 0.2s cubic-bezier(0.25,0.46,0.45,0.94);
+  visibility:hidden;
+  transition:opacity 0.22s ease, visibility 0s 0.22s ease
 }
 .menu-open .menu-nav {
-  visibility:visible;
   opacity:1;
-  transition-duration:0s;
+  visibility:visible;
+  transition:opacity 0.22s ease
 }
+/*.menu-nav { transition:visibility 0s linear 0.2s,opacity 0.2s cubic-bezier(0.25,0.46,0.45,0.94); }
+.menu-nav .menu-open { transition-duration:0s }*/
 .menu-nav ul {
   display:flex;
   height:100%;
@@ -114,10 +116,10 @@ main { display:flex;width:100%;flex:8;margin-bottom:74px }
 .about div:last-child { margin-bottom:6em }
 
 
-.outer { font-size:0.9em;line-height:1.25;padding-left:2em;margin:2em 0 }
+.outer { font-size:0.9em;padding-left:2em;margin:2em 0 }
 .inner { font-size:0.9em;padding-left:1.5em;display:flex;flex-wrap:wrap }
-.outer li { margin:1.2em 0;position:relative;font-weight:600 }
-.inner li { margin:0.6em 0;width:50%;padding-right:20px;font-weight:initial }
+.outer li { margin:1em 0;position:relative;font-weight:600 }
+.inner li { margin:0.5em 0;width:50%;padding-right:20px;font-weight:initial }
 .outer li::before { content:'+';position:absolute;left:-16px;font-weight:600 }
 .inner li::before { content:'-';left:-12px }
 
@@ -131,6 +133,8 @@ main { display:flex;width:100%;flex:8;margin-bottom:74px }
 .sf49 { background-image:url(../img/icons/san-francisco-49ers.svg);margin-left:3px }
 .gsw  { background-image:url(../img/icons/golden-state-warriors.svg);margin-left:1px }
 
+.top { position:relative;cursor:pointer;height:26px;width:26px;display:inline-flex;justify-content:center;align-items:center;float:right;margin:-2em 0 4em }
+.top::before { content:'\f102';font-family:FontAwesome;font-size:1.4em }
 
 /* footer */
 footer { width:100%;display:flex;z-index:98;flex:2;background:#30049e url(../img/mountains.svg) -1px -1px / 100px 72px repeat-x;padding-top:72px;margin-top:-74px;box-shadow:0 0 2em 2em #fff;border-top:2px solid #fff }
