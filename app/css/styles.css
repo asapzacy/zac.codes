@@ -42,8 +42,19 @@ nav { letter-spacing:1px }
 }
 
 /* header */
-.menu-btn { width:52px;height:52px;position:fixed;z-index:100;top:0;right:0;background:#fff;cursor:pointer;transition:background 0s 0.22s ease }
-.menu-open .menu-btn { background:transparent;transition:background 0s ease }
+.menu-btn {
+  width:52px;height:52px;
+  position:fixed;
+  z-index:100;
+  top:0;right:0;
+  background:#fff;
+  cursor:pointer;
+  transition-delay:0.66s
+}
+.menu-open .menu-btn {
+  background:transparent;
+  transition:background 0s
+}
 .menu-btn .line  {
   height:2px;
   width:24px;
@@ -51,13 +62,13 @@ nav { letter-spacing:1px }
   background:#070707;
   position:absolute;
   top:25px;left:14px;
-  transition:background 0.22s ease,transform 0.22s ease
+  transition:background 0.22s cubic-bezier(0.25,0.46,0.45,0.94) 0.44s,transform 0.44s cubic-bezier(0.25,0.46,0.45,0.94) 0.0s
 }
 .menu-btn .line-top { transform:translateY(-4px) }
 .menu-btn .line-bottom { transform:translateY(4px) }
 .menu-open .line-top { transform:rotate(-45deg) }
 .menu-open .line-bottom { transform:rotate(45deg) }
-.menu-open .line { background:#fff }
+.menu-open .line { background:#fff;transition-delay:0s }
 .menu-nav {
   position:absolute;
   top:0;right:0;bottom:0;left:0;
@@ -67,15 +78,13 @@ nav { letter-spacing:1px }
   visibility:hidden;
   opacity:0;
   visibility:hidden;
-  transition:opacity 0.22s ease, visibility 0s 0.22s ease
+  transition:opacity 0.22s cubic-bezier(0.25,0.46,0.45,0.94) 0.44s, visibility 0s 0.66s
 }
 .menu-open .menu-nav {
   opacity:1;
   visibility:visible;
-  transition:opacity 0.22s ease
+  transition:opacity 0.22s cubic-bezier(0.25,0.46,0.45,0.94) 0s
 }
-/*.menu-nav { transition:visibility 0s linear 0.2s,opacity 0.2s cubic-bezier(0.25,0.46,0.45,0.94); }
-.menu-nav .menu-open { transition-duration:0s }*/
 .menu-nav ul {
   display:flex;
   height:100%;
@@ -87,7 +96,16 @@ nav { letter-spacing:1px }
   font-size:1.4em;
   line-height:1.2;
   margin:0.8em auto;
+  opacity:0;
+  transition:opacity 0.22s ease-in
 }
+.menu-open li { opacity:1;transition-duration:0.42s }
+.menu-nav li:nth-child(1) { transition-delay:0.22s }
+.menu-nav li:nth-child(2) { transition-delay:0.11s }
+.menu-nav li:nth-child(3) { transition-delay:0.0s }
+.menu-open li:nth-child(1) { transition-delay:0.22s }
+.menu-open li:nth-child(2) { transition-delay:0.33s }
+.menu-open li:nth-child(3) { transition-delay:0.44s }
 .link {
   display:block;
   padding:0.4em;
@@ -135,6 +153,8 @@ main { display:flex;width:100%;flex:8;margin-bottom:74px }
 
 .top { position:relative;cursor:pointer;height:26px;width:26px;display:inline-flex;justify-content:center;align-items:center;float:right;margin:-2em 0 4em }
 .top::before { content:'\f102';font-family:FontAwesome;font-size:1.4em }
+.hide { opacity:0;transition:opacity 1s }
+.show { opacity:1;transition:opacity 1s }
 
 /* footer */
 footer { width:100%;display:flex;z-index:98;flex:2;background:#30049e url(../img/mountains.svg) -1px -1px / 100px 72px repeat-x;padding-top:72px;margin-top:-74px;box-shadow:0 0 2em 2em #fff;border-top:2px solid #fff }

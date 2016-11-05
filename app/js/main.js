@@ -88,7 +88,7 @@
 
   // scroll to top
   const topArrow = document.querySelector('.top')
-  topArrow.addEventListener('click', function() {
+  document.querySelector('.top').addEventListener('click', function() {
     scrollToTop(this.parentNode)
   })
   function scrollToTop(el) {
@@ -99,5 +99,20 @@
       },0)
     }
   }
+
+  function x(el) {
+    const ex = topArrow
+    const diff = ex.parentNode.scrollHeight - ex.parentNode.scrollTop
+    const q = ex.getBoundingClientRect().bottom
+    // console.log(diff)
+    ex.classList.add('hide')
+    ex.classList.remove('show')
+    if (diff <= 475) {
+      ex.classList.add('show')
+      ex.classList.remove('hide')
+    }
+  }
+  const page = document.querySelector('.about')
+  page.addEventListener('scroll', x)
 
 })()
