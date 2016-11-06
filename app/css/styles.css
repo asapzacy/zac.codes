@@ -25,7 +25,7 @@ input:focus { outline:0 }
 hr { border:0 }
 nav { letter-spacing:1px }
 ::selection { background:#bfbfbf;color:#30049e;text-shadow:0 0 transparent }
-::-webkit-scrollbar { width:2px }
+::-webkit-scrollbar { width:2px;background:#fff }
 ::-webkit-scrollbar-thumb { background:#070707 }
 
 /* browser-sync */
@@ -49,7 +49,7 @@ nav { letter-spacing:1px }
   top:0;right:0;
   background:#fff;
   cursor:pointer;
-  transition-delay:0.66s
+  transition:background 1s linear 0.66s
 }
 .menu-open .menu-btn {
   background:transparent;
@@ -106,11 +106,7 @@ nav { letter-spacing:1px }
 .menu-open li:nth-child(1) { transition-delay:0.22s }
 .menu-open li:nth-child(2) { transition-delay:0.33s }
 .menu-open li:nth-child(3) { transition-delay:0.44s }
-.link {
-  display:block;
-  padding:0.4em;
-  transition:color 0.26s;
-}
+.link { display:block;padding:0.4em;transition:color 0.26s }
 .link:hover{ color:#bfbfbf }
 .link::before { font-family:FontAwesome;display:block;font-size:2em }
 .map-signs::before { content:"\f277" }

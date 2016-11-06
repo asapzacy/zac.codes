@@ -45,13 +45,36 @@
       wrapper.innerHTML = responseText
       const oldPage = document.querySelector('.page')
       const newPage = wrapper.querySelector('.page')
-      main.appendChild(newPage)
-      animate(oldPage, newPage)
       document.title = wrapper.getElementsByTagName('title')[0].innerHTML
+      main.removeChild(oldPage)
+      main.appendChild(newPage)
+      fade(newPage, 'in')
       if (location.pathname === '/' || location.pathname === '/index.html') {
         findArea()
       }
     })
+  }
+
+  // fade any element in + out
+  function fade(el, dir) {
+    dir === 'in' ? el.style.opacity = 0 : el.style.opacity = 1
+    dir === 'in' ? fadeIn() : fadeOut()
+    function fadeIn() {
+      if (el.style.opacity < 1) {
+        setTimeout(function() {
+          el.style.opacity = +el.style.opacity + 0.05
+          fadeIn()
+        },25)
+      }
+    }
+    function fadeOut() {
+      if (el.style.opacity > 0) {
+        setTimeout(function() {
+          el.style.opacity = +el.style.opacity - 0.05
+          fadeOut()
+        },25)
+      }
+    }
   }
 
   // fetch get + load + cache new url
@@ -72,47 +95,35 @@
       .catch((err) => console.log(`there has been an error requesting (${url}): ${err.message}`))
   }
 
-  // animate old page out + new page in
-  function animate(oldPage, newPage) {
-    oldPage.style.position = 'absolute'
-    const fadeOut = oldPage.animate({
-      opacity: [1,0]
-    },1000)
-    const fadeIn = newPage.animate({
-      opacity: [0,1]
-    },1000)
-    fadeIn.onfinish = function() {
-      oldPage.parentNode.removeChild(oldPage)
-    }
-  }
-
   // scroll to top
-  const topArrow = document.querySelector('.top')
-  document.querySelector('.top').addEventListener('click', function() {
-    scrollToTop(this.parentNode)
-  })
-  function scrollToTop(el) {
-    if (el.scrollTop !== 0) {
-      setTimeout(function() {
-        el.scrollTop = el.scrollTop - 25
-        scrollToTop(el)
-      },0)
-    }
-  }
-
-  function x(el) {
-    const ex = topArrow
-    const diff = ex.parentNode.scrollHeight - ex.parentNode.scrollTop
-    const q = ex.getBoundingClientRect().bottom
-    // console.log(diff)
-    ex.classList.add('hide')
-    ex.classList.remove('show')
-    if (diff <= 475) {
-      ex.classList.add('show')
-      ex.classList.remove('hide')
-    }
-  }
-  const page = document.querySelector('.about')
-  page.addEventListener('scroll', x)
+  // const arrow = document.querySelector('.top')
+  // if (arrow) {
+  //   arrow.addEventListener('click', function() {
+  //     scrollToTop(this.parentNode)
+  //   })
+  // }
+  // function scrollToTop(el) {
+  //   if (el.scrollTop !== 0) {
+  //     setTimeout(function() {
+  //       el.scrollTop = el.scrollTop - 25
+  //       scrollToTop(el)
+  //     },0)
+  //   }
+  // }
+  //
+  // function x(el) {
+  //   const ex = topArrow
+  //   const diff = ex.parentNode.scrollHeight - ex.parentNode.scrollTop
+  //   const q = ex.getBoundingClientRect().bottom
+  //   // console.log(diff)
+  //   ex.classList.add('hide')
+  //   ex.classList.remove('show')
+  //   if (diff <= 475) {
+  //     ex.classList.add('show')
+  //     ex.classList.remove('hide')
+  //   }
+  // }
+  // const page = document.querySelector('.about')
+  // page.addEventListener('scroll', x)
 
 })()
