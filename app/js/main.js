@@ -56,7 +56,7 @@
   }
 
   // fade any element in + out
-  function fade(el, dir) {
+  function fade(el, dir, speed=60) {
     dir === 'in' ? el.style.opacity = 0 : el.style.opacity = 1
     dir === 'in' ? fadeIn() : fadeOut()
     function fadeIn() {
@@ -64,7 +64,7 @@
         setTimeout(function() {
           el.style.opacity = +el.style.opacity + 0.05
           fadeIn()
-        },25)
+        },speed)
       }
     }
     function fadeOut() {
@@ -72,7 +72,7 @@
         setTimeout(function() {
           el.style.opacity = +el.style.opacity - 0.05
           fadeOut()
-        },25)
+        },speed)
       }
     }
   }
@@ -94,6 +94,48 @@
       })
       .catch((err) => console.log(`there has been an error requesting (${url}): ${err.message}`))
   }
+
+  // click on image + full screen modal
+  const figure = document.querySelector('figure')
+  const img = figure.querySelector('img')
+  figure.addEventListener('click', function(e) {
+    e.preventDefault()
+    const img = figure.querySelector('img')
+    const x = figure.querySelector('.x')
+    if (e.target === img && !figure.classList.contains('fullscreen')) {
+      figure.classList.add('fullscreen')
+      fade(img, 'in', 25)
+    }
+    if (e.target !== img && figure.classList.contains('fullscreen')) {
+      figure.classList.remove('fullscreen')
+    }
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // scroll to top
   // const arrow = document.querySelector('.top')
