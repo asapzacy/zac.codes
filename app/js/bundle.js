@@ -48,13 +48,38 @@
       wrapper.innerHTML = responseText;
       var oldPage = document.querySelector('.page');
       var newPage = wrapper.querySelector('.page');
-      main.appendChild(newPage);
-      animate(oldPage, newPage);
       document.title = wrapper.getElementsByTagName('title')[0].innerHTML;
+      main.removeChild(oldPage);
+      main.appendChild(newPage);
+      fade(newPage, 'in');
       if (location.pathname === '/' || location.pathname === '/index.html') {
         findArea();
       }
     });
+  }
+
+  // fade any element in + out
+  function fade(el, dir) {
+    var speed = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 60;
+
+    dir === 'in' ? el.style.opacity = 0 : el.style.opacity = 1;
+    dir === 'in' ? fadeIn() : fadeOut();
+    function fadeIn() {
+      if (el.style.opacity < 1) {
+        setTimeout(function () {
+          el.style.opacity = +el.style.opacity + 0.05;
+          fadeIn();
+        }, speed);
+      }
+    }
+    function fadeOut() {
+      if (el.style.opacity > 0) {
+        setTimeout(function () {
+          el.style.opacity = +el.style.opacity - 0.05;
+          fadeOut();
+        }, speed);
+      }
+    }
   }
 
   // fetch get + load + cache new url
@@ -75,33 +100,21 @@
     });
   }
 
-  // animate old page out + new page in
-  function animate(oldPage, newPage) {
-    oldPage.style.position = 'absolute';
-    var fadeOut = oldPage.animate({
-      opacity: [1, 0]
-    }, 1000);
-    var fadeIn = newPage.animate({
-      opacity: [0, 1]
-    }, 1000);
-    fadeIn.onfinish = function () {
-      oldPage.parentNode.removeChild(oldPage);
-    };
-  }
-
-  // scroll to top
-  var topArrow = document.querySelector('.top');
-  topArrow.addEventListener('click', function () {
-    scrollToTop(this.parentNode);
-  });
-  function scrollToTop(el) {
-    if (el.scrollTop !== 0) {
-      setTimeout(function () {
-        el.scrollTop = el.scrollTop - 25;
-        scrollToTop(el);
-      }, 0);
+  // zoom + click on image full screen overlay
+  var figure = document.querySelector('figure');
+  var img = figure.querySelector('img');
+  figure.addEventListener('click', function (e) {
+    e.preventDefault();
+    var img = figure.querySelector('img');
+    var x = figure.querySelector('.x');
+    if (e.target === img && !figure.classList.contains('fullscreen')) {
+      figure.classList.add('fullscreen');
+      fade(img, 'in', 25);
     }
-  }
+    if (e.target !== img && figure.classList.contains('fullscreen')) {
+      figure.classList.remove('fullscreen');
+    }
+  });
 })();
 
 },{"es6-promise":2,"isomorphic-fetch":3}],2:[function(require,module,exports){
