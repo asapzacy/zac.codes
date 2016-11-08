@@ -146,17 +146,23 @@ main { display:flex;width:100%;flex:8;margin-bottom:74px }
 .preview .x { display:none;width:52px;height:52px;position:absolute;top:0;right:0;cursor:pointer }
 /*.preview figure { display:flex;align-items:center;flex-direction:column;justify-content:center }*/
 .preview figure { text-align:center }
-.preview img { cursor:pointer }
+.preview img { cursor:pointer;display:block;margin:0 auto }
 .preview figcaption { color:#333;font-size:0.9em; }
 
 .fullscreen { z-index:999;position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.9) }
 .fullscreen .x { display:block }
-.fullscreen figure { padding:16% 0 }
+.fullscreen figure { padding:10% 0 }
 .fullscreen img { width:94%;border-radius:2px;cursor:initial }
-.fullscreen figcaption { color:#fff }
+.fullscreen figcaption { color:#fff;display:inline-block;background:#000 }
 .x .line  { height:2px;width:24px;display:block;background:#fff;position:absolute;top:25px;left:14px }
 .x .line-top { transform:rotate(-45deg) }
 .x .line-bottom { transform:rotate(45deg) }
+
+@media only screen and (orientation : landscape) {
+  .fullscreen figure { padding:0 }
+  .fullscreen img { width:68% }
+  .fullscreen figcaption { font-size:1.1em }
+}
 
 /* footer */
 footer { width:100%;display:flex;z-index:98;flex:2;background:#30049e url(../img/mountains.svg) -1px -1px / 100px 72px repeat-x;padding-top:72px;margin-top:-74px;box-shadow:0 0 2em 2em #fff;border-top:2px solid #fff }

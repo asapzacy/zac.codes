@@ -132,13 +132,8 @@
   window.addEventListener('load', specificPage);
   function specificPage() {
     var path = location.pathname;
-    if (path === '/' || path === '/index.html') {
-      console.log('home');
-    } else if (path.startsWith('/about')) {
-      console.log('about');
-    } else if (path.startsWith('/projects')) {
+    if (path === '/' || path === '/index.html') {} else if (path.startsWith('/about')) {} else if (path.startsWith('/projects')) {
       runProjects();
-      console.log('projects');
     } else {
       console.log('wut');
     }
@@ -173,5 +168,5 @@
     }
   }
   var page = document.querySelector('.about');
-  page.addEventListener('scroll', x);
+  page && page.addEventListener('scroll', x);
 })();
