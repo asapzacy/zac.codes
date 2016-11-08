@@ -48,7 +48,8 @@
       document.title = wrapper.getElementsByTagName('title')[0].innerHTML
       main.removeChild(oldPage)
       main.appendChild(newPage)
-      fade(newPage, 'in')
+      fade(newPage,true)
+      specificPage()
       if (location.pathname === '/' || location.pathname === '/index.html') {
         findArea()
       }
@@ -57,8 +58,8 @@
 
   // fade any element in + out
   function fade(el, dir, speed=60) {
-    dir === 'in' ? el.style.opacity = 0 : el.style.opacity = 1
-    dir === 'in' ? fadeIn() : fadeOut()
+    dir ? el.style.opacity = 0 : el.style.opacity = 1
+    dir ? fadeIn() : fadeOut()
     function fadeIn() {
       if (el.style.opacity < 1) {
         setTimeout(function() {
@@ -95,44 +96,52 @@
       .catch((err) => console.log(`there has been an error requesting (${url}): ${err.message}`))
   }
 
-  // click on image + full screen modal
-  const figure = document.querySelector('figure')
-  const img = figure.querySelector('img')
-  figure.addEventListener('click', function(e) {
-    e.preventDefault()
-    const img = figure.querySelector('img')
-    const x = figure.querySelector('.x')
-    if (e.target === img && !figure.classList.contains('fullscreen')) {
-      figure.classList.add('fullscreen')
-      fade(img, 'in', 25)
+
+  // projects page specific functions
+  function runProjects() {
+    (function() {
+
+      // click on image + full screen modal
+      const preview = document.querySelector('.js_preview')
+      const img = preview.querySelector('img')
+      const figure = preview.querySelector('figure')
+      preview.addEventListener('click', function(e) {
+        e.preventDefault()
+        const caption = preview.querySelector('figcaption')
+        const img = preview.querySelector('img')
+        const x = preview.querySelector('.x')
+        let expanded = false
+        console.log(e.target)
+        if (!preview.classList.contains('fullscreen') && e.target === img) {
+          preview.classList.add('fullscreen')
+          menuBtn.style.display = 'none'
+          fade(figure, true, 40)
+        }
+        if (preview.classList.contains('fullscreen') && (e.target !== img && e.target !== caption && e.target !== figure)) {
+          preview.classList.remove('fullscreen')
+          menuBtn.style.display = 'block'
+        }
+      })
+
+    })()
+  }
+
+
+  window.addEventListener('load', specificPage)
+
+  function specificPage() {
+    const path = location.pathname
+    if (path === '/' || path === '/index.html') {
+      console.log('home')
+    } else if (path.startsWith('/about')) {
+      console.log('about')
+    } else if (path.startsWith('/projects')) {
+      runProjects()
+      console.log('projects')
+    } else {
+      console.log('wut')
     }
-    if (e.target !== img && figure.classList.contains('fullscreen')) {
-      figure.classList.remove('fullscreen')
-    }
-  })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }
 
 
 

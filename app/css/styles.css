@@ -54,6 +54,7 @@ nav { letter-spacing:1px }
 .menu-open .line-top { transform:rotate(-45deg) }
 .menu-open .line-bottom { transform:rotate(45deg) }
 .menu-open .line { background:#fff;transition-delay:0s }
+.transparent .line { background:transparent }
 .menu-nav {
   position:absolute;
   top:0;right:0;bottom:0;left:0;
@@ -141,13 +142,19 @@ main { display:flex;width:100%;flex:8;margin-bottom:74px }
 .expandIcon::before { content:'+' }
 .details { display:none }
 
-figure { color:#333;font-size:0.9em;display:flex;align-items:center;flex-direction:column;justify-content:center }
-.fullscreen { z-index:999;position:absolute;
-top:0;bottom:0;left:0;right:0;background:#fff }
-.fullscreen img { width:90% }
-.x { display:none;width:52px;height:52px;position:absolute;top:0;right:0;cursor:pointer }
+.preview { display:flex;align-items:center }
+.preview .x { display:none;width:52px;height:52px;position:absolute;top:0;right:0;cursor:pointer }
+/*.preview figure { display:flex;align-items:center;flex-direction:column;justify-content:center }*/
+.preview figure { text-align:center }
+.preview img { cursor:pointer }
+.preview figcaption { color:#333;font-size:0.9em; }
+
+.fullscreen { z-index:999;position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.9) }
 .fullscreen .x { display:block }
-.x .line  { height:2px;width:24px;display:block;background:#070707;position:absolute;top:25px;left:14px }
+.fullscreen figure { padding:16% 0 }
+.fullscreen img { width:94%;border-radius:2px;cursor:initial }
+.fullscreen figcaption { color:#fff }
+.x .line  { height:2px;width:24px;display:block;background:#fff;position:absolute;top:25px;left:14px }
 .x .line-top { transform:rotate(-45deg) }
 .x .line-bottom { transform:rotate(45deg) }
 
