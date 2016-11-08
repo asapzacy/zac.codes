@@ -51,7 +51,8 @@
       document.title = wrapper.getElementsByTagName('title')[0].innerHTML;
       main.removeChild(oldPage);
       main.appendChild(newPage);
-      fade(newPage, 'in');
+      fade(newPage, true);
+      specificPage();
       if (location.pathname === '/' || location.pathname === '/index.html') {
         findArea();
       }
@@ -62,8 +63,8 @@
   function fade(el, dir) {
     var speed = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 60;
 
-    dir === 'in' ? el.style.opacity = 0 : el.style.opacity = 1;
-    dir === 'in' ? fadeIn() : fadeOut();
+    dir ? el.style.opacity = 0 : el.style.opacity = 1;
+    dir ? fadeIn() : fadeOut();
     function fadeIn() {
       if (el.style.opacity < 1) {
         setTimeout(function () {
@@ -100,21 +101,80 @@
     });
   }
 
-  // zoom + click on image full screen overlay
-  var figure = document.querySelector('figure');
-  var img = figure.querySelector('img');
-  figure.addEventListener('click', function (e) {
-    e.preventDefault();
-    var img = figure.querySelector('img');
-    var x = figure.querySelector('.x');
-    if (e.target === img && !figure.classList.contains('fullscreen')) {
-      figure.classList.add('fullscreen');
-      fade(img, 'in', 25);
+  // projects page specific functions
+  function runProjects() {
+    (function () {
+
+      // click on image + full screen modal
+      var preview = document.querySelector('.js_preview');
+      var img = preview.querySelector('img');
+      var figure = preview.querySelector('figure');
+      preview.addEventListener('click', function (e) {
+        e.preventDefault();
+        var caption = preview.querySelector('figcaption');
+        var img = preview.querySelector('img');
+        var x = preview.querySelector('.x');
+        var expanded = false;
+        console.log(e.target);
+        if (!preview.classList.contains('fullscreen') && e.target === img) {
+          preview.classList.add('fullscreen');
+          menuBtn.style.display = 'none';
+          fade(figure, true, 40);
+        }
+        if (preview.classList.contains('fullscreen') && e.target !== img && e.target !== caption && e.target !== figure) {
+          preview.classList.remove('fullscreen');
+          menuBtn.style.display = 'block';
+        }
+      });
+    })();
+  }
+
+  // run functions specific to their page
+  window.addEventListener('load', specificPage);
+  function specificPage() {
+    var path = location.pathname;
+    if (path === '/' || path === '/index.html') {
+      console.log('home');
+    } else if (path.startsWith('/about')) {
+      console.log('about');
+    } else if (path.startsWith('/projects')) {
+      runProjects();
+      console.log('projects');
+    } else {
+      console.log('wut');
     }
-    if (e.target !== img && figure.classList.contains('fullscreen')) {
-      figure.classList.remove('fullscreen');
+  }
+
+  // scroll to top
+  var arrow = document.querySelector('.top');
+  if (arrow) {
+    arrow.addEventListener('click', function () {
+      scrollToTop(this.parentNode);
+    });
+  }
+  function scrollToTop(el) {
+    if (el.scrollTop !== 0) {
+      setTimeout(function () {
+        el.scrollTop = el.scrollTop - 25;
+        scrollToTop(el);
+      }, 0);
     }
-  });
+  }
+
+  function x(el) {
+    var ex = topArrow;
+    var diff = ex.parentNode.scrollHeight - ex.parentNode.scrollTop;
+    var q = ex.getBoundingClientRect().bottom;
+    // console.log(diff)
+    ex.classList.add('hide');
+    ex.classList.remove('show');
+    if (diff <= 475) {
+      ex.classList.add('show');
+      ex.classList.remove('hide');
+    }
+  }
+  var page = document.querySelector('.about');
+  page.addEventListener('scroll', x);
 })();
 
 },{"es6-promise":2,"isomorphic-fetch":3}],2:[function(require,module,exports){
