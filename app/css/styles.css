@@ -136,24 +136,25 @@ main { display:flex;width:100%;flex:8;margin-bottom:74px }
 .show { opacity:1;transition:opacity 1s }
 
 /* projects */
-.project { margin:2em 0 }
+.project { margin:2em 0 10em}
 .project h1 { margin:0.4em 0 }
-.expandIcon { cursor:pointer }
-.expandIcon::before { content:'+' }
-.details { display:none }
-
 .preview { display:flex;align-items:center }
 .preview .x { display:none;width:52px;height:52px;position:absolute;top:0;right:0;cursor:pointer }
-/*.preview figure { display:flex;align-items:center;flex-direction:column;justify-content:center }*/
 .preview figure { text-align:center }
 .preview img { cursor:pointer;display:block;margin:0 auto }
 .preview figcaption { color:#333;font-size:0.9em; }
+
+.expand { cursor:pointer;font-weight:600;width:33.3%;text-align:center;float:right }
+.expand::after { content:'\f107';font-family:FontAwesome }
+.expanded::after { content:'\f106' }
+.details { clear:both;overflow-y:hidden;max-height:0;transition:max-height 1s }
+
 
 .fullscreen { z-index:999;position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.9) }
 .fullscreen .x { display:block }
 .fullscreen figure { padding:10% 0 }
 .fullscreen img { width:94%;border-radius:2px;cursor:initial }
-.fullscreen figcaption { color:#fff;display:inline-block;background:#000 }
+.fullscreen figcaption { color:#fff }
 .x .line  { height:2px;width:24px;display:block;background:#fff;position:absolute;top:25px;left:14px }
 .x .line-top { transform:rotate(-45deg) }
 .x .line-bottom { transform:rotate(45deg) }
