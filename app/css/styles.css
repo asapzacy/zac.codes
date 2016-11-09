@@ -103,7 +103,7 @@ nav { letter-spacing:1px }
 main { display:flex;width:100%;flex:8;margin-bottom:74px }
 .page { width:100%;padding:5em 5% 0;overflow-y:auto }
 .page h1 { font:400 1.6em/1.2 monospace }
-.page h2 { font:400 1.2em/1.2 monospace }
+.page h2 { font:400 1em/1.2 monospace;color:#616161 }
 .page a { border-bottom:1px solid #30049e }
 
 
@@ -136,18 +136,27 @@ main { display:flex;width:100%;flex:8;margin-bottom:74px }
 .show { opacity:1;transition:opacity 1s }
 
 /* projects */
-.project { margin:2em 0 10em}
-.project h1 { margin:0.4em 0 }
+.project { margin:2em 0 4em }
+.project:not(:last-child)::after { content:'';display:block;background:#000;width:66.6%;height:2px;margin:3em auto }
+.project:last-child { margin-bottom:6em }
 .preview { display:flex;align-items:center }
 .preview .x { display:none;width:52px;height:52px;position:absolute;top:0;right:0;cursor:pointer }
-.preview figure { text-align:center }
+.preview figure { text-align:center;margin:1em 0 }
 .preview img { cursor:pointer;display:block;margin:0 auto }
-.preview figcaption { color:#333;font-size:0.9em; }
+.preview figcaption { color:#616161;font-size:0.9em; }
+.hippify img { border:1px solid #000;padding:2% 4% }
+.klopro img { border:1px solid #000;background:#fff;padding:2% 4% 0 }
 
 .expand { cursor:pointer;font-weight:600;width:33.3%;text-align:center;float:right }
 .expand::after { content:'\f107';font-family:FontAwesome }
 .expanded::after { content:'\f106' }
-.details { clear:both;overflow-y:hidden;max-height:0;transition:max-height 1s }
+/*.expand::after { content:'+';font-family:FontAwesome }
+.expanded::after { content:'\f106' }*/
+
+.details { counter-reset:section;clear:both;overflow-y:hidden;max-height:0;transition:max-height 0.66s }
+.details h3 { font:600 1em/1.2 monospace;margin:0.8em 0;font-size:0.95em }
+.details h3::before { counter-increment:section;content:counter(section,lower-roman)'. ' }
+.details p { margin:1em 0 3em;font-size:0.9em }
 
 
 .fullscreen { z-index:999;position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.9) }
