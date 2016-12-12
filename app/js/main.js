@@ -1,5 +1,7 @@
 (() => {
 
+  'use strict'
+
   // require('es6-promise').polyfill()
   // require('isomorphic-fetch')
 
@@ -124,7 +126,7 @@
       }
 
       const expand = document.querySelectorAll('.js_expand ')
-      const details = document.querySelectorAll('.details')
+      const details = document.querySelectorAll('.js_details')
       const expandSize = expand.length
       for (let i = 0; i < expandSize; i++) {
         expand[i].addEventListener('click', function(e) {
@@ -151,6 +153,7 @@
     const path = location.pathname
     if (path === '/' || path === '/index.html') {
     } else if (path.startsWith('/about')) {
+
     } else if (path.startsWith('/projects')) {
       runProjects()
     } else {

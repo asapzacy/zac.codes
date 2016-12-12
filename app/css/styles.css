@@ -1,6 +1,6 @@
 * { margin:0;padding:0 }
 html, body { height:100%;box-sizing:border-box }
-*, *:before, *:after { box-sizing:inherit }
+*, *::before, *::after { box-sizing:inherit }
 body {
   color:#070707;
   background:#fff;
@@ -26,7 +26,7 @@ nav { letter-spacing:1px }
 /* browser-sync */
 #__bs_notify__ { opacity:0 }
 
-/* website */
+/* web app */
 #app { width:100%;height:100%;display:flex;align-items:center;justify-content:flex-end;flex-direction:column }
 
 /* header */
@@ -146,12 +146,11 @@ main { display:flex;width:100%;flex:8;margin-bottom:74px }
 .preview figcaption { color:#616161;font-size:0.9em; }
 .hippify img { border:1px solid #000;padding:2% 4% }
 .klopro img { border:1px solid #000;background:#fff;padding:2% 4% 0 }
+.fullscreen img { border:0 }
 
 .expand { cursor:pointer;font-weight:600;width:33.3%;text-align:center;float:right }
-.expand::after { content:'\f107';font-family:FontAwesome }
+.expand::after { content:'\f107';font-family:FontAwesome;display:inline-block }
 .expanded::after { content:'\f106' }
-/*.expand::after { content:'+';font-family:FontAwesome }
-.expanded::after { content:'\f106' }*/
 
 .details { counter-reset:section;clear:both;overflow-y:hidden;max-height:0;transition:max-height 0.66s }
 .details h3 { font:600 1em/1.2 monospace;margin:0.8em 0;font-size:0.95em }
