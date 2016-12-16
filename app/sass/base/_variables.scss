@@ -11,10 +11,19 @@ $black:#070707;
 $purple:#30049e;
 
 
-// media queries
-$xsmall:20em;
-$small:25em;
-$medium:40em;
+// media queries + sizing
+$xxsmall:20em;
+$xsmall:25em;
+$small:40em;
+$medium:55em;
+$large:70em;
+$xlarge:85em;
+$xxlarge:100em;
+
+$width:80%;
+$max_width:1444px;
 
 // timing
-$quick:0.22s
+$instant:0.0s;
+$quick:0.22s;
+$cubic:cubic-bezier(0.25,0.46,0.45,0.94);

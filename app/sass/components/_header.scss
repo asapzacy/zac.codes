@@ -1,10 +1,24 @@
 /* header */
-.menu-btn { width:52px;height:52px;position:fixed;z-index:100;top:0;right:0;background:#fff;cursor:pointer;transition:background 1s linear 0.66s }
-.menu-open .menu-btn { background:transparent;transition:background 0s }
-.menu-btn .line  { height:2px;width:24px;display:block;background:#30049e;position:absolute;top:25px;left:14px;transition:background 0.22s cubic-bezier(0.25,0.46,0.45,0.94) 0.44s,transform 0.44s cubic-bezier(0.25,0.46,0.45,0.94) 0.0s }
+header {
+  width:95%;max-width:$max_width;margin:0 auto;position:relative;
+  &.menu-open { position:initial }
+}
+.menu-btn {
+  width:52px;height:52px;
+  background:$white;z-index:10;
+  position:absolute;top:0;right:0;
+  cursor:pointer;transition:background 1s linear 0.66s
+}
+.menu-open .menu-btn { background:transparent;transition:background $instant }
+.menu-btn .line  {
+  height:2px;width:24px;
+  display:block;background:$purple;
+  position:absolute;top:25px;left:14px;
+  transition:background $quick $cubic 0.44s,transform 0.44s $cubic $instant
+}
 .menu-btn .line-top { transform:translateY(-4px) }
 .menu-btn .line-bottom { transform:translateY(4px) }
 .menu-open .line-top { transform:rotate(-45deg) }
 .menu-open .line-bottom { transform:rotate(45deg) }
-.menu-open .line { background:#fff;transition-delay:0s }
+.menu-open .line { background:$white;transition-delay:$instant }
 .transparent .line { background:transparent }

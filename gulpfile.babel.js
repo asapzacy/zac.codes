@@ -12,7 +12,6 @@ import babelify from 'babelify'
 import watchify from 'watchify'
 import notify from 'gulp-notify'
 import uglify from 'gulp-uglify'
-import sourcemaps from 'gulp-sourcemaps'
 import rename from 'gulp-rename'
 import browserSync from 'browser-sync'
 
@@ -21,7 +20,7 @@ const PATHS = {
   build: 'dist'
 }
 const FILES = {
-  ico: 'app/favicon',
+  ico: 'app/*.ico',
   html: 'app/**/*.html',
   img: 'app/img/**/*.+(png|jpg|svg)',
   sass: 'app/sass/**/*.scss',
@@ -51,7 +50,7 @@ gulp.task('sass', function() {
   gulp.src(FILES.sass)
     .pipe(sass())
     .on('error', handleErrors)
-    .pipe(autoprefixer())
+    .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
     .pipe(uglifycss())
     .pipe(rename('styles.min.css'))
     .pipe(gulp.dest(PATHS.build + '/css'))
