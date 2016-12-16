@@ -12,10 +12,10 @@ import babelify from 'babelify'
 import watchify from 'watchify'
 import notify from 'gulp-notify'
 import uglify from 'gulp-uglify'
+import sourcemaps from 'gulp-sourcemaps'
 import rename from 'gulp-rename'
 import browserSync from 'browser-sync'
 
-const reload = browserSync.reload
 const PATHS = {
   app: 'app',
   build: 'dist'
@@ -27,6 +27,7 @@ const FILES = {
   sass: 'app/sass/**/*.scss',
   js: 'app/js/**/*.js'
 }
+const reload = browserSync.reload
 
 // static files --> dist
 gulp.task('static', function() {
@@ -49,6 +50,7 @@ gulp.task('img', function() {
 gulp.task('sass', function() {
   gulp.src(FILES.sass)
     .pipe(sass())
+    .on('error', handleErrors)
     .pipe(autoprefixer())
     .pipe(uglifycss())
     .pipe(rename('styles.min.css'))
@@ -60,44 +62,6 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
   return build('main.js', false)
 })
-
-function handleErrors() {
-  var args = Array.prototype.slice.call(arguments)
-  notify.onError({
-    title: 'Compile Error',
-    message: '<%= error.message %>'
-  }).apply(this, args)
-  this.emit('end')   // keep gulp from hanging on this task
-}
-
-// function handleErrors() {
-//   console.log('compile error')
-//   return
-// }
-function build(file, watch) {
-  const options = {
-    entries: [ PATHS.app + '/js/' + file ],
-    transform: [ babelify ],
-    debug: true
-  }
-  let bundler = watch ? watchify(browserify(options)) : browserify(options)
-  function rebundle() {
-    const stream = bundler.bundle()
-    return stream
-      .on('error', handleErrors)
-      .pipe(source(file))
-      .pipe(buffer())
-      .pipe(uglify())
-      .pipe(rename('main.min.js'))
-      .pipe(gulp.dest(PATHS.build + '/js'))
-      .pipe(reload({ stream: true }))
-  }
-  bundler.on('update', function() {
-    rebundle()
-    gutil.log('rebundling..')
-  })
-  return rebundle()
-}
 
 // browser-sync --> local server
 gulp.task('browser-sync', function() {
@@ -115,3 +79,39 @@ gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync'], function()
   gulp.watch(FILES.sass, ['sass'])
   return build('main.js', true)
 })
+
+
+
+function handleErrors(...args) {
+  notify.onError({
+    title: 'Compile Error',
+    message: '<%= error.message %>'
+  }).apply(this, args)
+  this.emit('end')
+}
+
+function build(file, watch) {
+  const options = {
+    entries: [ PATHS.app + '/js/' + file ],
+    transform: [ babelify ],
+    debug: true
+  }
+  let bundler = watch ? watchify(browserify(options)) : browserify(options)
+  function rebundle() {
+    const stream = bundler.bundle()
+    return stream
+      .on('error', handleErrors)
+      .pipe(source(file))
+      .pipe(buffer())
+      .pipe(gulp.dest(PATHS.build + '/js'))
+      .pipe(uglify())
+      .pipe(rename('main.min.js'))
+      .pipe(gulp.dest(PATHS.build + '/js'))
+      .pipe(reload({ stream: true }))
+  }
+  bundler.on('update', function() {
+    rebundle()
+    gutil.log('rebundling..')
+  })
+  return rebundle()
+}

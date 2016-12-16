@@ -1,0 +1,22 @@
+/* about page */
+.about div { margin:2em 0 4em }
+.about div:last-child { margin-bottom:6em }
+.outer { font-size:0.9em;padding-left:2em;margin:2em 0 }
+.inner { font-size:0.9em;padding-left:1.5em;display:flex;flex-wrap:wrap }
+.outer li { margin:1em 0;position:relative;font-weight:600 }
+.inner li { margin:0.5em 0;width:50%;padding-right:20px;font-weight:initial }
+.outer li::before { content:'+';position:absolute;left:-16px;font-weight:600 }
+.inner li::before { content:'-';left:-12px }
+.personal .outer li { font-weight:initial }
+.personal .inner li { width:100% }
+/* svmogies */
+.svmogi { height:100%;width:20px;display:inline-block;position:absolute;background: transparent center center / contain no-repeat }
+.ua   { display:none }
+.sfg  { background-image:url(../img/about/san-francisco-giants.svg);margin-left:-1px }
+.sf49 { background-image:url(../img/about/san-francisco-49ers.svg);margin-left:3px }
+.gsw  { background-image:url(../img/about/golden-state-warriors.svg);margin-left:1px }
+/* top arrow */
+.top { position:relative;cursor:pointer;height:26px;width:26px;display:inline-flex;justify-content:center;align-items:center;float:right;margin:-2em 0 4em }
+.top::before { content:'\f102';font-family:FontAwesome;font-size:1.4em }
+.hide { opacity:0;transition:opacity 1s }
+.show { opacity:1;transition:opacity 1s }

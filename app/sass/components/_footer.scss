@@ -1,0 +1,7 @@
+
+/* footer */
+footer { width:100%;display:flex;z-index:9;flex:2;background:#30049e url(../img/mountains.svg) -1px -1px / 100px 72px repeat-x;padding-top:72px;margin-top:-72px;box-shadow:0 0 2em 2em #fff }
+.social-nav { width:80%;max-width:333px;margin:0 auto;display:flex;align-items:center }
+.social-nav-list { width:100%;display:flex;justify-content:space-between }
+.social-nav-link { color:#fff;font-size:0.9em;font-weight:600;padding:0 1px;border-bottom:2px solid #30049e;transition:border-color 0.26s ease-in-out }
+.social-nav-link:hover { border-color:currentColor }

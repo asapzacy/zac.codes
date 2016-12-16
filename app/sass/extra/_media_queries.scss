@@ -1,0 +1,62 @@
+
+@media only screen and (max-width:$xsmall) {
+  body { font-size:14px;background:mediumaquamarine }
+}
+@media only screen and (min-width:$small) {
+  body { font-size:17px;background:mediumpurple }
+}
+@media only screen and (min-width:30em) {
+  body { background:mediumseagreen }
+}
+@media only screen and (min-width:35em) {
+  body { background:mediumturquoise }
+}
+@media only screen and (min-width:$medium) {
+  body { font-size:18px;background:mediumslateblue }
+  .landing { max-width:90% }
+  .social-nav { margin-left:7.5% }
+}
+@media only screen and (min-width:45em) {
+  body { background:mediumaquamarine }
+}
+@media only screen and (min-width:50em) {
+  body { background:mediumpurple }
+}
+@media only screen and (min-width:55em) {
+  body { font-size:19px;background:mediumseagreen }
+}
+@media only screen and (min-width:60em) {
+  body { background:grey }
+}
+@media only screen and (min-width:65em) {
+  body { font-size:25px;background:rgba(123,104,238,0.9) }
+}
+@media only screen and (min-width:70em) {
+  body { font-size:26px;background:rgba(123,104,238,1) }
+}
+@media only screen and (min-width:75em) {
+  body { font-size:27px;background:yellow }
+}
+@media only screen and (min-width:80em) {
+  body { font-size:28px;background:pink }
+}
+@media only screen and (min-width:85em) {
+  body { font-size:29px;background:green }
+}
+@media only screen and (min-width:90em) {
+  body { font-size:30px;background:lightblue }
+}
+@media only screen and (min-width:95em) {
+  body { font-size:31px;background:purple }
+}
+@media only screen and (min-width:100em) {
+  body { font-size:32px;background:dodgerblue }
+}
+
+
+
+@media only screen and (orientation:landscape) {
+  .fullscreen figure { padding:0 }
+  .fullscreen img { width:68% }
+  .fullscreen figcaption { font-size:1.1em }
+}
