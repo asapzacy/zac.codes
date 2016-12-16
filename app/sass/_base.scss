@@ -1,0 +1,20 @@
+/* base styles */
+* { margin:0;padding:0 }
+html, body { height:100%;box-sizing:border-box }
+*, *::before, *::after { box-sizing:inherit }
+body { color:$black;background:$white;font:$normal 16px/1.45 $avenir;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale }
+/* resets */
+img { max-width:100% }
+a { color:inherit;text-decoration:none }
+ul, menu { list-style-type:none }
+h1,h2,h3,h4,h5,h6 { font-weight:inherit }
+input { border:0;background:inherit;font-family:inherit }
+input:focus { outline:0 }
+hr { border:0 }
+nav { letter-spacing:1px }
+sup { font-size:66% }
+::selection { background:$white;;color:$purple;text-shadow:0 0 transparent }
+::-webkit-scrollbar { width:2px;background:$white }
+::-webkit-scrollbar-thumb { background:$black }
+/* web app */
+#app { width:100%;height:100%;display:flex;justify-content:flex-end;flex-direction:column }
