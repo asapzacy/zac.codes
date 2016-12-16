@@ -23,6 +23,7 @@ window.d = {
     portrait ? window.resizeTo(obj.w, obj.h+offset) : window.resizeTo(obj.h, obj.w+offset)
   },
   loop(obj, speed=1) {
+    obj = obj === 'all' ? Object.assign(this.phones, this.tabs) : obj
     let i = 0
     for (let item in obj) {
       if (obj.hasOwnProperty(item)) {
@@ -34,9 +35,6 @@ window.d = {
       }
     }
   }
-
-
-
-
-
 }
+
+d.all = Object.assign(d.phones, d.tabs)
