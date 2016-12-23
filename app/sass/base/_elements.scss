@@ -1,0 +1,3 @@
+/* top arrow */
+.top__arrow { position:relative;cursor:pointer;height:26px;width:26px;display:inline-flex;justify-content:center;align-items:center;float:right;margin:-2em 0 4em }
+.top__arrow::before { content:'\f102';font-family:FontAwesome;font-size:1.4em }

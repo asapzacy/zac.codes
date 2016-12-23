@@ -24,7 +24,8 @@ const FILES = {
   html: 'app/**/*.html',
   img: 'app/img/**/*.+(png|jpg|svg)',
   sass: 'app/sass/**/*.scss',
-  js: 'app/js/**/*.js'
+  js: 'app/js/**/*.js',
+  main: 'main.js'
 }
 const reload = browserSync.reload
 
@@ -50,6 +51,8 @@ gulp.task('sass', function() {
   gulp.src(FILES.sass)
     .pipe(sass())
     .on('error', handleErrors)
+    .pipe(rename('styles.css'))
+    .pipe(gulp.dest(PATHS.build + '/css'))
     .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
     .pipe(uglifycss())
     .pipe(rename('styles.min.css'))
@@ -59,7 +62,7 @@ gulp.task('sass', function() {
 
 // es6 --> js --> dist
 gulp.task('js', function() {
-  return build('main.js', false)
+  return build(FILES.main, false)
 })
 
 // browser-sync --> local server
@@ -76,7 +79,7 @@ gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync'], function()
   gulp.watch(FILES.html, ['static'])
   gulp.watch(FILES.img, ['img'])
   gulp.watch(FILES.sass, ['sass'])
-  return build('main.js', true)
+  return build(FILES.main, true)
 })
 
 
@@ -102,6 +105,7 @@ function build(file, watch) {
       .on('error', handleErrors)
       .pipe(source(file))
       .pipe(buffer())
+      .pipe(rename('main.js'))
       .pipe(gulp.dest(PATHS.build + '/js'))
       .pipe(uglify())
       .pipe(rename('main.min.js'))

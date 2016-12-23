@@ -1,6 +1,7 @@
 
 // fonts
 $avenir:'Avenir Next',Avenir,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
+$font__yellowtail:'Yellowtail',cursive;
 $open:'Open Sans',sans-serif;
 $normal:400;
 $bold:600;
@@ -24,6 +25,9 @@ $width:80%;
 $max_width:1600px;
 
 // timing
-$instant:0.0s;
-$quick:0.22s;
+$timing__instant:0.0s;
+$timing__quick:0.22s;
+$timing__average:0.33s;
+$timing__medium:0.44s;
+$timing__slow:0.66s;
 $cubic:cubic-bezier(0.25,0.46,0.45,0.94);

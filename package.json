@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "personal portfolio website",
   "main": "server.js",
-  "scripts": {},
+  "scripts": {
+    "build": "rm -rf dist && gulp"
+  },
   "author": "Zac Arellano",
   "license": "MIT",
   "dependencies": {

@@ -9,7 +9,7 @@ h1,h2,h3,h4,h5,h6 { font-weight:inherit }
 input { border:0;background:inherit;font-family:inherit }
 input:focus { outline:0 }
 hr { border:0 }
-nav { letter-spacing:1px }
+nav { letter-spacing:1px;font-weight:600 }
 sup { font-size:66% }
 ::selection { background:$white;;color:$purple;text-shadow:0 0 transparent }
 ::-webkit-scrollbar { width:0;height:0;background:transparent }

@@ -1,24 +1,20 @@
 /* header */
-header {
-  width:95%;max-width:$max_width;margin:0 auto;position:relative;
-  &.menu-open { position:initial }
-}
-.menu-btn {
+.menu__btn {
   width:52px;height:52px;
   background:$white;z-index:10;
   position:absolute;top:0;right:0;
   cursor:pointer;transition:background 1s linear 0.66s
 }
-.menu-open .menu-btn { background:transparent;transition:background $instant }
-.menu-btn .line  {
+.menu-open .menu__btn { background:transparent;transition:background $timing__instant }
+.menu__btn .line  {
   height:2px;width:24px;
   display:block;background:$purple;
   position:absolute;top:25px;left:14px;
-  transition:background $quick $cubic 0.44s,transform 0.44s $cubic $instant
+  transition:background $timing__quick $cubic 0.44s,transform 0.44s $cubic $timing__instant
 }
-.menu-btn .line-top { transform:translateY(-4px) }
-.menu-btn .line-bottom { transform:translateY(4px) }
+.menu__btn .line-top { transform:translateY(-4px) }
+.menu__btn .line-bottom { transform:translateY(4px) }
 .menu-open .line-top { transform:rotate(-45deg) }
 .menu-open .line-bottom { transform:rotate(45deg) }
-.menu-open .line { background:$white;transition-delay:$instant }
+.menu-open .line { background:$white;transition-delay:$timing__instant }
 .transparent .line { background:transparent }

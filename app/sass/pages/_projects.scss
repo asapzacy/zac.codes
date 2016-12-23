@@ -13,14 +13,19 @@
 .klopro img { border:1px solid #000;background:#fff;padding:2% 4% 0 }
 .fullscreen img { border:0 }
 
-.expand { cursor:pointer;font-weight:600;width:33.3%;text-align:center;float:right }
-.expand::after { content:'\f107';font-family:FontAwesome;display:inline-block }
-.expanded::after { content:'\f106' }
-
-.details { counter-reset:section;clear:both;overflow-y:hidden;max-height:0;transition:max-height 0.66s }
-.details h3 { font:600 1em/1.2 monospace;margin:0.8em 0;font-size:0.95em }
-.details h3::before { counter-increment:section;content:counter(section,lower-roman)'. ' }
-.details p { margin:1em 0 3em;font-size:0.9em }
+.details { counter-reset:section;clear:both;overflow-y:hidden;max-height:0;transition:max-height $timing__medium;
+  h4 { font:600 1em/1.2 monospace;margin:0.8em 0;font-size:0.95em;
+    &::before { counter-increment:section;content:counter(section,lower-roman)'. '; }
+  }
+  p { margin:1em 0 3em;font-size:0.9em }
+}
+.expand { cursor:pointer;font-weight:600;width:33.3%;text-align:center;float:right;
+  &::after {
+    content:'\f107';font-family:FontAwesome;display:inline-block;
+    will-change:transform;transition:transform $timing__medium
+  }
+}
+.expanded::after { transform:rotate(180deg) }
 
 
 .fullscreen { z-index:999;position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.9) }

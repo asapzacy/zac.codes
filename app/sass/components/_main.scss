@@ -1,7 +1,28 @@
 /* main */
-main { display:flex;flex:8;max-width:$max_width;margin:0 auto 72px }
-.page { width:100%;padding:16vh 4% 0;overflow-y:auto;-webkit-overflow-scrolling:touch }
-.page h1 { font-size:2.827em }
-.page h2 { font-size:1.999em;font-family:monospace }
-.page h3 { font-size:1.414em;font-family:monospace }
-.page a { border-bottom:1px solid #30049e }
+main {
+  display:flex;
+  max-width:$max_width;
+  margin:0 auto 72px;flex:8;
+}
+
+.page {
+  width:100%;
+  padding:16vh 4% 0;
+  overflow-y:scroll;
+  -webkit-overflow-scrolling:touch;
+  h1 {
+    font-size:2.827em;
+    font-family:$font__yellowtail;
+  }
+  h2 {
+    font-size:1.999em;
+    font-family:monospace;
+  }
+  h3 {
+    font-size:1.414em;
+    font-family:monospace;
+  }
+  a {
+    border-bottom:1px solid $purple
+  }
+ }
