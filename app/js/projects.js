@@ -6,7 +6,9 @@ export default function runProjectsPage() {
   // set up scroll to top arrow function
   // TODO: only show arrow if needed [height > 100% viewport]
   const arrow = document.querySelector('.js_top__arrow')
-  scrollToTop()
+  arrow.addEventListener('click', function() {
+    scrollToTop(this.parentNode)
+  })
 
   const expand = document.querySelectorAll('.js_expand ')
   const details = document.querySelectorAll('.js_details')

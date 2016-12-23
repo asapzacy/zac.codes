@@ -28,7 +28,9 @@ export const scrollToTop = (el, duration = 600) => {
   const scroll = () => {
     const now = Date.now()
     const time = (now - start) / duration
-    const easing = easeInOutCubic(time)
+    console.log(`time: ${time}`)
+    const easing = easeOutQuart(time)
+    console.log(`easing: ${easing}`)
     el.scrollTop = (easing * (0 - bottom)) + bottom
     if (el.scrollTop === 0) return
     requestAnimationFrame(scroll)
@@ -36,42 +38,32 @@ export const scrollToTop = (el, duration = 600) => {
   scroll()
 }
 
-// old scrollToTop function
-// export const scrollToTop = (el) => {
-//   el.addEventListener('click', function() {
-//     requestAnimationFrame(scroll)
-//   })
-//   const scroll = () => {
-//     if (el.parentNode.scrollTop > 0) {
-//       el.parentNode.scrollTop = el.parentNode.scrollTop - 10
-//       requestAnimationFrame(scroll)
-//     }
-//   }
-//   scroll()
-// }
-
-// fade out any element + remove node
-export const fadeOut = (el) => {
-  el.style.opacity = 1
+// fade in any element
+export const fadeIn = (el, duration = 1600) => {
+  el.style.opacity = 0
+  const start = Date.now()
   const fade = () => {
-    if (el.style.opacity < 0) {
-      el.parentNode.removeChild(el)
-    } else {
-      el.style.opacity = +el.style.opacity - 0.01
-      requestAnimationFrame(fade)
-    }
+    const now = Date.now()
+    const time = (now - start) / duration
+    const easing = easeInQuart(time)
+    el.style.opacity = easing
+    if (el.style.opacity > 1) el.style.opacity = 1
+    requestAnimationFrame(fade)
   }
   fade()
 }
 
-// fade in any element
-export const fadeIn = (el) => {
-  el.style.opacity = 0
+// fade out any element + remove node
+export const fadeOut = (el, duration = 1600) => {
+  el.style.opacity = 1
+  const start = Date.now()
   const fade = () => {
-    if (el.style.opacity < 1) {
-      el.style.opacity = +el.style.opacity + 0.01
-      requestAnimationFrame(fade)
-    }
+    const now = Date.now()
+    const time = (now - start) / duration
+    const easing = easeOutQuart(time)
+    el.style.opacity = easing
+    if (el.style.opacity < 0) el.parentNode.removeChild(el)
+    requestAnimationFrame(fade)
   }
   fade()
 }
