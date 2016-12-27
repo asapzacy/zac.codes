@@ -7,9 +7,9 @@ const app = express()
 
 app.use(compression())
 app.use(express.static('app'))
-app.get('*', function(req, res) {
-  res.sendFile(path.resolve('app/404/index.html'))
-})
+// app.get('*', function(req, res) {
+//   res.sendFile(path.resolve('app/404/index.html'))
+// })
 app.listen(port, function() {
   console.log(`server listening on port ${port}`)
 })
