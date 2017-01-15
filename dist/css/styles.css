@@ -497,6 +497,7 @@ footer {
   .project__preview {
     display: flex;
     align-items: center;
+    flex-flor: wrap row;
     margin: 1em 0; }
   .project__intro {
     text-align: center;
