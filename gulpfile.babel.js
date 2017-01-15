@@ -5,6 +5,7 @@ import gutil from 'gulp-util'
 import imagemin from 'gulp-imagemin'
 import cache from 'gulp-cache'
 import sass from 'gulp-sass'
+import sourcemaps from 'gulp-sourcemaps'
 import autoprefixer from 'gulp-autoprefixer'
 import uglifycss from 'gulp-uglifycss'
 import browserify from 'browserify'
@@ -29,7 +30,7 @@ const FILES = {
 }
 const reload = browserSync.reload
 
-// static files --> dist
+//  static files --> dist
 gulp.task('static', function() {
   gulp.src(FILES.ico)
     .pipe(gulp.dest('dist'))
@@ -38,7 +39,7 @@ gulp.task('static', function() {
     .pipe(reload({ stream: true }))
 })
 
-// images --> minify + cache --> dist
+//  images --> minify + cache --> dist
 gulp.task('img', function() {
   gulp.src(FILES.img)
     .pipe(cache(imagemin({ interlaced: true })))
@@ -46,7 +47,7 @@ gulp.task('img', function() {
     .pipe(reload({ stream: true }))
 })
 
-// sass --> css --> dist
+//  sass --> css --> dist
 gulp.task('sass', function() {
   gulp.src(FILES.sass)
     .pipe(sass())
@@ -60,12 +61,12 @@ gulp.task('sass', function() {
     .pipe(reload({ stream: true }))
 })
 
-// es6 --> js --> dist
+//  es6 --> js --> dist
 gulp.task('js', function() {
   return build(FILES.main, false)
 })
 
-// browser-sync --> local server
+//  browser-sync --> local server
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: { baseDir: 'dist' },
@@ -107,7 +108,9 @@ function build(file, watch) {
       .pipe(buffer())
       .pipe(rename('main.js'))
       .pipe(gulp.dest(PATHS.build + '/js'))
+      .pipe(sourcemaps.init())
       .pipe(uglify())
+      .pipe(sourcemaps.write())
       .pipe(rename('main.min.js'))
       .pipe(gulp.dest(PATHS.build + '/js'))
       .pipe(reload({ stream: true }))

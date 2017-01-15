@@ -1,14 +1,19 @@
 
-/* base */
+/*  ------------------------
+  ---------  styles  ---------
+    ------------------------  */
+
+/* -------  base  ------- */
 @import 'base/variables';
 @import 'base/resets';
 @import 'base/app';
 @import 'base/elements';
-/* components */
+
+/* -------  components  ------- */
 @import 'components/header';
-@import 'components/menu';
 @import 'components/main';
 @import 'components/footer';
+
 /* pages */
 @import 'pages/landing';
 @import 'pages/about';

@@ -1,15 +1,5 @@
+
 /* about page */
-
-.about__sections {
-  display:flex;
-  flex-direction:column;
-  @media only screen and (min-width:$medium) {
-    flex-direction:row;
-    justify-content:space-between;
-    font-size:0.8em;
-  }
-}
-
 .intro {
   text-align:center;
   max-width:900px;

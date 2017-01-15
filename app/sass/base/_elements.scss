@@ -1,3 +1,57 @@
-/* top arrow */
-.top__arrow { position:relative;cursor:pointer;height:26px;width:26px;display:inline-flex;justify-content:center;align-items:center;float:right;margin:-2em 0 4em }
-.top__arrow::before { content:'\f102';font-family:FontAwesome;font-size:1.4em }
+
+/* -------  trigger  ------- */
+.trigger {
+  width:52px;
+  height:52px;
+  z-index:10;
+  position:absolute;
+  top:0;
+  right:0;
+  cursor:pointer;
+  &__line {
+    height:2px;
+    width:24px;
+    display:block;
+    position:absolute;
+    top:25px;
+    left:14px;
+  }
+}
+
+/* -------  sections  ------- */
+.sections {
+  display:flex;
+  flex-direction:column;
+  @media only screen and (min-width:$medium) {
+    flex-flow:wrap row;
+    justify-content:space-between;
+    font-size:0.8em;
+  }
+}
+
+/* -------  icon  ------- */
+.icon {
+  cursor:pointer;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* -------  top arrow  ------- */
+.page__arrow--top {
+  position:relative;
+  height:26px;
+  width:26px;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  float:right;
+  margin:-2em 0 4em;
+  &::before {
+    content:'\f102';
+    font-family:FontAwesome;
+    font-size:1.4em;
+  }
+}
+
+.transparent .line { background:transparent }

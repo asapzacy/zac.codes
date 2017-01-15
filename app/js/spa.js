@@ -30,8 +30,11 @@ export const updatePage = () => {
     container.innerHTML = responseText
     const oldPage = document.querySelector('.page')
     const newPage = container.querySelector('.page')
-    document.title = container.getElementsByTagName('title')[0].textContent
+    const newTitle = container.getElementsByTagName('title')[0].textContent
+    const newDesc = container.getElementsByTagName('meta')['description'].content
     oldPage.parentNode.replaceChild(newPage, oldPage)
+    document.title = newTitle
+    document.getElementsByTagName('meta')['description'].content = newDesc
     fadeIn(newPage)
     runNewFunctions()
   })

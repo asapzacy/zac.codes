@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "personal portfolio website",
   "main": "server.js",
-  "scripts": {
-    "build": "rm -rf dist && gulp"
-  },
+  "scripts": {},
   "author": "Zac Arellano",
   "license": "MIT",
   "dependencies": {
@@ -27,6 +25,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.0.0",
+    "gulp-sourcemaps": "^2.4.0",
     "gulp-uglify": "^2.0.0",
     "gulp-uglifycss": "^1.0.6",
     "gulp-util": "^3.0.7",

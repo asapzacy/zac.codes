@@ -1,8 +1,9 @@
 /* main */
 main {
   display:flex;
+  flex:8;
   max-width:$max_width;
-  margin:0 auto 72px;flex:8;
+  margin:0 auto 72px;
 }
 
 .page {
@@ -15,14 +16,18 @@ main {
     font-family:$font__yellowtail;
   }
   h2 {
-    font-size:1.999em;
+    font-size:1.9191em;
     font-family:monospace;
   }
   h3 {
     font-size:1.414em;
     font-family:monospace;
   }
+  h4 {
+    font-family:monospace;
+    font-size:1.0505em;
+  }
   a {
-    border-bottom:1px solid $purple
+    border-bottom:1px solid $color__purple
   }
  }

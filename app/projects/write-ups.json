@@ -1,0 +1,11 @@
+{
+  "projects": [{
+    "name": "uxscoreboard",
+    "date": "fall 2016",
+    "intro": "A sports scoreboard web app built on react.js and es6; features all MLB, NBA, NFL (coming soon), and NHL season and playoff games.",
+    "details": {
+      "background": "I’ve always been a big sports fan growing up, whether playing or watching, paintball to basketball, it didn’t matter.\n\nSo, I took this passion to build a significantly better sports scoreboard.",
+      ""
+    }
+  }]
+}

@@ -1,20 +1,132 @@
-/* header */
-.menu__btn {
-  width:52px;height:52px;
-  background:$white;z-index:10;
-  position:absolute;top:0;right:0;
-  cursor:pointer;transition:background 1s linear 0.66s
+
+/*  ------------------------
+  ---------  header  ---------
+    ------------------------  */
+
+/* -------  trigger menu  ------- */
+.trigger--menu {
+  background:$color__white;
+  transition:background 1s linear 0.66s;
 }
-.menu-open .menu__btn { background:transparent;transition:background $timing__instant }
-.menu__btn .line  {
-  height:2px;width:24px;
-  display:block;background:$purple;
-  position:absolute;top:25px;left:14px;
-  transition:background $timing__quick $cubic 0.44s,transform 0.44s $cubic $timing__instant
+
+/* -------  trigger menu  ------- */
+.trigger__line {
+  background:$color__black;
+  transition:background $timing__quick $cubic 0.44s,transform 0.44s $cubic $timing__instant;
+  &--top { transform:translateY(-4px); }
+  &--bottom { transform:translateY(4px); }
 }
-.menu__btn .line-top { transform:translateY(-4px) }
-.menu__btn .line-bottom { transform:translateY(4px) }
-.menu-open .line-top { transform:rotate(-45deg) }
-.menu-open .line-bottom { transform:rotate(45deg) }
-.menu-open .line { background:$white;transition-delay:$timing__instant }
-.transparent .line { background:transparent }
+  
+/* -------  menu  ------- */
+.menu {
+  background:$color__purple;
+  color:$color__white;
+  text-align:center;
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:9;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity $timing__quick $cubic $timing__medium, visibility $timing__instant $timing__slow;
+  @media only screen and (min-width:$small) {
+    bottom:initial;
+  }
+}
+
+/* -------  menu list  ------- */
+.menu__list {
+  display:flex;
+  font-size:1.4em;
+  height:100%;
+  justify-content:center;
+  flex-direction:column;
+  align-items:center;
+  @media only screen and (min-width:$small) {
+    width:70%;
+    margin:0 auto;
+    font-size:0.8em;
+    flex-direction:row;
+    justify-content:space-around;
+  }
+}
+
+/* -------  menu item  ------- */
+.menu__item {
+  margin:1em 0;
+  opacity:0;
+  transition:opacity $timing__quick ease-in;
+  &:nth-child(1) { transition-delay:$timing__quick }
+  &:nth-child(2) { transition-delay:0.11s }
+  &:nth-child(3) { transition-delay:$timing__instant }
+  @media only screen and (min-width:$small) {
+    margin:1.2em 0 0.6em;
+  }
+}
+
+/* -------  menu link  ------- */
+.menu__link {
+  display:inline-block;
+  padding:0.4em;
+  transition:color 0.26s;
+  &::before {
+    display:block;
+    margin-bottom:0.05em;
+    font:normal 2em/1 FontAwesome;
+  }
+  &--landing::before { content:'\f277' }
+  &--about::before { content:'\f1e3' }
+  &--projects::before { content:'\f0c7' }
+  &::after {
+    content:'';
+    display:block;
+    height:2px;
+    width:2px;
+    margin:0 auto;
+    background:$color__white;
+    opacity:0;
+    transform:translateY(-3.2em);
+    transition:width $timing__slow,opacity $timing__average,transform $timing__average
+  }
+  &:hover::after {
+    width:100%;
+    opacity:1;
+    transform:translateY(-2px)
+  }
+}
+
+
+/* -------  menu open  ------- */
+.menu-open {
+    /* -------  trigger menu  ------- */
+  .trigger--menu {
+    background:transparent;
+    transition:background $timing__instant;
+  }
+
+  /* -------  trigger line  ------- */
+  .trigger__line {
+    background:$color__white;
+    transition-delay:$timing__instant;
+    &--top { transform:rotate(-45deg); }
+    &--bottom { transform:rotate(45deg); }
+  }
+
+  /* -------  menu  ------- */
+  .menu {
+    opacity:1;
+    visibility:visible;
+    transition:opacity $timing__quick $cubic $timing__instant;
+  }
+
+  /* -------  menu item  ------- */
+  .menu__item {
+    opacity:1;
+    transition-duration:0.42s;
+    &:nth-child(1) { transition-delay:$timing__quick; }
+    &:nth-child(2) { transition-delay:0.33s; }
+    &:nth-child(3) { transition-delay:$timing__medium; }
+  }
+}
