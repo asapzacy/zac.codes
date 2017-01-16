@@ -42,19 +42,15 @@
 }
 
 /* -------  top arrow  ------- */
-.page__arrow--top {
-  position:relative;
+.arrow {
   height:26px;
   width:26px;
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  float:right;
-  margin:-2em 0 4em;
+  margin:-2em -2% 4em auto;
+  padding:4%;
   &::before {
     content:'\f102';
     font-family:FontAwesome;
-    font-size:1.4em;
+    font-size:1.5em;
   }
 }
 

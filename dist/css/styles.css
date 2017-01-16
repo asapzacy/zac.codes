@@ -140,19 +140,15 @@ body {
   align-items: center; }
 
 /* -------  top arrow  ------- */
-.page__arrow--top {
-  position: relative;
+.arrow {
   height: 26px;
   width: 26px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  float: right;
-  margin: -2em 0 4em; }
-  .page__arrow--top::before {
+  margin: -2em -2% 4em auto;
+  padding: 4%; }
+  .arrow::before {
     content: '\f102';
     font-family: FontAwesome;
-    font-size: 1.4em; }
+    font-size: 1.5em; }
 
 .transparent .line {
   background: transparent; }
@@ -558,7 +554,7 @@ footer {
   .project__closeIcon {
     font-size: 1.11em;
     margin-bottom: 1px;
-    overflow: inherit; }
+    overflow: hidden; }
   .project__details {
     font-size: 0.9em;
     clear: both;
@@ -572,6 +568,8 @@ footer {
   margin-bottom: 3em; }
   .details__section:first-child {
     margin-top: 2em; }
+  .details__section .details__subheader:first-of-type {
+    margin-top: 1.5em; }
 
 .details__header {
   margin-bottom: 1em;

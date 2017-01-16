@@ -64,7 +64,7 @@
   &__closeIcon {
     font-size:1.11em;
     margin-bottom:1px;
-    overflow:inherit;
+    overflow:hidden;
   }
 
   /* -------  project details  ------- */
@@ -85,8 +85,11 @@
   &__section {
     margin-bottom:3em;
     &:first-child {
-        margin-top:2em;
-      }
+      margin-top:2em;
+    }
+    .details__subheader:first-of-type {
+      margin-top:1.5em;
+    }
   }
 
   &__header {
