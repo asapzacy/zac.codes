@@ -14,8 +14,8 @@ const easeInOutQuart = (t) => t<.5 ? (8*t*t*t*t) : (1-8*(--t)*t*t*t)
 
 
 
-// scroll to top of element passed in.
-export const scrollToTop = (el, duration = 600) => {
+// scroll-to-top of element.
+export const scrollToTop = (el, duration = 1200) => {
   const bottom = el.scrollHeight
   const start = Date.now()
   const scroll = () => {
@@ -23,16 +23,14 @@ export const scrollToTop = (el, duration = 600) => {
     const time = (now - start) / duration
     const easing = easeOutQuart(time)
     el.scrollTop = (easing * (0 - bottom)) + bottom
-    if (el.scrollTop === 0) {
-      return
-    }
+    if (el.scrollTop === 0) return
     requestAnimationFrame(scroll)
   }
   scroll()
 }
 
-// fade-in element.
-export const fadeIn = (el, duration = 1600) => {
+// fade-in element
+export const fadeIn = (el, duration = 1200) => {
   el.style.opacity = 0
   const bottom = 1
   const start = Date.now()
@@ -50,8 +48,8 @@ export const fadeIn = (el, duration = 1600) => {
   fade()
 }
 
-// fade out element.
-export const fadeOut = (el, duration = 1600) => {
+// fade-out element
+export const fadeOut = (el, duration = 1200) => {
   el.style.opacity = 1
   const start = Date.now()
   const fade = () => {

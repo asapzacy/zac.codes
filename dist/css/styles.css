@@ -27,6 +27,9 @@ ul, menu {
 h1, h2, h3, h4, h5, h6 {
   font-weight: inherit; }
 
+strong {
+  font-weight: 600; }
+
 input {
   border: 0;
   background: inherit;
@@ -344,7 +347,7 @@ footer {
   background: #30049e url("../img/mountains.svg") -1px -1px/100px 72px repeat-x;
   padding-top: 72px;
   margin-top: -72px;
-  box-shadow: 0 0 3.2em 3.2em #ffffff; }
+  box-shadow: 0 -1.2em 1.2em 1.2em #ffffff; }
 
 .social {
   width: 80%;
@@ -512,12 +515,15 @@ footer {
 
 /* -------  project  ------- */
 .project {
+  /* -------  media queries  ------- */
   /* -------  project date  ------- */
   /* -------  project preview  ------- */
   /* -------  project intro  ------- */
   /* -------  expand icon button - project details  ------- */
-  /* -------  project details  ------- */
-  /* -------  media queries  ------- */ }
+  /* -------  project details  ------- */ }
+  @media only screen and (min-width: 55em) {
+    .project {
+      width: 47%; } }
   .project:not(:last-child)::after {
     content: '';
     display: block;
@@ -550,7 +556,8 @@ footer {
   .project__expandIcon--expanded::after, .project__closeIcon::after {
     transform: rotate(-135deg); }
   .project__closeIcon {
-    font-size: initial;
+    font-size: 1.11em;
+    margin-bottom: 1px;
     overflow: inherit; }
   .project__details {
     font-size: 0.9em;
@@ -559,9 +566,6 @@ footer {
     max-height: 0;
     counter-reset: section;
     transition: max-height 0.44s; }
-  @media only screen and (min-width: 55em) {
-    .project {
-      width: 48%; } }
 
 /* -------  details section  ------- */
 .details__section {

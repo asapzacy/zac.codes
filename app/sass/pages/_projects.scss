@@ -2,6 +2,11 @@
 /* -------  project  ------- */
 .project {
 
+  /* -------  media queries  ------- */
+  @media only screen and (min-width:$medium) {
+    width:47%;
+  }
+
   &:not(:last-child)::after {
     content:'';
     display:block;
@@ -30,6 +35,11 @@
   &__intro {
     text-align:center;
     margin-bottom:0.5em;
+  //   @media only screen and (min-width:$medium) {
+  //     width:90%;
+  //     margin-right:auto;
+  //     margin-left:auto;
+  // }
   }
 
   /* -------  expand icon button - project details  ------- */
@@ -52,7 +62,8 @@
     transform:rotate(-135deg);
   }
   &__closeIcon {
-    font-size:initial;
+    font-size:1.11em;
+    margin-bottom:1px;
     overflow:inherit;
   }
 
@@ -64,11 +75,6 @@
     max-height:0;
     counter-reset:section;
     transition:max-height $timing__medium;
-  }
-
-  /* -------  media queries  ------- */
-  @media only screen and (min-width:$medium) {
-    width:48%;
   }
 }
 

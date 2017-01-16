@@ -3,7 +3,7 @@
 /*  ------------------------
   ---------  footer  ---------
     ------------------------  */
-    
+
 footer {
   width:100%;
   z-index:8;
@@ -12,7 +12,7 @@ footer {
   background:$color__purple url('../img/mountains.svg') -1px -1px / 100px 72px repeat-x;
   padding-top:72px;
   margin-top:-72px;
-  box-shadow:0 0 3.2em 3.2em $color__white;
+  box-shadow:0 -1.2em 1.2em 1.2em $color__white;
 }
 
 .social {
