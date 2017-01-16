@@ -1,7 +1,15 @@
 
 /* -------  project  ------- */
 .project {
-  margin:2em 0 4em;
+
+  &:not(:last-child)::after {
+    content:'';
+    display:block;
+    height:2px;
+    background-image:linear-gradient(90deg,transparent,$color__black,transparent);
+    margin:4em auto;
+    width:88%;
+  }
 
   /* -------  project date  ------- */
   &__date {
@@ -10,10 +18,12 @@
 
   /* -------  project preview  ------- */
   &__preview {
-    display:flex;
-    align-items:center;
-    flex-flor:wrap row;
     margin:1em 0;
+  }
+
+  &__image {
+    background:$color__black;
+    padding:1%;
   }
 
   /* -------  project intro  ------- */
@@ -24,13 +34,14 @@
 
   /* -------  expand icon button - project details  ------- */
   &__icon {
-    width:33.3%;
     float:right;
     font-weight:600;
     height:2em;
+    border-bottom:1px solid $color__black;
+    border-right:1px solid $color__black;
+    padding-left:1em;
     &::after {
       content:'+';
-      display:inline-block;
       width:1.5em;
       text-align:center;
       transition:transform $timing__medium;
@@ -39,6 +50,10 @@
   &__expandIcon--expanded::after,
   &__closeIcon::after {
     transform:rotate(-135deg);
+  }
+  &__closeIcon {
+    font-size:initial;
+    overflow:inherit;
   }
 
   /* -------  project details  ------- */
@@ -83,7 +98,7 @@
     font-size:.96969em;
     font-weight:600;
     font-style:italic;
-    margin:1.5em 0 0.5em;
+    margin:2em 0 0.5em;
   }
   &__content {
     margin-bottom:1em;
@@ -98,20 +113,20 @@
     }
   }
   &__tldr {
-    margin-bottom:3em;
+    margin-bottom:2em;
     &::before {
       content:'';
       display:block;
       height:2px;
       background-image:linear-gradient(90deg,transparent,$color__black,transparent);
       margin:0 auto 3em;
-      width:80%;
+      width:60%;
     }
   }
 }
 
 
-.project:not(:last-child)::after { content:'';display:block;background:$color__black;width:66.6%;height:2px;margin:3em auto }
+// .project:not(:last-child)::after { content:'';display:block;background:$color__black;width:66.6%;height:2px;margin:3em auto }
 .project:last-child { margin-bottom:6em }
 .preview { display:flex;align-items:center }
 .preview .x { display:none;width:52px;height:52px;position:absolute;top:0;right:0;cursor:pointer }
@@ -121,35 +136,3 @@
 .hippify img { border:1px solid $color__black;padding:2% 4% }
 .klopro img { border:1px solid $color__black;background:$color__white;padding:2% 4% 0 }
 .fullscreen img { border:0 }
-
-
-// .project__details {
-  // clear:both;
-  // overflow-y:hidden;
-  // max-height:0;
-  // counter-reset:section;
-  // transition:max-height $timing__medium;
-  // h4 {
-  //   font:600 1em/1.2 monospace;margin:0.8em 0;font-size:0.95em;
-  //   &::before { counter-increment:section;content:counter(section,lower-roman)'. '; }
-  // }
-  // p { margin:1em 0 3em;font-size:0.9em; }
-// }
-
-// .expand { cursor:pointer;font-weight:600;width:33.3%;text-align:center;float:right;
-//   &::after {
-//     content:'\f107';font-family:FontAwesome;display:inline-block;
-//     will-change:transform;transition:transform $timing__medium
-//   }
-//  }
-
-
-
-.fullscreen { z-index:999;position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.9) }
-.fullscreen .x { display:block }
-.fullscreen figure { padding:10% 0 }
-.fullscreen img { width:94%;border-radius:2px;cursor:initial }
-.fullscreen figcaption { color:$color__white }
-.x .line  { height:2px;width:24px;display:block;background:$color__white;position:absolute;top:25px;left:14px }
-.x .line-top { transform:rotate(-45deg) }
-.x .line-bottom { transform:rotate(45deg) }

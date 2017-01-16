@@ -1,13 +1,17 @@
 
-/* -------  trigger  ------- */
+/* -------  trigger container  ------- */
 .trigger {
-  width:52px;
-  height:52px;
-  z-index:10;
-  position:absolute;
-  top:0;
-  right:0;
-  cursor:pointer;
+  &__container {
+    width:52px;
+    height:52px;
+    z-index:10;
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    cursor:pointer;
+  }
   &__line {
     height:2px;
     width:24px;

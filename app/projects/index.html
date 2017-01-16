@@ -12,10 +12,12 @@
   <body>
     <div id="app">
       <header>
-        <span class="trigger trigger--menu js-trigger--menu">
-          <span class="trigger__line trigger__line--top"></span>
-          <span class="trigger__line trigger__line--bottom"></span>
-        </span>
+        <div class="trigger">
+          <span class="trigger__container trigger--menu js-trigger--menu">
+            <span class="trigger__line trigger__line--top"></span>
+            <span class="trigger__line trigger__line--bottom"></span>
+          </span>
+        </div>
         <nav class="menu js-menu">
           <menu class="menu__list">
             <li class="menu__item"><a href="/" class="menu__link menu__link--landing">home</a></li>
@@ -32,14 +34,72 @@
             <div class="project js-project project--uxscoreboard">
               <h2 class="project__title">uxscoreboard</h2>
               <h3 class="project__date">fall 2016</h3>
-              <div class="project__preview js-project__preview">
-                <!-- <span class="x">
-                  <span class="line line-top"></span>
-                  <span class="line line-bottom"></span>
-                </span> -->
-                <figure>
-                  <img src="../img/projects/uxscoreboard-preview.png">
-                  <figcaption>mlb scores - uxscoreboard</figcaption>
+              <div class="project__preview">
+                <figure class="project__figure">
+                  <img class="project__image" src="../img/projects/uxscoreboard-preview.png">
+                  <figcaption class="project__caption">mlb scores - uxscoreboard</figcaption>
+                </figure>
+              </div>
+              <p class="project__intro">A sports scoreboard web app built on react.js and es6; features all MLB, NBA, NFL (coming soon), and NHL season and playoff games.</p>
+              <div class="icon project__icon project__expandIcon">details</div>
+              <div class="details project__details">
+                <section class="details__section">
+                  <h4 class="details__header">project background</h4>
+                  <p class="details__content">I’ve always been a big sports fan growing up, whether playing or watching, paintball to basketball, it didn’t matter.</p>
+                  <p class="details__content">So, I took this passion to build a significantly better sports scoreboard.</p>
+                </section>
+                <section class="details__section">
+                  <h4 class="details__header">thought process</h4>
+                  <p class="details__content">The original idea was to recreate and improve upon your typical ESPN sports scoreboard website—without the advertisements, and with an emphasis on design and interaction.</p>
+                  <p class="details__content">I also wanted it to...</p>
+                  <ul class="details__list">
+                    <li class="details__listItem">support all major sports, MLB/NBA/NHL/NFL</li>
+                    <li class="details__listItem">be quick</li>
+                    <li class="details__listItem">for the URLs to be functional – whether sharing with friends, bookmarking, or browsing around the site, every valid URL will show the necessary content.</li>
+                  </ul>
+                  <p class="details__content">I started with just the MLB, because they make their game data accessible and easy to use. Eventually, after a little digging around, I was able to find public and updated json files for the NBA, NFL, and NHL.</p>
+                  <p class="details__content">Moving forward, I want to one day be able to add soccer, my favorite sport, despite the lack of (public) available data.</p>
+                </section>
+                <section class="details__section">
+                  <h4 class="details__header">execution</h4>
+                  <p class="details__content">There were a few distinct areas that went into building the web app.</p>
+                  <h5 class="details__subheader">React core -</h5 class="details__subheader">
+                  <p class="details__content">To start it off, I wanted to learn <a href="https://github.com/facebook/react" class="project__link">react.js</a>. I chose react, because (outside of it being insanely popular and taking over the frontend industry this past year) it was exactly what I needed, a view layer, and nothing more. So I started off learning react with <a href="https://github.com/ReactTraining/react-router" class="project__link">react-router</a>, which I found to be impressively powerful and perfect for the job.</p>
+                  <p class="details__content">Thanks to the <a href="https://reactjsprogram.com" class="project__link">reactjsprogram.com</a>, I felt like I learned good practices going into this and before building my first react app. I implemented modularity through the use of functional (stateful) containers and presentational (stateless) components. Also, I used <a href="https://github.com/css-modules/css-modules" class="project__link">css modules</a> to keep all class names and styling locally scoped.</p>
+                  <h5 class="details__subheader">Build tools -</h5 class="details__subheader">
+                  <p class="details__content"><a href="https://github.com/webpack/webpack" class="project__link">Webpack</a> was the backbone to the whole project (and thank you to all the webpack open-source contributors), between hot-module replacement and compiling, you couldn’t ask for a better front end development environment. I used es6 extensively throughout the project with the help of <a href="https://github.com/babel/babel" class="project__link">babel</a>.</p>
+                  <h5 class="details__subheader">Packages -</h5 class="details__subheader">
+                  <p class="details__content">All the json data came from public and accessible URLs on the web. I used the <a href="https://github.com/mzabriskie/axios" class="project__link">axios</a> package for a promise-based HTTP client in grabbing the data. After receiving the promise (on success), I would clean the data, update the isLoading state, and pass the data to stateless presentational components to display the data.</p>
+                  <p class="details__content">Another package that was perfect for the job was <a href="https://github.com/moment/moment" class="project__link">moment</a>. I was dealing with a lot of dates and times from the various leagues and schedules; moment made the day-to-day navigation clear and simple.</p>
+                  <h5 class="details__subheader">Backend -</h5 class="details__subheader">
+                  <p class="details__content">Getting the web app on the Internet was another area of learning. I set up a $5 <a href="https://www.digitalocean.com/" class="project__link">DigitalOcean</a> droplet running Ubuntu. I added https/ssl to the base site, and used <a href="http://nginx.org/" class="project__link">nginx</a> + <a href="https://nodejs.org/en/" class="project__link">node</a> + <a href="https://github.com/expressjs/express" class="project__link">express</a> to serve a <code>/dist</code> directory of static resources.</p>
+                  <p class="details__content">The build process is a little awkward (and I’d love to set up continuous integration eventually). Right now I am writing code locally and pushing it to github, but before every <code>git push</code>, I need to build out the <code>bundle.js</code> file + whatever else is needed. When I want to update the web app, I <code>ssh</code> into the server and <code>git pull</code> from there.</p>
+                </section>
+                <section class="details__section">
+                  <h4 class="details__header">what I learned</h4>
+                  <p class="details__content">I learned a lot. Besides all the tooling and languages and whatnot, I learned that I could build exactly what I had envisioned in my head. From hardly knowing javascript, to never touching react before, or setting up a server, ssl certifications, and such, I achieved everything that I envisioned.
+                  <p class="details__content">On top of this, I learned the importance of modularizing your code into small and reusable components. Setting up the original MLB-only page was fast and easy, adding additional leagues and games was the difficult part. I probably refactored every line of code since the original, but I did learn the importance of reusing code and not repeating yourself for future changes or edits.</p>
+                  <p class="details__content">Also, I realized the importance of thinking ahead and planning for where the app is headed. I knew all along I would like to implement multiple leagues, so I should’ve started with the mindsight of using state and props that would work for any input of data (i.e. instead of using <em>innings</em> as a prop, use <em>periods</em> or <em>segments</em> from the beginning to work with everything from tennis to college basketball).</p>
+                </section>
+                <section class="details__section">
+                  <h4 class="details__header">what I would've done differently</h4>
+                  <p class="details__content">Although I felt happy with the end results, I would’ve done a lot differently.</p>
+                  <p class="details__content">First off, I would’ve created a simple database from the beginning that stored all the leagues and game data. Right now, the app is fetching a json file (if the url parameters are valid) on every page load. Instead of fetching a file from last season, it would’ve been nice to set up a database from the beginning that stored every piece of data as it was initially fetched/loaded. Typically, only [yesterday], [today], and [tomorrow]’s data could change when it comes to sporting events (i.e. game delay - change of game time/date – official review score change – updated final stats - etc.), so fetching every game is unnecessary and a waste of resources and also hurting the page speed.</p>
+                  <p class="details__content">Also, the CORS issue was one of my largest problems. Working locally, everything works as expected. But when I set the server up and get everything live, my https site and can only receive requests from other https origins. So two of the four data sources stopped working. NBA and MLB both come from http origins, so getting those to work was difficult and I’d still like to improve on this. I was using <a href="https://crossorigin.me" class="project__link">crossorigin.me</a> as a quick hack/fix to the problem, but sometimes that website will go down, breaking my website – (still need to fix this).</p>
+                </section>
+                <p class="details__tldr"><strong><code>tl;dr</code></strong> All in all, I learned a lot about frontend development and programming in general, plus I had a blast making it. A fully-functional, live sports scoreboard built on react.js and es6. I have a lot of features I'd love to add, and will continue working on it.</p>
+                <div class="icon project__icon project__closeIcon">close</div>
+              </div>
+            </div>
+
+
+            <div class="project js-project project--zacarellano">
+              <h2 class="project__title">zacarellano</h2>
+              <h3 class="project__date">september 2016</h3>
+              <div class="project__preview">
+                <figure class="project__figure">
+                  <img class="project__image" src="../img/projects/zacarellano-preview.png">
+                  <figcaption class="project__caption">portfolio - zacarellano</figcaption>
                 </figure>
               </div>
               <p class="project__intro">A sports scoreboard web app built on react.js and es6; features all MLB, NBA, NFL (coming soon), and NHL season and playoff games.</p>
@@ -93,6 +153,8 @@
                 <div class="icon project__icon project__closeIcon">close</div>
               </div>
             </div>
+
+
           </div>
           <span class="arrow page__arrow--top js-page__arrow--top"></span>
         </section>

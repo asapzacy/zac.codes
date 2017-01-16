@@ -1,22 +1,49 @@
 
-/*  ------------------------
-  ---------  header  ---------
-    ------------------------  */
+.trigger {
+  max-width:$width__max;
+  width:100%;
+  height:52px;
+  margin-bottom:-52px;
+  margin-left:auto;
+  margin-right:auto;
+  position:relative;
+  background:transparent;
+  @media only screen and (min-width:$small) {
+    height:88.89px;
+    margin-bottom:-88.89px;
+  }
+  @media only screen and (min-width:$medium) {
+    height:95.34px;
+    margin-bottom:-95.34px;
+  }
+  @media only screen and (min-width:$large) {
+    height:99.78px;
+    margin-bottom:-99.78px;
+  }
+  @media only screen and (min-width:$xlarge) {
+    height:104.23px;
+    margin-bottom:-104.23px;
+  }
+  @media only screen and (min-width:$xxlarge) {
+    height:109.66px;
+    margin-bottom:-109.66px;
+  }
 
-/* -------  trigger menu  ------- */
-.trigger--menu {
-  background:$color__white;
-  transition:background 1s linear 0.66s;
+  /* -------  trigger menu  ------- */
+  &--menu {
+    background:$color__white;
+    transition:background 1s linear 0.66s;
+  }
+
+  /* -------  trigger menu  ------- */
+  &__line {
+    background:$color__black;
+    transition:background $timing__quick $cubic 0.44s,transform 0.44s $cubic $timing__instant;
+    &--top { transform:translateY(-4px); }
+    &--bottom { transform:translateY(4px); }
+  }
 }
 
-/* -------  trigger menu  ------- */
-.trigger__line {
-  background:$color__black;
-  transition:background $timing__quick $cubic 0.44s,transform 0.44s $cubic $timing__instant;
-  &--top { transform:translateY(-4px); }
-  &--bottom { transform:translateY(4px); }
-}
-  
 /* -------  menu  ------- */
 .menu {
   background:$color__purple;
