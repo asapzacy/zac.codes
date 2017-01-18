@@ -4,13 +4,13 @@ main {
   flex:8;
   max-width:$width__max;
   margin:0 auto 72px;
+  overflow-y:scroll;
+  -webkit-overflow-scrolling:touch;
 }
 
 .page {
   width:100%;
   padding:16vh 4% 0;
-  overflow-y:scroll;
-  -webkit-overflow-scrolling:touch;
   h1 {
     font-size:2.827em;
     font-family:$font__yellowtail;

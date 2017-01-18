@@ -10,10 +10,6 @@ const easeInQuart = (t) => t*t*t*t
 const easeOutQuart = (t) => 1-(--t)*t*t*t
 const easeInOutQuart = (t) => t<.5 ? (8*t*t*t*t) : (1-8*(--t)*t*t*t)
 
-
-
-
-
 // scroll-to-top of element.
 export const scrollToTop = (el, duration = 1200) => {
   const bottom = el.scrollHeight
@@ -22,7 +18,9 @@ export const scrollToTop = (el, duration = 1200) => {
     const now = Date.now()
     const time = (now - start) / duration
     const easing = easeOutQuart(time)
+    console.log(easing)
     el.scrollTop = (easing * (0 - bottom)) + bottom
+    console.log(el.scrollTop)
     if (el.scrollTop === 0) return
     requestAnimationFrame(scroll)
   }

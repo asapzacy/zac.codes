@@ -42,7 +42,7 @@ figure {
   text-align: center; }
 
 figcaption {
-  font-size: 0.96em; }
+  font-size: 0.9em; }
 
 hr {
   border: 0; }
@@ -59,7 +59,7 @@ sup {
   color: #30049e;
   text-shadow: 0 0 transparent; }
 
-::-webkit-scrollbar {
+::-webkit-scrollbar, ::-moz-horizontal-scrollbar {
   width: 0;
   height: 0;
   background: transparent; }
@@ -310,13 +310,13 @@ main {
   display: flex;
   flex: 8;
   max-width: 1600px;
-  margin: 0 auto 72px; }
+  margin: 0 auto 72px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
 
 .page {
   width: 100%;
-  padding: 16vh 4% 0;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; }
+  padding: 16vh 4% 0; }
   .page h1 {
     font-size: 2.827em;
     font-family: "Yellowtail", cursive; }

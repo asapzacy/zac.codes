@@ -13,13 +13,12 @@ export default function runProjectsPage() {
 
   //  loop over every project, add event listener to expand icon button
   const projects = document.querySelectorAll('.js-project')
-  projects.forEach(item => {
-    const icon = item.querySelector('.project__expandIcon')
-    icon.addEventListener('click', expandDetails, false)
-  })
-  projects.forEach(item => {
-    const icon = item.querySelector('.project__closeIcon')
-    icon.addEventListener('click', closeDetails, false)
+  projects.forEach(project => {
+    const expandIcon = project.querySelector('.project__expandIcon')
+    expandIcon.addEventListener('click', expandDetails, false)
+
+    const closeIcon = project.querySelector('.project__closeIcon')
+    closeIcon.addEventListener('click', closeDetails, false)
   })
 
   function closeDetails() {
