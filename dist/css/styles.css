@@ -59,7 +59,7 @@ sup {
   color: #30049e;
   text-shadow: 0 0 transparent; }
 
-::-webkit-scrollbar, ::-moz-horizontal-scrollbar {
+::-webkit-scrollbar {
   width: 0;
   height: 0;
   background: transparent; }
@@ -311,12 +311,13 @@ main {
   flex: 8;
   max-width: 1600px;
   margin: 0 auto 72px;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; }
+  overflow: auto; }
 
 .page {
   width: 100%;
-  padding: 16vh 4% 0; }
+  padding: 16vh 4% 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
   .page h1 {
     font-size: 2.827em;
     font-family: "Yellowtail", cursive; }
