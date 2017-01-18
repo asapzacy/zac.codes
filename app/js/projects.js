@@ -12,7 +12,7 @@ export default function runProjectsPage() {
   }, false)
 
   //  loop over every project, add event listener to expand icon button
-  const projects = document.querySelectorAll('.js-project')
+  const projects = Array.from(document.querySelectorAll('.js-project'))
   projects.forEach(project => {
     const expandIcon = project.querySelector('.project__expandIcon')
     expandIcon.addEventListener('click', expandDetails, false)
