@@ -1,6 +1,3 @@
-/*  ------------------------
-  ---------  styles  ---------
-    ------------------------  */
 /* -------  base  ------- */
 /* -------  resets  ------- */
 * {
@@ -53,11 +50,6 @@ nav {
 
 sup {
   font-size: 66%; }
-
-::selection {
-  background: #ffffff;
-  color: #30049e;
-  text-shadow: 0 0 transparent; }
 
 ::-webkit-scrollbar {
   width: 0;
@@ -331,7 +323,7 @@ main {
     font-family: monospace;
     font-size: 1.0505em; }
   .page a {
-    border-bottom: 1px solid #30049e; }
+    border-bottom: 1px solid #070707; }
 
 /*  ------------------------
   ---------  footer  ---------
@@ -387,7 +379,7 @@ footer {
   opacity: 1;
   transform: translateY(-2px); }
 
-/* pages */
+/* -------  pages  ------- */
 /* landing page */
 .landing {
   font-size: 1.2em;
@@ -645,12 +637,3 @@ footer {
 
 .fullscreen img {
   border: 0; }
-
-/* extra */
-@media only screen and (orientation: landscape) {
-  .fullscreen figure {
-    padding: 0; }
-  .fullscreen img {
-    width: 68%; }
-  .fullscreen figcaption {
-    font-size: 1.1em; } }

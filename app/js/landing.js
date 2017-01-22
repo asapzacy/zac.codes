@@ -1,7 +1,6 @@
 
 // landing page functions
 export default function runLandingPage() {
-  (function() {
 
     // pixels^2 + findArea function
     const findArea = () => {
@@ -18,5 +17,4 @@ export default function runLandingPage() {
     findArea()
     window.addEventListener('resize', findArea)
 
-  })()
 }

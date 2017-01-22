@@ -1,7 +1,4 @@
 
-/*  ------------------------
-  ---------  styles  ---------
-    ------------------------  */
 
 /* -------  base  ------- */
 @import 'base/variables';
@@ -14,9 +11,7 @@
 @import 'components/main';
 @import 'components/footer';
 
-/* pages */
+/* -------  pages  ------- */
 @import 'pages/landing';
 @import 'pages/about';
 @import 'pages/projects';
-/* extra */
-@import 'extra/media_queries'

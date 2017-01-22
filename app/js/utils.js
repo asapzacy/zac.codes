@@ -17,10 +17,8 @@ export const scrollToTop = (el, duration = 1200) => {
   const scroll = () => {
     const now = Date.now()
     const time = (now - start) / duration
-    const easing = easeOutQuart(time)
-    console.log(easing)
+     const easing = easeOutQuart(time)
     el.scrollTop = (easing * (0 - bottom)) + bottom
-    console.log(el.scrollTop)
     if (el.scrollTop === 0) return
     requestAnimationFrame(scroll)
   }

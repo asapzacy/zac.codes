@@ -37,27 +37,4 @@ export default function runProjectsPage() {
     details.style.maxHeight = isExpanded ? 0 : `${details.scrollHeight}px`
   }
 
-
-
-    // click on image + full screen modal
-    // const preview = document.querySelectorAll('.js-preview')
-    // const menuBtn = document.querySelector('.js-menu__btn')
-    // for (let i = 0; i < preview.length; i++) {
-    //   preview[i].addEventListener('click', function(e) {
-    //     e.preventDefault()
-    //     const figure = preview[i].querySelector('figure')
-    //     const caption = preview[i].querySelector('figcaption')
-    //     const img = preview[i].querySelector('img')
-    //   if (!preview[i].classList.contains('fullscreen') && e.target === img) {
-    //       preview[i].classList.add('fullscreen')
-    //       menuBtn.style.display = 'none'
-    //       fade(figure, true, 40)
-    //     }
-    //     if (preview[i].classList.contains('fullscreen') && (e.target !== img && e.target !== caption && e.target !== figure)) {
-    //       preview[i].classList.remove('fullscreen')
-    //       menuBtn.style.display = 'block'
-    //     }
-    //   })
-    // }
-
 }

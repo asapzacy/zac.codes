@@ -13,7 +13,6 @@ import { updatePage, runNewFunctions } from './spa'
     header.classList.toggle('menu-open')
   }
   function changePage(event) {
-    console.log(event)
     if (event.target && event.target.nodeName === 'A') {
       event.preventDefault()
       toggleMenu()
