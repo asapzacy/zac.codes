@@ -1,7 +1,7 @@
 {
-  "name": "zacarellano",
+  "name": "zac.codes",
   "version": "1.0.0",
-  "description": "personal portfolio website",
+  "description": "personal portfolio",
   "main": "server.js",
   "scripts": {},
   "author": "Zac Arellano",

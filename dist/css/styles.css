@@ -524,9 +524,6 @@ footer {
     color: #616161; }
   .project__preview {
     margin: 1em 0; }
-  .project__image {
-    background: #070707;
-    padding: 1%; }
   .project__intro {
     text-align: center;
     margin-bottom: 0.5em; }
