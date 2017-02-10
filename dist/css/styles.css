@@ -513,7 +513,7 @@ footer {
   @media only screen and (min-width: 55em) {
     .project {
       width: 47%; } }
-  .project:not(:last-child)::after {
+  .project::after {
     content: '';
     display: block;
     height: 2px;

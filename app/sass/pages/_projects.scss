@@ -7,7 +7,7 @@
     width:47%;
   }
 
-  &:not(:last-child)::after {
+  &::after {
     content:'';
     display:block;
     height:2px;
