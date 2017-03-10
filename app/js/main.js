@@ -1,4 +1,3 @@
-
 import { updatePage, runNewFunctions } from './spa'
 
 (function() {
