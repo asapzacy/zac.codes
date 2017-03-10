@@ -1,5 +1,12 @@
 
 import { scrollToTop, fadeOut, fadeIn } from './utils'
+import { zoom } from '@nishanths/zoom.js'
+
+var imgElem = new Image();
+imgElem.src = "../img/projects/uxscoreboard-preview.png";
+document.body.appendChild(imgElem);
+console.log(zoom)
+zoom.setup(imgElem);
 
 // projects page - specific functions
 export default function runProjectsPage() {
