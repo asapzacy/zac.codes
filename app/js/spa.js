@@ -18,7 +18,7 @@ export const runNewFunctions = () => {
   } else if (path.startsWith('/projects')) {
     runProjectsPage()
   } else {
-    console.log('fix me')
+    return
   }
 }
 
@@ -32,6 +32,7 @@ export const updatePage = () => {
     const newPage = container.querySelector('.page')
     const newTitle = container.getElementsByTagName('title')[0].textContent
     const newDesc = container.getElementsByTagName('meta')['description'].content
+    console.log(oldPage)
     oldPage.parentNode.replaceChild(newPage, oldPage)
     document.title = newTitle
     document.getElementsByTagName('meta')['description'].content = newDesc
