@@ -1,24 +1,22 @@
 import runLandingPage from './landing'
 import runAboutPage from './about'
 import runProjectsPage from './projects'
-import { fadeIn } from './utils'
+import { fadeIn, findArea } from './utils'
 
 // fetch polyfill for mobile devices
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
 
 // run functions specific to page
-// TODO: removeEventListener('resize', findArea) when not on landing page
 export const runNewFunctions = () => {
   const path = window.location.pathname
+  window.removeEventListener('resize', findArea)
   if (path === '/' || path === '/index.html') {
     runLandingPage()
   } else if (path.startsWith('/about')) {
     runAboutPage()
   } else if (path.startsWith('/projects')) {
     runProjectsPage()
-  } else {
-    return
   }
 }
 

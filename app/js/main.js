@@ -1,4 +1,5 @@
 import { updatePage, runNewFunctions } from './spa'
+import { findArea } from './utils'
 
 (function() {
 
@@ -24,7 +25,7 @@ import { updatePage, runNewFunctions } from './spa'
 
   //  navigation event listeners + run on initial load
   runNewFunctions()
-  triggerMenu.addEventListener('click', toggleMenu, false)
-  menu.addEventListener('click', changePage, false)
+  triggerMenu.addEventListener('click', toggleMenu)
+  menu.addEventListener('click', changePage)
 
 })()

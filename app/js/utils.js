@@ -61,3 +61,15 @@ export const fadeOut = (el, duration = 1200) => {
   }
   fade()
 }
+
+export const findArea = () => {
+  console.log('called')
+  const code = document.querySelector('.js-pixels')
+  const pixels = () => {
+    if (code && code.textContent !== null) {
+      let area = window.innerWidth * window.innerHeight
+      code.textContent = area.toLocaleString()
+    }
+  }
+  requestAnimationFrame(pixels)
+}
