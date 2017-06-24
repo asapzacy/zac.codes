@@ -6,12 +6,12 @@
 @import 'base/app';
 @import 'base/elements';
 
-/* -------  components  ------- */
-@import 'components/header';
-@import 'components/main';
-@import 'components/footer';
+/* -------  partials  ------- */
+@import 'partials/header';
+@import 'partials/main';
+@import 'partials/footer';
 
-/* -------  pages  ------- */
-@import 'pages/landing';
-@import 'pages/about';
-@import 'pages/projects';
+/* -------  views  ------- */
+@import 'views/landing';
+@import 'views/about';
+@import 'views/projects';

@@ -4,6 +4,7 @@ import buffer from 'vinyl-buffer'
 import gutil from 'gulp-util'
 import imagemin from 'gulp-imagemin'
 import cache from 'gulp-cache'
+import handlebars from 'gulp-compile-handlebars'
 import sass from 'gulp-sass'
 import sourcemaps from 'gulp-sourcemaps'
 import autoprefixer from 'gulp-autoprefixer'
@@ -14,24 +15,26 @@ import watchify from 'watchify'
 import notify from 'gulp-notify'
 import uglify from 'gulp-uglify'
 import rename from 'gulp-rename'
-import browserSync from 'browser-sync'
+import browsersync from 'browser-sync'
+const reload = browsersync.reload
 
 const PATHS = {
   app: 'app',
   build: 'dist'
 }
+
 const FILES = {
   ico: 'app/*.ico',
   html: 'app/**/*.html',
+  hbs: 'app/templates/views/*.hbs',
   img: 'app/img/**/*.+(png|jpg|svg)',
   sass: 'app/sass/**/*.scss',
   js: 'app/js/**/*.js',
   main: 'main.js'
 }
-const reload = browserSync.reload
 
 //  static files --> dist
-gulp.task('static', function() {
+gulp.task('static', () => {
   gulp.src(FILES.ico)
     .pipe(gulp.dest('dist'))
   gulp.src(FILES.html)
@@ -39,8 +42,28 @@ gulp.task('static', function() {
     .pipe(reload({ stream: true }))
 })
 
+gulp.task('hbs', () => {
+  // const options = {
+  //   ignorePartials: true,
+  //   batch: [ './app/templates/partials' ]
+  // }
+  gulp.src(FILES.hbs)
+    .pipe(handlebars({}, {
+      ignorePartials: true,
+      batch: [ './app/templates/partials' ]
+    }))
+    .pipe(rename(path => {
+      gutil.log(path)
+      path.dirname = path.basename !== 'landing' ? path.basename : path.dirname
+      path.basename = 'indy'
+      path.extname = '.html'
+    }))
+    .pipe(gulp.dest('dist'))
+    .pipe(reload({ stream: true }))
+})
+
 //  images --> minify + cache --> dist
-gulp.task('img', function() {
+gulp.task('img', () => {
   gulp.src(FILES.img)
     .pipe(cache(imagemin({ interlaced: true })))
     .pipe(gulp.dest(PATHS.build + '/img'))
@@ -48,13 +71,13 @@ gulp.task('img', function() {
 })
 
 //  sass --> css --> dist
-gulp.task('sass', function() {
+gulp.task('sass', () => {
   gulp.src(FILES.sass)
     .pipe(sass())
     .on('error', handleErrors)
     .pipe(rename('styles.css'))
     .pipe(gulp.dest(PATHS.build + '/css'))
-    .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
+    .pipe(autoprefixer({ remove: false, browsers: ['last 2 versions'] }))
     .pipe(uglifycss())
     .pipe(rename('styles.min.css'))
     .pipe(gulp.dest(PATHS.build + '/css'))
@@ -62,13 +85,13 @@ gulp.task('sass', function() {
 })
 
 //  es6 --> js --> dist
-gulp.task('js', function() {
+gulp.task('js', () => {
   return build(FILES.main, false)
 })
 
 //  browser-sync --> local server
-gulp.task('browser-sync', function() {
-  browserSync.init({
+gulp.task('browser-sync', () => {
+  browsersync.init({
     server: { baseDir: 'dist' },
     ghostMode: true,
     notify: false,
@@ -76,14 +99,13 @@ gulp.task('browser-sync', function() {
   })
 })
 
-gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync'], function() {
+gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync', 'hbs'], () => {
   gulp.watch(FILES.html, ['static'])
   gulp.watch(FILES.img, ['img'])
   gulp.watch(FILES.sass, ['sass'])
+  gulp.watch('./app/templates', ['hbs'])
   return build(FILES.main, true)
 })
-
-
 
 function handleErrors(...args) {
   notify.onError({

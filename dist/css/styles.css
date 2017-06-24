@@ -94,26 +94,6 @@ body {
   justify-content: flex-end;
   flex-direction: column; }
 
-/* -------  trigger container  ------- */
-.trigger__container {
-  width: 52px;
-  height: 52px;
-  z-index: 10;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  cursor: pointer; }
-
-.trigger__line {
-  height: 2px;
-  width: 24px;
-  display: block;
-  position: absolute;
-  top: 25px;
-  left: 14px; }
-
 /* -------  sections  ------- */
 .sections {
   display: flex;
@@ -145,38 +125,53 @@ body {
 .transparent .line {
   background: transparent; }
 
-/* -------  components  ------- */
-.trigger {
-  max-width: 1600px;
-  width: 100%;
+/* -------  partials  ------- */
+header {
+  width: 52px;
   height: 52px;
-  margin-bottom: -52px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  background: transparent;
-  /* -------  trigger menu  ------- */
-  /* -------  trigger menu  ------- */ }
+  margin: 0 0 -52px auto;
+  z-index: 10; }
   @media only screen and (min-width: 40em) {
-    .trigger {
+    header {
       height: 88.89px;
-      margin-bottom: -88.89px; } }
+      margin-bottom: -88.89px;
+      transition: width 0s 1.2s; } }
   @media only screen and (min-width: 55em) {
-    .trigger {
+    header {
       height: 95.34px;
       margin-bottom: -95.34px; } }
   @media only screen and (min-width: 70em) {
-    .trigger {
+    header {
       height: 99.78px;
       margin-bottom: -99.78px; } }
   @media only screen and (min-width: 85em) {
-    .trigger {
+    header {
       height: 104.23px;
       margin-bottom: -104.23px; } }
   @media only screen and (min-width: 100em) {
-    .trigger {
+    header {
       height: 109.66px;
       margin-bottom: -109.66px; } }
+
+.trigger {
+  float: right;
+  display: flex;
+  align-items: center;
+  width: 52px;
+  height: 100%; }
+  .trigger__container {
+    width: 100%;
+    height: 52px;
+    position: relative;
+    cursor: pointer;
+    z-index: 9; }
+  .trigger__line {
+    display: block;
+    height: 2px;
+    width: 24px;
+    position: absolute;
+    top: 25px;
+    left: 14px; }
   .trigger--menu {
     background: #ffffff;
     transition: background 1s linear 0.66s; }
@@ -188,25 +183,23 @@ body {
     .trigger__line--bottom {
       transform: translateY(4px); }
 
-/* -------  menu  ------- */
 .menu {
   background: #30049e;
   color: #ffffff;
   text-align: center;
+  opacity: 0;
+  visibility: hidden;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 9;
-  opacity: 0;
-  visibility: hidden;
   transition: opacity 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.44s, visibility 0s 0.66s; }
   @media only screen and (min-width: 40em) {
     .menu {
-      bottom: initial; } }
+      height: 100%;
+      position: initial; } }
 
-/* -------  menu list  ------- */
 .menu__list {
   display: flex;
   font-size: 1.4em;
@@ -222,7 +215,6 @@ body {
       flex-direction: row;
       justify-content: space-around; } }
 
-/* -------  menu item  ------- */
 .menu__item {
   margin: 1em 0;
   opacity: 0;
@@ -235,23 +227,25 @@ body {
     transition-delay: 0s; }
   @media only screen and (min-width: 40em) {
     .menu__item {
-      margin: 1.2em 0 0.6em; } }
+      margin: 0; } }
 
-/* -------  menu link  ------- */
 .menu__link {
   display: inline-block;
-  padding: 0.4em;
-  transition: color 0.26s; }
+  padding: 0.4em; }
   .menu__link::before {
+    content: '';
     display: block;
     margin-bottom: 0.05em;
-    font: normal 2em/1 FontAwesome; }
+    font-size: 2em;
+    width: 100%;
+    height: 1em;
+    background: center center / contain no-repeat; }
   .menu__link--landing::before {
-    content: '\f277'; }
+    background-image: url("/img/icons/map-signs.svg"); }
   .menu__link--about::before {
-    content: '\f1e3'; }
+    background-image: url("/img/icons/soccer-ball.svg"); }
   .menu__link--projects::before {
-    content: '\f0c7'; }
+    background-image: url("/img/icons/floppy-disk.svg"); }
   .menu__link::after {
     content: '';
     display: block;
@@ -267,12 +261,11 @@ body {
     opacity: 1;
     transform: translateY(-2px); }
 
-/* -------  menu open  ------- */
 .menu-open {
-  /* -------  trigger menu  ------- */
-  /* -------  trigger line  ------- */
-  /* -------  menu  ------- */
-  /* -------  menu item  ------- */ }
+  width: 100%; }
+  @media only screen and (min-width: 40em) {
+    .menu-open {
+      transition-delay: 0s; } }
   .menu-open .trigger--menu {
     background: transparent;
     transition: background 0s; }
@@ -379,7 +372,7 @@ footer {
   opacity: 1;
   transform: translateY(-2px); }
 
-/* -------  pages  ------- */
+/* -------  views  ------- */
 /* landing page */
 .landing {
   font-size: 1.2em;

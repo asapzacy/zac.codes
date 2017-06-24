@@ -1,16 +1,13 @@
 
-.trigger {
-  max-width:$width__max;
-  width:100%;
-  height:52px;
-  margin-bottom:-52px;
-  margin-left:auto;
-  margin-right:auto;
-  position:relative;
-  background:transparent;
+header {
+  width:52px;height:52px;
+  margin:0 0 -52px auto;
+  z-index:10;
+
   @media only screen and (min-width:$small) {
     height:88.89px;
     margin-bottom:-88.89px;
+    transition:width $timing__instant 1.2s;
   }
   @media only screen and (min-width:$medium) {
     height:95.34px;
@@ -28,42 +25,61 @@
     height:109.66px;
     margin-bottom:-109.66px;
   }
+}
 
-  /* -------  trigger menu  ------- */
+.trigger {
+  float:right;
+  display:flex;
+  align-items:center;
+  width:52px;height:100%;
+
+  &__container {
+    width:100%;height:52px;
+    position:relative;
+    cursor:pointer;
+    z-index:9;
+  }
+
+  &__line {
+    display:block;
+    height:2px;width:24px;
+    position:absolute;
+    top:25px;left:14px;
+  }
+
   &--menu {
     background:$color__white;
     transition:background 1s linear 0.66s;
   }
 
-  /* -------  trigger menu  ------- */
   &__line {
     background:$color__black;
     transition:background $timing__quick $cubic 0.44s,transform 0.44s $cubic $timing__instant;
-    &--top { transform:translateY(-4px); }
-    &--bottom { transform:translateY(4px); }
+    &--top {
+      transform:translateY(-4px);
+    }
+    &--bottom {
+      transform:translateY(4px);
+    }
   }
 }
 
-/* -------  menu  ------- */
 .menu {
   background:$color__purple;
   color:$color__white;
   text-align:center;
-  position:absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  z-index:9;
   opacity:0;
   visibility:hidden;
+  position:absolute;
+  top:0;right:0;bottom:0;left:0;
   transition:opacity $timing__quick $cubic $timing__medium, visibility $timing__instant $timing__slow;
+
   @media only screen and (min-width:$small) {
-    bottom:initial;
+    height:100%;
+    position:initial;
   }
 }
 
-/* -------  menu list  ------- */
 .menu__list {
   display:flex;
   font-size:1.4em;
@@ -71,6 +87,7 @@
   justify-content:center;
   flex-direction:column;
   align-items:center;
+
   @media only screen and (min-width:$small) {
     width:70%;
     margin:0 auto;
@@ -80,43 +97,64 @@
   }
 }
 
-/* -------  menu item  ------- */
 .menu__item {
   margin:1em 0;
   opacity:0;
   transition:opacity $timing__quick ease-in;
-  &:nth-child(1) { transition-delay:$timing__quick }
-  &:nth-child(2) { transition-delay:0.11s }
-  &:nth-child(3) { transition-delay:$timing__instant }
+
+  &:nth-child(1) {
+    transition-delay:$timing__quick;
+  }
+
+  &:nth-child(2) {
+    transition-delay:0.11s;
+  }
+
+  &:nth-child(3) {
+    transition-delay:$timing__instant;
+  }
+
   @media only screen and (min-width:$small) {
-    margin:1.2em 0 0.6em;
+    margin:0;
   }
 }
 
-/* -------  menu link  ------- */
 .menu__link {
   display:inline-block;
   padding:0.4em;
-  transition:color 0.26s;
+
   &::before {
+    content:'';
     display:block;
     margin-bottom:0.05em;
-    font:normal 2em/1 FontAwesome;
+    font-size:2em;
+    width:100%;height:1em;
+    background:center center / contain no-repeat;
   }
-  &--landing::before { content:'\f277' }
-  &--about::before { content:'\f1e3' }
-  &--projects::before { content:'\f0c7' }
+
+  &--landing::before {
+    background-image:url('/img/icons/map-signs.svg')
+  }
+
+  &--about::before {
+    background-image:url('/img/icons/soccer-ball.svg')
+  }
+
+  &--projects::before {
+    background-image:url('/img/icons/floppy-disk.svg')
+  }
+
   &::after {
     content:'';
     display:block;
-    height:2px;
-    width:2px;
+    height:2px;width:2px;
     margin:0 auto;
     background:$color__white;
     opacity:0;
     transform:translateY(-3.2em);
     transition:width $timing__slow,opacity $timing__average,transform $timing__average
   }
+
   &:hover::after {
     width:100%;
     opacity:1;
@@ -125,35 +163,51 @@
 }
 
 
-/* -------  menu open  ------- */
 .menu-open {
-    /* -------  trigger menu  ------- */
+  width:100%;
+
+  @media only screen and (min-width:$small) {
+    transition-delay:$timing__instant;
+  }
+
   .trigger--menu {
     background:transparent;
     transition:background $timing__instant;
   }
 
-  /* -------  trigger line  ------- */
   .trigger__line {
     background:$color__white;
     transition-delay:$timing__instant;
-    &--top { transform:rotate(-45deg); }
-    &--bottom { transform:rotate(45deg); }
+
+    &--top {
+      transform:rotate(-45deg);
+    }
+
+    &--bottom {
+      transform:rotate(45deg);
+    }
   }
 
-  /* -------  menu  ------- */
   .menu {
     opacity:1;
     visibility:visible;
     transition:opacity $timing__quick $cubic $timing__instant;
   }
 
-  /* -------  menu item  ------- */
   .menu__item {
     opacity:1;
     transition-duration:0.42s;
-    &:nth-child(1) { transition-delay:$timing__quick; }
-    &:nth-child(2) { transition-delay:0.33s; }
-    &:nth-child(3) { transition-delay:$timing__medium; }
+
+    &:nth-child(1) {
+      transition-delay:$timing__quick;
+    }
+
+    &:nth-child(2) {
+      transition-delay:0.33s;
+    }
+
+    &:nth-child(3) {
+      transition-delay:$timing__medium;
+    }
   }
 }

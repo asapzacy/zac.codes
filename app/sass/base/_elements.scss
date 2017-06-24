@@ -1,27 +1,4 @@
 
-/* -------  trigger container  ------- */
-.trigger {
-  &__container {
-    width:52px;
-    height:52px;
-    z-index:10;
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    margin:auto;
-    cursor:pointer;
-  }
-  &__line {
-    height:2px;
-    width:24px;
-    display:block;
-    position:absolute;
-    top:25px;
-    left:14px;
-  }
-}
-
 /* -------  sections  ------- */
 .sections {
   display:flex;
