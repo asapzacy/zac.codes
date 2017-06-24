@@ -3,7 +3,6 @@ header {
   width:52px;height:52px;
   margin:0 0 -52px auto;
   z-index:10;
-
   @media only screen and (min-width:$small) {
     height:88.89px;
     margin-bottom:-88.89px;
@@ -32,26 +31,22 @@ header {
   display:flex;
   align-items:center;
   width:52px;height:100%;
-
   &__container {
     width:100%;height:52px;
     position:relative;
     cursor:pointer;
     z-index:9;
   }
-
   &__line {
     display:block;
     height:2px;width:24px;
     position:absolute;
     top:25px;left:14px;
   }
-
   &--menu {
     background:$color__white;
     transition:background 1s linear 0.66s;
   }
-
   &__line {
     background:$color__black;
     transition:background $timing__quick $cubic 0.44s,transform 0.44s $cubic $timing__instant;
@@ -73,99 +68,91 @@ header {
   position:absolute;
   top:0;right:0;bottom:0;left:0;
   transition:opacity $timing__quick $cubic $timing__medium, visibility $timing__instant $timing__slow;
-
   @media only screen and (min-width:$small) {
     height:100%;
+    display:block;
     position:initial;
   }
 }
 
 .menu__list {
-  display:flex;
+  height:60%;
   font-size:1.4em;
-  height:100%;
-  justify-content:center;
-  flex-direction:column;
+  overflow:hidden;
+  display:flex;
   align-items:center;
-
+  flex-direction:column;
+  justify-content:space-between;
   @media only screen and (min-width:$small) {
-    width:70%;
+    width:70%;height:100%;
     margin:0 auto;
-    font-size:0.8em;
+    font-size:0.825em;
     flex-direction:row;
-    justify-content:space-around;
   }
 }
 
 .menu__item {
-  margin:1em 0;
+  flex:1;
   opacity:0;
   transition:opacity $timing__quick ease-in;
-
   &:nth-child(1) {
     transition-delay:$timing__quick;
   }
-
   &:nth-child(2) {
     transition-delay:0.11s;
   }
-
   &:nth-child(3) {
     transition-delay:$timing__instant;
   }
-
   @media only screen and (min-width:$small) {
-    margin:0;
+    height:100%;
   }
 }
 
 .menu__link {
-  display:inline-block;
-  padding:0.4em;
-
+  height:100%;
+  display:inline-flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:2.5% 1em 0;
+  line-height:1;
   &::before {
     content:'';
     display:block;
-    margin-bottom:0.05em;
+    margin-bottom:0.16em;
     font-size:2em;
-    width:100%;height:1em;
+    height:1em;
     background:center center / contain no-repeat;
   }
-
   &--landing::before {
-    background-image:url('/img/icons/map-signs.svg')
+    background-image:url('/assets/img/icons/map-signs.svg')
   }
-
   &--about::before {
-    background-image:url('/img/icons/soccer-ball.svg')
+    background-image:url('/assets/img/icons/soccer-ball.svg')
   }
-
   &--projects::before {
-    background-image:url('/img/icons/floppy-disk.svg')
+    background-image:url('/assets/img/icons/floppy-disk.svg')
   }
-
   &::after {
     content:'';
     display:block;
-    height:2px;width:2px;
+    width:0;height:2px;
     margin:0 auto;
     background:$color__white;
     opacity:0;
     transform:translateY(-3.2em);
     transition:width $timing__slow,opacity $timing__average,transform $timing__average
   }
-
   &:hover::after {
     width:100%;
     opacity:1;
-    transform:translateY(-2px)
+    transform:translateY(0)
   }
 }
 
 
 .menu-open {
   width:100%;
-
   @media only screen and (min-width:$small) {
     transition-delay:$timing__instant;
   }
@@ -178,11 +165,9 @@ header {
   .trigger__line {
     background:$color__white;
     transition-delay:$timing__instant;
-
     &--top {
       transform:rotate(-45deg);
     }
-
     &--bottom {
       transform:rotate(45deg);
     }
@@ -197,15 +182,12 @@ header {
   .menu__item {
     opacity:1;
     transition-duration:0.42s;
-
     &:nth-child(1) {
       transition-delay:$timing__quick;
     }
-
     &:nth-child(2) {
       transition-delay:0.33s;
     }
-
     &:nth-child(3) {
       transition-delay:$timing__medium;
     }

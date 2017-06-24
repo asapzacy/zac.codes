@@ -125,6 +125,11 @@ body {
 .transparent .line {
   background: transparent; }
 
+.flexy {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
 /* -------  partials  ------- */
 header {
   width: 52px;
@@ -198,25 +203,27 @@ header {
   @media only screen and (min-width: 40em) {
     .menu {
       height: 100%;
+      display: block;
       position: initial; } }
 
 .menu__list {
-  display: flex;
+  height: 60%;
   font-size: 1.4em;
-  height: 100%;
-  justify-content: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  align-items: center; }
+  justify-content: space-between; }
   @media only screen and (min-width: 40em) {
     .menu__list {
       width: 70%;
+      height: 100%;
       margin: 0 auto;
-      font-size: 0.8em;
-      flex-direction: row;
-      justify-content: space-around; } }
+      font-size: 0.825em;
+      flex-direction: row; } }
 
 .menu__item {
-  margin: 1em 0;
+  flex: 1;
   opacity: 0;
   transition: opacity 0.22s ease-in; }
   .menu__item:nth-child(1) {
@@ -227,30 +234,33 @@ header {
     transition-delay: 0s; }
   @media only screen and (min-width: 40em) {
     .menu__item {
-      margin: 0; } }
+      height: 100%; } }
 
 .menu__link {
-  display: inline-block;
-  padding: 0.4em; }
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5% 1em 0;
+  line-height: 1; }
   .menu__link::before {
     content: '';
     display: block;
-    margin-bottom: 0.05em;
+    margin-bottom: 0.16em;
     font-size: 2em;
-    width: 100%;
     height: 1em;
     background: center center / contain no-repeat; }
   .menu__link--landing::before {
-    background-image: url("/img/icons/map-signs.svg"); }
+    background-image: url("/assets/img/icons/map-signs.svg"); }
   .menu__link--about::before {
-    background-image: url("/img/icons/soccer-ball.svg"); }
+    background-image: url("/assets/img/icons/soccer-ball.svg"); }
   .menu__link--projects::before {
-    background-image: url("/img/icons/floppy-disk.svg"); }
+    background-image: url("/assets/img/icons/floppy-disk.svg"); }
   .menu__link::after {
     content: '';
     display: block;
+    width: 0;
     height: 2px;
-    width: 2px;
     margin: 0 auto;
     background: #ffffff;
     opacity: 0;
@@ -259,7 +269,7 @@ header {
   .menu__link:hover::after {
     width: 100%;
     opacity: 1;
-    transform: translateY(-2px); }
+    transform: translateY(0); }
 
 .menu-open {
   width: 100%; }
@@ -290,12 +300,14 @@ header {
     .menu-open .menu__item:nth-child(3) {
       transition-delay: 0.44s; }
 
-/* main */
-main {
-  display: flex;
+.inner__container {
   flex: 8;
-  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto 72px;
+  max-width: 1600px; }
+
+main {
   overflow: auto; }
 
 .page {
@@ -326,7 +338,7 @@ footer {
   z-index: 8;
   display: flex;
   flex: 2;
-  background: #30049e url("../img/mountains.svg") -1px -1px/100px 72px repeat-x;
+  background: #30049e url("/assets/img/mountains.svg") -1px -1px/100px 72px repeat-x;
   padding-top: 72px;
   margin-top: -72px;
   box-shadow: 0 -1.2em 1.2em 1.2em #ffffff; }
@@ -476,15 +488,15 @@ footer {
   display: none; }
 
 .sfg {
-  background-image: url(../img/about/san-francisco-giants.svg);
+  background-image: url("/assets/img/about/san-francisco-giants.svg");
   margin-left: -1px; }
 
 .sf49 {
-  background-image: url(../img/about/san-francisco-49ers.svg);
+  background-image: url("/assets/img/about/san-francisco-49ers.svg");
   margin-left: 3px; }
 
 .gsw {
-  background-image: url(../img/about/golden-state-warriors.svg);
+  background-image: url("/assets/img/about/golden-state-warriors.svg");
   margin-left: 1px; }
 
 .hide {

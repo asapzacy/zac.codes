@@ -4,7 +4,11 @@
   "description": "personal portfolio",
   "main": "server.js",
   "scripts": {
-    "wake": "atom . && open http://localhost:3000 && gulp"
+    "wake": "atom . && open http://localhost:3000 && gulp",
+    "start": "gulp",
+    "build": "rm -rf ./dist && gulp",
+    "wipe": "rm -rf node_modules && yarn",
+    "images": "find ./dist/assets -name '*.svg' -type f -exec svgo '{}' \\;"
   },
   "author": "Zac Arellano",
   "license": "MIT",
@@ -32,6 +36,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-uglifycss": "^1.0.6",
     "gulp-util": "^3.0.7",
+    "svgo": "^0.7.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.8.0"

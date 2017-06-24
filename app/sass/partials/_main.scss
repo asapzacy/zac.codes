@@ -1,9 +1,13 @@
-/* main */
-main {
-  display:flex;
+
+.inner__container {
   flex:8;
-  max-width:$width__max;
+  display:flex;
+  flex-direction:column;
   margin:0 auto 72px;
+  max-width:$width__max;
+}
+
+main {
   overflow:auto;
 }
 

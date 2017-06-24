@@ -33,9 +33,9 @@
 /* svmogies */
 .svmogi { height:100%;width:20px;display:inline-block;position:absolute;background: transparent center center / contain no-repeat }
 .ua   { display:none }
-.sfg  { background-image:url(../img/about/san-francisco-giants.svg);margin-left:-1px }
-.sf49 { background-image:url(../img/about/san-francisco-49ers.svg);margin-left:3px }
-.gsw  { background-image:url(../img/about/golden-state-warriors.svg);margin-left:1px }
+.sfg  { background-image:url('/assets/img/about/san-francisco-giants.svg');margin-left:-1px }
+.sf49 { background-image:url('/assets/img/about/san-francisco-49ers.svg');margin-left:3px }
+.gsw  { background-image:url('/assets/img/about/golden-state-warriors.svg');margin-left:1px }
 
 .hide { opacity:0;transition:opacity 1s }
 .show { opacity:1;transition:opacity 1s }

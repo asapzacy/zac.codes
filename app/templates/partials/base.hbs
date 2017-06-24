@@ -6,20 +6,22 @@
     <title>zacarellano{{#if title}} | {{title}}{{/if}}</title>
     <meta name="description" content="what's good! zac arellano | frontend engineer{{#if title}} | {{title}} {{/if}}">
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yellowtail&text=Welcome">
   </head>
   <body>
     <div id="app">
-      {{> header}}
-      <main>
-        {{#> content}}
+      <div class="inner__container">
+        {{> header}}
+        <main>
+          {{#> content}}
 
-        {{/content}}
-      </main>
+          {{/content}}
+        </main>
+      </div>
       {{> footer}}
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
-    <script src="/js/main.min.js"></script>
+    <script src="/assets/js/main.min.js"></script>
   </body>
 </html>

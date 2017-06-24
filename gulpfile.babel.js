@@ -25,6 +25,7 @@ const PATHS = {
 
 const FILES = {
   ico: 'app/*.ico',
+  pdf: 'app/*.pdf',
   html: 'app/**/*.html',
   hbs: 'app/templates/views/*.hbs',
   img: 'app/img/**/*.+(png|jpg|svg)',
@@ -36,6 +37,8 @@ const FILES = {
 //  static files --> dist
 gulp.task('static', () => {
   gulp.src(FILES.ico)
+    .pipe(gulp.dest('dist'))
+  gulp.src(FILES.pdf)
     .pipe(gulp.dest('dist'))
   gulp.src(FILES.html)
     .pipe(gulp.dest('dist'))
@@ -66,7 +69,7 @@ gulp.task('hbs', () => {
 gulp.task('img', () => {
   gulp.src(FILES.img)
     .pipe(cache(imagemin({ interlaced: true })))
-    .pipe(gulp.dest(PATHS.build + '/img'))
+    .pipe(gulp.dest(PATHS.build + '/assets/img'))
     .pipe(reload({ stream: true }))
 })
 
@@ -76,11 +79,11 @@ gulp.task('sass', () => {
     .pipe(sass())
     .on('error', handleErrors)
     .pipe(rename('styles.css'))
-    .pipe(gulp.dest(PATHS.build + '/css'))
+    .pipe(gulp.dest(PATHS.build + '/assets/css'))
     .pipe(autoprefixer({ remove: false, browsers: ['last 2 versions'] }))
     .pipe(uglifycss())
     .pipe(rename('styles.min.css'))
-    .pipe(gulp.dest(PATHS.build + '/css'))
+    .pipe(gulp.dest(PATHS.build + '/assets/css'))
     .pipe(reload({ stream: true }))
 })
 
@@ -103,7 +106,7 @@ gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync', 'hbs'], () 
   gulp.watch(FILES.html, ['static'])
   gulp.watch(FILES.img, ['img'])
   gulp.watch(FILES.sass, ['sass'])
-  gulp.watch('./app/templates', ['hbs'])
+  gulp.watch('./app/templates/**/*.hbs', ['hbs'])
   return build(FILES.main, true)
 })
 
@@ -129,12 +132,12 @@ function build(file, watch) {
       .pipe(source(file))
       .pipe(buffer())
       .pipe(rename('main.js'))
-      .pipe(gulp.dest(PATHS.build + '/js'))
+      .pipe(gulp.dest(PATHS.build + '/assets/js'))
       .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(sourcemaps.write())
       .pipe(rename('main.min.js'))
-      .pipe(gulp.dest(PATHS.build + '/js'))
+      .pipe(gulp.dest(PATHS.build + '/assets/js'))
       .pipe(reload({ stream: true }))
   }
   bundler.on('update', function() {

@@ -8,16 +8,16 @@ export default function runProjectsPage() {
   const topArrow = document.querySelector('.js-page__arrow--top')
   topArrow.addEventListener('click', function() {
     scrollToTop(this.parentNode)
-  }, false)
+  })
 
   //  loop over every project, add event listener to expand icon button
   const projects = Array.from(document.querySelectorAll('.js-project'))
   projects.forEach(project => {
     const expandIcon = project.querySelector('.project__expandIcon')
-    expandIcon.addEventListener('click', expandDetails, false)
+    expandIcon.addEventListener('click', expandDetails)
 
     const closeIcon = project.querySelector('.project__closeIcon')
-    closeIcon.addEventListener('click', closeDetails, false)
+    closeIcon.addEventListener('click', closeDetails)
   })
 
   function closeDetails() {
