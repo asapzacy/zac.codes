@@ -76,13 +76,16 @@ gulp.task('img', () => {
 //  sass --> css --> dist
 gulp.task('sass', () => {
   gulp.src(FILES.sass)
+    .pipe(sourcemaps.init())
     .pipe(sass())
     .on('error', handleErrors)
     .pipe(rename('styles.css'))
     .pipe(gulp.dest(PATHS.build + '/assets/css'))
-    .pipe(autoprefixer({ remove: false, browsers: ['last 2 versions'] }))
-    .pipe(uglifycss())
+    // .pipe(autoprefixer())
+    // .pipe(autoprefixer({ remove: false, browsers: ['last 2 versions', '> 1%'] }))
+    // .pipe(uglifycss())
     .pipe(rename('styles.min.css'))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(PATHS.build + '/assets/css'))
     .pipe(reload({ stream: true }))
 })

@@ -35,7 +35,7 @@ export const fadeIn = (el, duration = 1200) => {
     const time = (now - start) / duration
     const easing = easeInQuart(time)
     el.style.opacity = easing
-    if (el.style.opacity > 1) {
+    if (el.style.opacity > 0.995) {
       el.style.opacity = 1
       return
     }
@@ -50,10 +50,10 @@ export const fadeOut = (el, duration = 1200) => {
   const start = Date.now()
   const fade = () => {
     const now = Date.now()
-    const time = (now - start) / duration
+    const time = 1 - ((now - start) / duration)
     const easing = easeOutQuart(time)
-    el.style.opacity = 1 - easing
-    if (el.style.opacity < 0) {
+    el.style.opacity = easing
+    if (el.style.opacity < 0.005) {
       el.style.opacity = 0
       return
     }
@@ -63,7 +63,6 @@ export const fadeOut = (el, duration = 1200) => {
 }
 
 export const findArea = () => {
-  console.log('called')
   const code = document.querySelector('.js-pixels')
   const pixels = () => {
     if (code && code.textContent !== null) {

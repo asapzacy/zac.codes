@@ -1,7 +1,7 @@
 
 footer {
   width:100%;
-  z-index:8;
+  z-index:$top;
   display:flex;
   flex:2;
   background:$purple url('/assets/img/mountains.svg') -1px -1px / 100px 72px repeat-x;
@@ -11,7 +11,7 @@ footer {
 }
 
 .social {
-  width:80%;
+  width:60%;
   max-width:$max_width;
   margin:0 auto;
   display:flex;
@@ -31,11 +31,26 @@ footer {
     max-width:299px;
   }
 }
+
 .social__link {
-  color:$white;font-size:0.9em;display:block;padding-top:2px;
+  color:$white;
+  font-size:0.9em;
+  display:block;
+  padding-top:2px;
   &::after {
-    content:'';display:block;height:2px;width:2px;margin:0 auto;background:$white;opacity:0;
-    transform:translateY(-1.6em);transition:width $slow,opacity $average,transform $average
+    content:'';
+    display:block;
+    height:2px;
+    width:2px;margin:0 auto;
+    background:$white;
+    opacity:0;
+    transform:translateY(-1.6em);
+    transition:width $slow,opacity $average,transform $average;
   }
 }
-.social__link:hover::after { width:100%;opacity:1;transform:translateY(-2px) }
+
+.social__link:hover::after {
+  width:100%;
+  opacity:1;
+  transform:translateY(-2px);
+}

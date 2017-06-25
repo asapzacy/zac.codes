@@ -1,4 +1,16 @@
 /* -------  base  ------- */
+/* -------  colors  ------- */
+/* ------------------------ */
+/* ---  media queries  ---- */
+/* ------------------------ */
+/* -------  sizing  ------- */
+/* ------------------------ */
+/* -------  layers  ------- */
+/* ------------------------ */
+/* -------  timing  ------- */
+/* ------------------------ */
+/* -------  fonts   ------- */
+/* ------------------------ */
 /* -------  resets  ------- */
 * {
   margin: 0;
@@ -56,7 +68,6 @@ sup {
   height: 0;
   background: transparent; }
 
-/* -------  body  ------- */
 body {
   color: #070707;
   background: #ffffff;
@@ -86,7 +97,6 @@ body {
     body {
       font-size: 22px; } }
 
-/* -------  web app  ------- */
 #app {
   width: 100%;
   height: 100%;
@@ -130,46 +140,33 @@ body {
   align-items: center;
   justify-content: center; }
 
-/* -------  partials  ------- */
-header {
-  width: 52px;
-  height: 52px;
-  margin: 0 0 -52px auto;
-  z-index: 10; }
-  @media only screen and (min-width: 40em) {
-    header {
-      height: 88.89px;
-      margin-bottom: -88.89px;
-      transition: width 0s 1.2s; } }
-  @media only screen and (min-width: 55em) {
-    header {
-      height: 95.34px;
-      margin-bottom: -95.34px; } }
-  @media only screen and (min-width: 70em) {
-    header {
-      height: 99.78px;
-      margin-bottom: -99.78px; } }
-  @media only screen and (min-width: 85em) {
-    header {
-      height: 104.23px;
-      margin-bottom: -104.23px; } }
-  @media only screen and (min-width: 100em) {
-    header {
-      height: 109.66px;
-      margin-bottom: -109.66px; } }
-
-.trigger {
-  float: right;
+.spacey {
   display: flex;
   align-items: center;
-  width: 52px;
-  height: 100%; }
+  justify-content: space-between; }
+
+/* -------  partials  ------- */
+header {
+  flex: 0;
+  display: flex; }
+
+header, main {
+  transition: flex 0.66s ease-in 0.44s,opacity 0.33s ease-in 0.77s; }
+
+.menu-open, .menu-open + main {
+  transition: flex 0.66s ease-out 0s,opacity 0.33s ease-out 0s; }
+
+.trigger {
+  width: 104px;
+  height: 104px;
+  z-index: 99;
+  position: absolute;
+  right: 0; }
   .trigger__container {
-    width: 100%;
-    height: 52px;
+    width: 50%;
+    height: 50%;
     position: relative;
-    cursor: pointer;
-    z-index: 9; }
+    cursor: pointer; }
   .trigger__line {
     display: block;
     height: 2px;
@@ -179,7 +176,7 @@ header {
     left: 14px; }
   .trigger--menu {
     background: #ffffff;
-    transition: background 1s linear 0.66s; }
+    transition-delay: 1s; }
   .trigger__line {
     background: #070707;
     transition: background 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.44s, transform 0.44s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s; }
@@ -189,49 +186,28 @@ header {
       transform: translateY(4px); }
 
 .menu {
-  background: #30049e;
-  color: #ffffff;
-  text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transition: opacity 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.44s, visibility 0s 0.66s; }
-  @media only screen and (min-width: 40em) {
-    .menu {
-      height: 100%;
-      display: block;
-      position: initial; } }
+  width: 100%; }
 
 .menu__list {
   height: 60%;
-  font-size: 1.4em;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between; }
+  flex-direction: column; }
   @media only screen and (min-width: 40em) {
     .menu__list {
       width: 70%;
-      height: 100%;
-      margin: 0 auto;
-      font-size: 0.825em;
       flex-direction: row; } }
 
 .menu__item {
   flex: 1;
   opacity: 0;
-  transition: opacity 0.22s ease-in; }
-  .menu__item:nth-child(1) {
-    transition-delay: 0.22s; }
-  .menu__item:nth-child(2) {
-    transition-delay: 0.11s; }
-  .menu__item:nth-child(3) {
+  transition: opacity 0.22s;
+  transition-timing-function: ease-out; }
+  .menu__item:nth-of-type(3) {
     transition-delay: 0s; }
+  .menu__item:nth-of-type(2) {
+    transition-delay: 0.11s; }
+  .menu__item:nth-of-type(1) {
+    transition-delay: 0.22s; }
   @media only screen and (min-width: 40em) {
     .menu__item {
       height: 100%; } }
@@ -262,7 +238,7 @@ header {
     width: 0;
     height: 2px;
     margin: 0 auto;
-    background: #ffffff;
+    background: #070707;
     opacity: 0;
     transform: translateY(-3.2em);
     transition: width 0.66s, opacity 0.33s, transform 0.33s; }
@@ -272,43 +248,45 @@ header {
     transform: translateY(0); }
 
 .menu-open {
-  width: 100%; }
-  @media only screen and (min-width: 40em) {
-    .menu-open {
-      transition-delay: 0s; } }
+  flex: 1;
+  position: relative; }
   .menu-open .trigger--menu {
     background: transparent;
     transition: background 0s; }
   .menu-open .trigger__line {
-    background: #ffffff;
     transition-delay: 0s; }
     .menu-open .trigger__line--top {
       transform: rotate(-45deg); }
     .menu-open .trigger__line--bottom {
       transform: rotate(45deg); }
-  .menu-open .menu {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s; }
   .menu-open .menu__item {
     opacity: 1;
-    transition-duration: 0.42s; }
-    .menu-open .menu__item:nth-child(1) {
-      transition-delay: 0.22s; }
-    .menu-open .menu__item:nth-child(2) {
-      transition-delay: 0.33s; }
-    .menu-open .menu__item:nth-child(3) {
-      transition-delay: 0.44s; }
+    transition-duration: 0.42s;
+    transition-timing-function: ease-in; }
+    .menu-open .menu__item:nth-of-type(1) {
+      transition-delay: 0.66s; }
+    .menu-open .menu__item:nth-of-type(2) {
+      transition-delay: 0.77s; }
+    .menu-open .menu__item:nth-of-type(3) {
+      transition-delay: 0.88s; }
 
 .inner__container {
   flex: 8;
   display: flex;
   flex-direction: column;
   margin: 0 auto 72px;
-  max-width: 1600px; }
+  max-width: 1600px;
+  z-index: 0;
+  overflow: scroll; }
 
 main {
-  overflow: auto; }
+  overflow: auto;
+  flex: 1;
+  opacity: 1; }
+
+.menu-open + main {
+  flex: 0;
+  opacity: 0; }
 
 .page {
   width: 100%;
@@ -330,12 +308,9 @@ main {
   .page a {
     border-bottom: 1px solid #070707; }
 
-/*  ------------------------
-  ---------  footer  ---------
-    ------------------------  */
 footer {
   width: 100%;
-  z-index: 8;
+  z-index: 99;
   display: flex;
   flex: 2;
   background: #30049e url("/assets/img/mountains.svg") -1px -1px/100px 72px repeat-x;
@@ -344,7 +319,7 @@ footer {
   box-shadow: 0 -1.2em 1.2em 1.2em #ffffff; }
 
 .social {
-  width: 80%;
+  width: 60%;
   max-width: 1600px;
   margin: 0 auto;
   display: flex;
@@ -352,7 +327,7 @@ footer {
 
 .social__list {
   width: 100%;
-  max-width: 333px;
+  max-width: 250px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between; }
@@ -361,7 +336,7 @@ footer {
       margin-right: 0; } }
   @media only screen and (min-width: 85em) {
     .social__list {
-      max-width: 399px; } }
+      max-width: 299px; } }
 
 .social__link {
   color: #ffffff;
@@ -385,7 +360,6 @@ footer {
   transform: translateY(-2px); }
 
 /* -------  views  ------- */
-/* landing page */
 .landing {
   font-size: 1.2em;
   margin: 0 auto; }
@@ -543,7 +517,7 @@ footer {
       content: '+';
       width: 1.5em;
       text-align: center;
-      transition: transform 0.44s; }
+      transition: transform 55em; }
   .project__expandIcon--expanded::after, .project__closeIcon::after {
     transform: rotate(-135deg); }
   .project__closeIcon {
@@ -556,7 +530,7 @@ footer {
     overflow-y: hidden;
     max-height: 0;
     counter-reset: section;
-    transition: max-height 0.44s; }
+    transition: max-height 55em; }
 
 /* -------  details section  ------- */
 .details__section {

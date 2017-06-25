@@ -1,19 +1,38 @@
 
-/* landing page */
-.landing { font-size:1.2em;margin:0 auto;
-  @media only screen and (min-width:$small) { width:90% }
-  @media only screen and (min-width:$medium) { width:82.5% }
-  @media only screen and (min-width:$large) { width:75%}
-  @media only screen and (min-width:$xlarge) { width:67.5% }
+.landing {
+  font-size:1.2em;
+  margin:0 auto;
+  @media only screen and (min-width:$small) {
+    width:90%;
+  }
+  @media only screen and (min-width:$medium) {
+    width:82.5%;
+  }
+  @media only screen and (min-width:$large) {
+    width:75%;
+  }
+  @media only screen and (min-width:$xlarge) {
+    width:67.5%;
+  }
 }
+
 .greeting {
   text-indent:-0.66em;
   position:relative;
   &::first-line {
-    font:400 3.33em/1 $font__yellowtail;
+    font:400 3.33em/1 $cursive;
   }
-  @media only screen and (min-width:$small) { left:-2.5% }
-  @media only screen and (min-width:$medium) { left:-4.375%;text-indent:-0.99em }
-  @media only screen and (min-width:$large) { left:-6.25% }
-  @media only screen and (min-width:$xlarge) { left:-8.125% }
+  @media only screen and (min-width:$small) {
+    left:-2.5%;
+  }
+  @media only screen and (min-width:$medium) {
+    left:-4.375%;
+    text-indent:-0.99em;
+  }
+  @media only screen and (min-width:$large) {
+    left:-6.25%;
+  }
+  @media only screen and (min-width:$xlarge) {
+    left:-8.125%;
+  }
 }

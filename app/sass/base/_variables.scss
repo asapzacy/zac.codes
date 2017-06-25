@@ -1,34 +1,44 @@
 
-// fonts
-$avenir:'Avenir Next',Avenir,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
-$font__yellowtail:'Yellowtail',cursive;
-$open:'Open Sans',sans-serif;
-$normal:400;
-$bold:600;
-
-// colors
-$color__white:#ffffff;
-$color__grey:#616161;
-$color__black:#070707;
-$color__purple:#30049e;
+/* -------  colors  ------- */
+/* ------------------------ */
+$white:      #ffffff;
+$grey:       #616161;
+$black:      #070707;
+$purple:     #30049e;
 
 
-// media queries + sizing
-$xxsmall:20em;
-$xsmall:25em;
-$small:40em;
-$medium:55em;
-$large:70em;
-$xlarge:85em;
-$xxlarge:100em;
+/* ---  media queries  ---- */
+/* ------------------------ */
+$xxsmall:     20em;
+$xsmall:      25em;
+$small:       40em;
+$medium:      55em;
+$large:       70em;
+$xlarge:      85em;
+$xxlarge:    100em;
 
-$width:80%;
-$width__max:1600px;
 
-// timing
-$timing__instant:0.0s;
-$timing__quick:0.22s;
-$timing__average:0.33s;
-$timing__medium:0.44s;
-$timing__slow:0.66s;
-$cubic:cubic-bezier(0.25,0.46,0.45,0.94);
+/* -------  sizing  ------- */
+/* ------------------------ */
+$max_width: 1600px;
+
+
+/* -------  layers  ------- */
+/* ------------------------ */
+$bottom:     0;
+$top:       99;
+
+/* -------  timing  ------- */
+/* ------------------------ */
+$instant:      0s;
+$quick:     0.22s;
+$average:   0.33s;
+$middle:    0.44s;
+$slow:      0.66s;
+$cubic:     cubic-bezier(0.25,0.46,0.45,0.94);
+
+
+/* -------  fonts   ------- */
+/* ------------------------ */
+$normal:    'Avenir Next',Avenir,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
+$cursive:   'Yellowtail',cursive;

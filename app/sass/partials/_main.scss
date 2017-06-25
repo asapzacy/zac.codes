@@ -5,11 +5,20 @@
   flex-direction:column;
   margin:0 auto 72px;
   max-width:$max_width;
-  position:relative;
+  z-index:$bottom;
+  overflow:scroll;
 }
 
 main {
   overflow:auto;
+  flex:1;
+  opacity:1;
+  // background:mediumseagreen;
+}
+
+.menu-open + main {
+  flex:0;
+  opacity:0;
 }
 
 .page {

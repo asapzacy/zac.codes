@@ -1,51 +1,43 @@
 
 header {
-  width:52px;height:52px;
-  margin:0 0 -52px auto;
-  z-index:10;
-  @media only screen and (min-width:$small) {
-    height:88.89px;
-    margin-bottom:-88.89px;
-    transition:width $instant 1.2s;
-  }
-  @media only screen and (min-width:$medium) {
-    height:95.34px;
-    margin-bottom:-95.34px;
-  }
-  @media only screen and (min-width:$large) {
-    height:99.78px;
-    margin-bottom:-99.78px;
-  }
-  @media only screen and (min-width:$xlarge) {
-    height:104.23px;
-    margin-bottom:-104.23px;
-  }
-  @media only screen and (min-width:$xxlarge) {
-    height:109.66px;
-    margin-bottom:-109.66px;
-  }
+  flex:0;
+  display:flex;
+  // transition:flex 0.44s 1.2s;
+}
+
+header, main {
+  transition:flex 0.66s ease-in 0.44s,opacity 0.33s ease-in 0.77s;
+  // transition-timing-function:ease-in;
+}
+
+.menu-open, .menu-open + main {
+  transition:flex 0.66s ease-out 0s,opacity 0.33s ease-out 0s;
+  // transition-delay:0s;
+  // transition-timing-function:ease-out;
 }
 
 .trigger {
-  float:right;
-  display:flex;
-  align-items:center;
-  width:52px;height:100%;
+  width:104px;
+  height:104px;
+  z-index:$top;
+  position:absolute;
+  right:0;
   &__container {
-    width:100%;height:52px;
+    width:50%;
+    height:50%;
     position:relative;
     cursor:pointer;
-    z-index:9;
   }
   &__line {
     display:block;
-    height:2px;width:24px;
+    height:2px;
+    width:24px;
     position:absolute;
     top:25px;left:14px;
   }
   &--menu {
     background:$white;
-    transition:background 1s linear $slow;
+    transition-delay:1s;
   }
   &__line {
     background:$black;
@@ -60,33 +52,15 @@ header {
 }
 
 .menu {
-  background:$white;
-  color:$purple;
-  text-align:center;
-  opacity:0;
-  visibility:hidden;
-  position:absolute;
-  top:0;right:0;bottom:0;left:0;
-  transition:opacity $quick $cubic $middle, visibility $instant $slow;
-  @media only screen and (min-width:$small) {
-    height:100%;
-    display:block;
-    position:initial;
-  }
+  width:100%;
 }
 
 .menu__list {
   height:60%;
-  font-size:1.4em;
   overflow:hidden;
-  display:flex;
-  align-items:center;
   flex-direction:column;
-  justify-content:space-between;
   @media only screen and (min-width:$small) {
-    width:70%;height:100%;
-    margin:0 auto;
-    font-size:0.825em;
+    width:70%;
     flex-direction:row;
   }
 }
@@ -94,16 +68,22 @@ header {
 .menu__item {
   flex:1;
   opacity:0;
-  transition:opacity $quick ease-in;
-  &:nth-child(1) {
-    transition-delay:$quick;
+  transition:opacity 0.22s;
+  transition-timing-function:ease-out;
+  @for $i from 3 through 1 {
+    &:nth-of-type(#{$i}) {
+      transition-delay:(#{(3 - $i) * 0.11}s);
+    }
   }
-  &:nth-child(2) {
-    transition-delay:0.11s;
-  }
-  &:nth-child(3) {
-    transition-delay:$instant;
-  }
+  // &:nth-child(1) {
+  //   transition-delay:$quick;
+  // }
+  // &:nth-child(2) {
+  //   transition-delay:0.11s;
+  // }
+  // &:nth-child(3) {
+  //   transition-delay:$instant;
+  // }
   @media only screen and (min-width:$small) {
     height:100%;
   }
@@ -138,10 +118,10 @@ header {
     display:block;
     width:0;height:2px;
     margin:0 auto;
-    background:$white;
+    background:$black;
     opacity:0;
     transform:translateY(-3.2em);
-    transition:width $slow,opacity $average,transform $average
+    transition:width $slow,opacity $average,transform $average;
   }
   &:hover::after {
     width:100%;
@@ -150,12 +130,9 @@ header {
   }
 }
 
-
 .menu-open {
-  width:100%;
-  @media only screen and (min-width:$small) {
-    transition-delay:$instant;
-  }
+  flex:1;
+  position:relative;
 
   .trigger--menu {
     background:transparent;
@@ -163,7 +140,6 @@ header {
   }
 
   .trigger__line {
-    background:$purple;
     transition-delay:$instant;
     &--top {
       transform:rotate(-45deg);
@@ -173,23 +149,36 @@ header {
     }
   }
 
-  .menu {
-    opacity:1;
-    visibility:visible;
-    transition:opacity $quick $cubic $instant;
-  }
-
   .menu__item {
     opacity:1;
     transition-duration:0.42s;
-    &:nth-child(1) {
-      transition-delay:$quick;
+    transition-timing-function:ease-in;
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}) {
+        transition-delay:(#{($i * 0.11) + 0.55}s);
+      }
     }
-    &:nth-child(2) {
-      transition-delay:$average;
-    }
-    &:nth-child(3) {
-      transition-delay:$middle;
-    }
+    // @for $i from 1 through 5 {
+    //   &:nth-child(#{$i}) {
+    //     &:before {
+    //       content: '#{$i}';
+    //     }
+    //   }
+    // }
+    // &:nth-child(1) {
+    //   transition-delay:$quick;
+    // }
+    // &:nth-child(2) {
+    //   transition-delay:$average;
+    // }
+    // &:nth-child(3) {
+    //   transition-delay:$middle;
+    // }
   }
 }
+
+// @for $i from 1 to 3 {
+//   .menu-open .menu-item:nth-child(#{$i}) {
+//     transition-delay:(#{$i * 1}s);
+//   }
+// }
