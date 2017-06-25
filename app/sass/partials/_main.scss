@@ -4,7 +4,8 @@
   display:flex;
   flex-direction:column;
   margin:0 auto 72px;
-  max-width:$width__max;
+  max-width:$max_width;
+  position:relative;
 }
 
 main {
@@ -18,7 +19,7 @@ main {
   -webkit-overflow-scrolling:touch;
   h1 {
     font-size:2.827em;
-    font-family:$font__yellowtail;
+    font-family:$cursive;
   }
   h2 {
     font-size:1.9191em;
@@ -33,6 +34,6 @@ main {
     font-size:1.0505em;
   }
   a {
-    border-bottom:1px solid $color__black
+    border-bottom:1px solid $black
   }
  }

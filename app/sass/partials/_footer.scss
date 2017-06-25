@@ -1,23 +1,18 @@
 
-
-/*  ------------------------
-  ---------  footer  ---------
-    ------------------------  */
-
 footer {
   width:100%;
   z-index:8;
   display:flex;
   flex:2;
-  background:$color__purple url('/assets/img/mountains.svg') -1px -1px / 100px 72px repeat-x;
+  background:$purple url('/assets/img/mountains.svg') -1px -1px / 100px 72px repeat-x;
   padding-top:72px;
   margin-top:-72px;
-  box-shadow:0 -1.2em 1.2em 1.2em $color__white;
+  box-shadow:0 -1.2em 1.2em 1.2em $white;
 }
 
 .social {
-  width:$width;
-  max-width:$width__max;
+  width:80%;
+  max-width:$max_width;
   margin:0 auto;
   display:flex;
   align-items:center
@@ -25,22 +20,22 @@ footer {
 
 .social__list {
   width:100%;
-  max-width:333px;
+  max-width:250px;
   margin:0 auto;
   display:flex;
   justify-content:space-between;
   @media only screen and (min-width:$medium) {
-    margin-right:0
+    margin-right:0;
   }
   @media only screen and (min-width:$xlarge) {
-    max-width:399px
+    max-width:299px;
   }
 }
 .social__link {
-  color:$color__white;font-size:0.9em;display:block;padding-top:2px;
+  color:$white;font-size:0.9em;display:block;padding-top:2px;
   &::after {
-    content:'';display:block;height:2px;width:2px;margin:0 auto;background:$color__white;opacity:0;
-    transform:translateY(-1.6em);transition:width $timing__slow,opacity $timing__average,transform $timing__average
+    content:'';display:block;height:2px;width:2px;margin:0 auto;background:$white;opacity:0;
+    transform:translateY(-1.6em);transition:width $slow,opacity $average,transform $average
   }
 }
 .social__link:hover::after { width:100%;opacity:1;transform:translateY(-2px) }

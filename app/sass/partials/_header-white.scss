@@ -49,7 +49,7 @@ header {
   }
   &__line {
     background:$black;
-    transition:background $quick $cubic $middle,transform $middle $cubic $instant;
+    transition:background $quick $cubic $medium,transform $medium $cubic $instant;
     &--top {
       transform:translateY(-4px);
     }
@@ -60,14 +60,14 @@ header {
 }
 
 .menu {
-  background:$white;
-  color:$purple;
+  background:$purple;
+  color:$white;
   text-align:center;
   opacity:0;
   visibility:hidden;
   position:absolute;
   top:0;right:0;bottom:0;left:0;
-  transition:opacity $quick $cubic $middle, visibility $instant $slow;
+  transition:opacity $quick $cubic $medium, visibility $instant $slow;
   @media only screen and (min-width:$small) {
     height:100%;
     display:block;
@@ -125,13 +125,13 @@ header {
     background:center center / contain no-repeat;
   }
   &--landing::before {
-    background-image:url('/assets/img/icons/map-signs.svg')
+    background-image:url('/assets/icons/map-signs.svg')
   }
   &--about::before {
-    background-image:url('/assets/img/icons/soccer-ball.svg')
+    background-image:url('/assets/icons/soccer-ball.svg')
   }
   &--projects::before {
-    background-image:url('/assets/img/icons/floppy-disk.svg')
+    background-image:url('/assets/icons/floppy-disk.svg')
   }
   &::after {
     content:'';
@@ -163,7 +163,7 @@ header {
   }
 
   .trigger__line {
-    background:$purple;
+    background:$white;
     transition-delay:$instant;
     &--top {
       transform:rotate(-45deg);
@@ -189,7 +189,7 @@ header {
       transition-delay:$average;
     }
     &:nth-child(3) {
-      transition-delay:$middle;
+      transition-delay:$medium;
     }
   }
 }
