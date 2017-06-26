@@ -1,4 +1,4 @@
-import { findArea } from './utils'
+import { findArea } from '../utils'
 
 export default function runLandingPage() {
 

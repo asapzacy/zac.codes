@@ -1,7 +1,7 @@
-import runLandingPage from './landing'
-import runAboutPage from './about'
-import runProjectsPage from './projects'
-import { fadeIn, findArea } from './utils'
+import runLandingPage from './views/landing'
+import runAboutPage from './views/about'
+import runProjectsPage from './views/projects'
+import { findArea } from './utils'
 
 // fetch polyfill for mobile devices
 require('es6-promise').polyfill()

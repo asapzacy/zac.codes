@@ -1,4 +1,4 @@
-import { scrollToTop, fadeOut, fadeIn } from './utils'
+import { scrollToTop } from '../utils'
 
 // projects page - specific functions
 export default function runProjectsPage() {

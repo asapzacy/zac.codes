@@ -43,7 +43,10 @@ header {
   width:100%;
   line-height:1;
   font-size:1.2em;
-  text-align:center;
+  @media only screen and (min-width:$small) {
+    font-size:1.6em;
+  }
+
 }
 
 .menu__list {
@@ -51,27 +54,37 @@ header {
   overflow:hidden;
   flex-direction:column;
   @media only screen and (min-width:$small) {
-    width:70%;
-    flex-direction:row;
+    width:66%;
+    height:66%;
+    flex-flow:row wrap;
   }
 }
 
 .menu__item {
   flex:1;
   opacity:0;
+  max-height:120px;
   transition:opacity 0.22s ease-in;
   @for $i from 3 through 1 {
     &:nth-of-type(#{$i}) {
       transition-delay:(#{(3 - $i) * 0.11}s);
     }
   }
+
   @media only screen and (min-width:$small) {
     height:100%;
+    max-height:160px;
+    flex:1 0 auto;
+    &:first-child {
+      flex:0 0 100%;
+    }
   }
+
 }
 
 .menu__link {
   height:100%;
+  font-variant:small-caps;
   display:inline-flex;
   flex-direction:column;
   justify-content:center;
@@ -98,7 +111,7 @@ header {
     display:block;
     width:0;height:2px;
     margin:0 auto;
-    background:$black;
+    background:$purple;
     opacity:0;
     transform:translateY(-3.2em);
     transition:width $slow,opacity $average,transform $average;

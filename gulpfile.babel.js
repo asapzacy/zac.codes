@@ -16,7 +16,22 @@ import notify from 'gulp-notify'
 import uglify from 'gulp-uglify'
 import rename from 'gulp-rename'
 import browsersync from 'browser-sync'
+
 const reload = browsersync.reload
+const templateData = require('./app/data/data')
+
+const hbsConfig = {
+  data: templateData,
+  opetions: {
+    ignorePartials: true,
+    batch: [ './app/templates/partials' ]
+  }
+}
+// const templateData = require('./app/data/data')
+// const hbsConfig = {
+//   ignorePartials: true,
+//   batch: [ './app/templates/partials' ]
+// }
 
 const PATHS = {
   app: 'app',
@@ -24,9 +39,7 @@ const PATHS = {
 }
 
 const FILES = {
-  ico: 'app/*.ico',
-  pdf: 'app/*.pdf',
-  html: 'app/**/*.html',
+  static: 'app/*.+(ico|pdf)',
   hbs: 'app/templates/views/*.hbs',
   img: 'app/img/**/*.+(png|jpg|svg)',
   sass: 'app/sass/**/*.scss',
@@ -36,25 +49,15 @@ const FILES = {
 
 //  static files --> dist
 gulp.task('static', () => {
-  gulp.src(FILES.ico)
+  gulp.src(FILES.static)
     .pipe(gulp.dest('dist'))
-  gulp.src(FILES.pdf)
-    .pipe(gulp.dest('dist'))
-  // gulp.src(FILES.html)
-  //   .pipe(gulp.dest('dist'))
     .pipe(reload({ stream: true }))
 })
 
+//  handlebars templates --> html --> dist
 gulp.task('hbs', () => {
-  // const options = {
-  //   ignorePartials: true,
-  //   batch: [ './app/templates/partials' ]
-  // }
   gulp.src(FILES.hbs)
-    .pipe(handlebars({}, {
-      ignorePartials: true,
-      batch: [ './app/templates/partials' ]
-    }))
+    .pipe(handlebars(hbsConfig.data, hbsConfig.options))
     .pipe(rename(path => {
       gutil.log(path)
       path.dirname = path.basename !== 'landing' ? path.basename : path.dirname

@@ -1,5 +1,9 @@
 
-.error {
-  font:12em monospace;
+.page--404 {
   text-align:center;
+
+  .message {
+    font:12em monospace;
+  }
+
 }

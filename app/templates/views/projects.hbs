@@ -2,6 +2,17 @@
 
       {{#*inline "content"}}
 
+      <section class="page page--projects">
+        <div class="sections">
+          {{#each projects}}
+            <section class="project js-project project--{{name}}">
+              <h1>{{name}}</h1>
+            </section>
+          {{/each}}
+        </div>
+      </section>
+
+
         <section class="page page--projects">
           <div class="sections">
 

@@ -1,5 +1,4 @@
 import { updatePage, runNewFunctions } from './spa'
-import { findArea, fadeIn, fadeOut } from './utils'
 import { loadFonts } from './init'
 
 (() => {
@@ -8,7 +7,6 @@ import { loadFonts } from './init'
   const header = document.querySelector('header')
   const triggerMenu = document.querySelector('.js-trigger--menu')
   const menu = document.querySelector('.js-menu')
-  const page = document.querySelector('.page')
 
   //  functions
   const toggleMenu = () => {
