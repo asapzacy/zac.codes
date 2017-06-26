@@ -1,9 +1,9 @@
 
 footer {
+  flex:2;
   width:100%;
   z-index:$top;
   display:flex;
-  flex:2;
   background:$purple url('/assets/img/mountains.svg') -1px -1px / 100px 72px repeat-x;
   padding-top:72px;
   margin-top:-72px;
@@ -11,19 +11,17 @@ footer {
 }
 
 .social {
-  width:60%;
+  width:80%;
   max-width:$max_width;
   margin:0 auto;
   display:flex;
-  align-items:center
+  align-items:center;
 }
 
 .social__list {
   width:100%;
   max-width:250px;
   margin:0 auto;
-  display:flex;
-  justify-content:space-between;
   @media only screen and (min-width:$medium) {
     margin-right:0;
   }
@@ -34,23 +32,24 @@ footer {
 
 .social__link {
   color:$white;
-  font-size:0.9em;
+  font-size:0.96em;
+  font-weight:600;
   display:block;
   padding-top:2px;
   &::after {
     content:'';
     display:block;
     height:2px;
-    width:2px;margin:0 auto;
+    width:2px;
+    margin:0 auto;
     background:$white;
     opacity:0;
     transform:translateY(-1.6em);
     transition:width $slow,opacity $average,transform $average;
   }
-}
-
-.social__link:hover::after {
-  width:100%;
-  opacity:1;
-  transform:translateY(-2px);
+  &:hover::after {
+    width:100%;
+    opacity:1;
+    transform:translateY(-2px);
+  }
 }

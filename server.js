@@ -3,8 +3,8 @@ const express = require('express')
 const path = require('path')
 const compression = require('compression')
 const port = process.env.PORT || 2020
-
 const app = express()
+
 app.use(compression())
 app.use(express.static('dist'))
 

@@ -20,5 +20,9 @@ body {
   height:100%;
   display:flex;
   justify-content:flex-end;
-  flex-direction:column
+  flex-direction:column;
+  opacity:0;
+  transition:opacity 0.44s 0.22s;
 }
+
+#app.ready { opacity:1; }

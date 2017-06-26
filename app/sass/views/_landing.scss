@@ -12,7 +12,7 @@
     width:75%;
   }
   @media only screen and (min-width:$xlarge) {
-    width:67.5%;
+    width:70%;
   }
 }
 
@@ -35,4 +35,8 @@
   @media only screen and (min-width:$xlarge) {
     left:-8.125%;
   }
+}
+
+.area {
+  font-family:monospace;
 }

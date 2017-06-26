@@ -1,5 +1,6 @@
 import { updatePage, runNewFunctions } from './spa'
 import { findArea, fadeIn, fadeOut } from './utils'
+import { loadFonts } from './init'
 
 (() => {
 
@@ -11,13 +12,7 @@ import { findArea, fadeIn, fadeOut } from './utils'
 
   //  functions
   const toggleMenu = () => {
-    if (header.classList.contains('menu-open')) {
-      header.classList.remove('menu-open')
-      // fadeIn(page)
-    } else {
-      header.classList.add('menu-open')
-      // fadeOut(page,10)
-    }
+    header.classList.toggle('menu-open')
   }
 
   const changePage = (e) => {
@@ -31,7 +26,9 @@ import { findArea, fadeIn, fadeOut } from './utils'
     }
   }
 
+  loadFonts()
   runNewFunctions()
+
   triggerMenu.addEventListener('click', toggleMenu)
   menu.addEventListener('click', changePage)
 

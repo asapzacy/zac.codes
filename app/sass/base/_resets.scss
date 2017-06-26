@@ -12,7 +12,9 @@ input { border:0;background:inherit;font-family:inherit }
 input:focus { outline:0 }
 figure { text-align:center }
 figcaption { font-size:0.9em }
-hr { border:0 }
-nav { letter-spacing:1px;font-weight:600 }
+table, hr { border:0 }
+nav { letter-spacing:0.5px;font-weight:500 }
 sup { font-size:66% }
+code { padding:0.2em 0;font-size:75%;background-color:rgba(27,31,35,0.05);border-radius:3px;font-family:$code;white-space:nowrap }
+code::before, code::after { letter-spacing:-0.2em;content:'\00a0' }
 ::-webkit-scrollbar { width:0;height:0;background:transparent }

@@ -40,8 +40,8 @@ gulp.task('static', () => {
     .pipe(gulp.dest('dist'))
   gulp.src(FILES.pdf)
     .pipe(gulp.dest('dist'))
-  gulp.src(FILES.html)
-    .pipe(gulp.dest('dist'))
+  // gulp.src(FILES.html)
+  //   .pipe(gulp.dest('dist'))
     .pipe(reload({ stream: true }))
 })
 
@@ -58,7 +58,7 @@ gulp.task('hbs', () => {
     .pipe(rename(path => {
       gutil.log(path)
       path.dirname = path.basename !== 'landing' ? path.basename : path.dirname
-      path.basename = 'indy'
+      path.basename = 'index'
       path.extname = '.html'
     }))
     .pipe(gulp.dest('dist'))
@@ -136,9 +136,7 @@ function build(file, watch) {
       .pipe(buffer())
       .pipe(rename('main.js'))
       .pipe(gulp.dest(PATHS.build + '/assets/js'))
-      .pipe(sourcemaps.init())
       .pipe(uglify())
-      .pipe(sourcemaps.write())
       .pipe(rename('main.min.js'))
       .pipe(gulp.dest(PATHS.build + '/assets/js'))
       .pipe(reload({ stream: true }))

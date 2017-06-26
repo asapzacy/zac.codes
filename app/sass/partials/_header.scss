@@ -2,18 +2,7 @@
 header {
   flex:0;
   display:flex;
-  // transition:flex 0.44s 1.2s;
-}
-
-header, main {
-  transition:flex 0.66s ease-in 0.44s,opacity 0.33s ease-in 0.77s;
-  // transition-timing-function:ease-in;
-}
-
-.menu-open, .menu-open + main {
-  transition:flex 0.66s ease-out 0s,opacity 0.33s ease-out 0s;
-  // transition-delay:0s;
-  // transition-timing-function:ease-out;
+  transition:flex 0s 0.66s;
 }
 
 .trigger {
@@ -37,11 +26,10 @@ header, main {
   }
   &--menu {
     background:$white;
-    transition-delay:1s;
   }
   &__line {
     background:$black;
-    transition:background $quick $cubic $middle,transform $middle $cubic $instant;
+    transition:transform 0.44s $cubic;
     &--top {
       transform:translateY(-4px);
     }
@@ -53,6 +41,9 @@ header, main {
 
 .menu {
   width:100%;
+  line-height:1;
+  font-size:1.2em;
+  text-align:center;
 }
 
 .menu__list {
@@ -68,22 +59,12 @@ header, main {
 .menu__item {
   flex:1;
   opacity:0;
-  transition:opacity 0.22s;
-  transition-timing-function:ease-out;
+  transition:opacity 0.22s ease-in;
   @for $i from 3 through 1 {
     &:nth-of-type(#{$i}) {
       transition-delay:(#{(3 - $i) * 0.11}s);
     }
   }
-  // &:nth-child(1) {
-  //   transition-delay:$quick;
-  // }
-  // &:nth-child(2) {
-  //   transition-delay:0.11s;
-  // }
-  // &:nth-child(3) {
-  //   transition-delay:$instant;
-  // }
   @media only screen and (min-width:$small) {
     height:100%;
   }
@@ -94,8 +75,7 @@ header, main {
   display:inline-flex;
   flex-direction:column;
   justify-content:center;
-  padding:2.5% 1em 0;
-  line-height:1;
+  padding:0 1em;
   &::before {
     content:'';
     display:block;
@@ -132,17 +112,11 @@ header, main {
 
 .menu-open {
   flex:1;
-  position:relative;
-
-  .trigger--menu {
-    background:transparent;
-    transition:background $instant;
-  }
+  transition:flex 0s 0.22s;
 
   .trigger__line {
-    transition-delay:$instant;
     &--top {
-      transform:rotate(-45deg);
+      transform:rotate(135deg);
     }
     &--bottom {
       transform:rotate(45deg);
@@ -152,33 +126,11 @@ header, main {
   .menu__item {
     opacity:1;
     transition-duration:0.42s;
-    transition-timing-function:ease-in;
     @for $i from 1 through 3 {
       &:nth-of-type(#{$i}) {
-        transition-delay:(#{($i * 0.11) + 0.55}s);
+        transition-delay:(#{(($i * 0.11) + 0.11) + .2}s);
       }
     }
-    // @for $i from 1 through 5 {
-    //   &:nth-child(#{$i}) {
-    //     &:before {
-    //       content: '#{$i}';
-    //     }
-    //   }
-    // }
-    // &:nth-child(1) {
-    //   transition-delay:$quick;
-    // }
-    // &:nth-child(2) {
-    //   transition-delay:$average;
-    // }
-    // &:nth-child(3) {
-    //   transition-delay:$middle;
-    // }
   }
-}
 
-// @for $i from 1 to 3 {
-//   .menu-open .menu-item:nth-child(#{$i}) {
-//     transition-delay:(#{$i * 1}s);
-//   }
-// }
+}
