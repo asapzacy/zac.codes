@@ -7,8 +7,8 @@ import cache from 'gulp-cache'
 import handlebars from 'gulp-compile-handlebars'
 import sass from 'gulp-sass'
 import sourcemaps from 'gulp-sourcemaps'
-import autoprefixer from 'gulp-autoprefixer'
-import uglifycss from 'gulp-uglifycss'
+// import autoprefixer from 'gulp-autoprefixer'
+// import uglifycss from 'gulp-uglifycss'
 import browserify from 'browserify'
 import babelify from 'babelify'
 import watchify from 'watchify'
@@ -18,17 +18,16 @@ import rename from 'gulp-rename'
 import browsersync from 'browser-sync'
 
 const reload = browsersync.reload
-const templateData = require('./app/data/data')
 
-const hbsConfig = {
-  data: templateData,
-  opetions: {
+const config = {
+  data: require('./app/data/data'),
+  options: {
     ignorePartials: true,
     batch: [ './app/templates/partials' ]
   }
 }
 // const templateData = require('./app/data/data')
-// const hbsConfig = {
+// const config = {
 //   ignorePartials: true,
 //   batch: [ './app/templates/partials' ]
 // }
@@ -57,7 +56,7 @@ gulp.task('static', () => {
 //  handlebars templates --> html --> dist
 gulp.task('hbs', () => {
   gulp.src(FILES.hbs)
-    .pipe(handlebars(hbsConfig.data, hbsConfig.options))
+    .pipe(handlebars(config.data, config.options))
     .pipe(rename(path => {
       gutil.log(path)
       path.dirname = path.basename !== 'landing' ? path.basename : path.dirname

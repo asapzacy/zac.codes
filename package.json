@@ -8,6 +8,8 @@
     "start": "gulp",
     "build": "rm -rf ./dist && gulp",
     "wipe": "rm -rf node_modules && yarn",
+    "lint": "eslint app/.; exit 0",
+    "fix": "eslint --fix app/.; exit 0",
     "images": "find ./dist/assets -name '*.svg' -type f -exec svgo '{}' \\;"
   },
   "author": "Zac Arellano",
@@ -26,6 +28,7 @@
     "babelify": "^7.3.0",
     "browser-sync": "^2.18.12",
     "browserify": "^14.4.0",
+    "eslint": "^4.1.1",
     "eslint-config": "^0.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.6.0",

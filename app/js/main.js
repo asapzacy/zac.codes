@@ -7,6 +7,7 @@ import { loadFonts } from './init'
   const header = document.querySelector('header')
   const triggerMenu = document.querySelector('.js-trigger--menu')
   const menu = document.querySelector('.js-menu')
+  const main = document.querySelector('main')
 
   //  functions
   const toggleMenu = () => {
@@ -19,6 +20,7 @@ import { loadFonts } from './init'
       toggleMenu()
       if (e.target.pathname !== window.location.pathname) {
         history.pushState(null, null, e.target.pathname)
+        main.scrollTop = 0
         updatePage()
       }
     }

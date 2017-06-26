@@ -50,10 +50,10 @@ function loadPage(url) {
         cache[url] = response.text()
         return cache[url]
       } else {
-        console.log('network response was not ok.')
+        console.error('network response was not ok.')
       }
     })
-    .catch((err) => console.log(`there has been an error requesting (${url}): ${err.message}`))
+    .catch((err) => console.error(`there has been an error requesting (${url}): ${err.message}`))
 }
 
 // update page anytime history api is changed
