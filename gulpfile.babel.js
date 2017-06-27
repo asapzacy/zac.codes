@@ -7,8 +7,11 @@ import cache from 'gulp-cache'
 import hb from 'gulp-hb'
 import sass from 'gulp-sass'
 import sourcemaps from 'gulp-sourcemaps'
+import postcss from 'gulp-postcss'
+import base64 from 'gulp-base64'
 import autoprefixer from 'gulp-autoprefixer'
 import uglifycss from 'gulp-uglifycss'
+import mqpacker from 'css-mqpacker'
 import browserify from 'browserify'
 import babelify from 'babelify'
 import watchify from 'watchify'
@@ -30,6 +33,7 @@ const FILES = {
   hbs: './app/templates/**/*.hbs',
   data: 'app/data/*.js',
   img: 'app/img/**/*.+(png|jpg|svg)',
+  icons: 'app/img/icons/*.svg',
   sass: 'app/sass/**/*.scss',
   js: 'app/js/**/*.js',
   main: 'main.js'
@@ -71,12 +75,18 @@ gulp.task('img', () => {
 
 //  sass --> css --> dist
 gulp.task('sass', () => {
+  const plugins = [ mqpacker() ]
   gulp.src(FILES.sass)
     .pipe(sourcemaps.init())
     .pipe(sass())
+    .pipe(base64({
+      baseDir: './app/img',
+      debug: true
+    }))
     .on('error', handleErrors)
     .pipe(rename('styles.css'))
     .pipe(gulp.dest(PATHS.build + '/assets/css'))
+    .pipe(postcss(plugins))
     .pipe(autoprefixer())
     .pipe(autoprefixer({ remove: false, browsers: ['last 2 versions', '> 1%'] }))
     .pipe(uglifycss())
