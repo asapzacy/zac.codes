@@ -12,7 +12,9 @@ header {
   z-index:$top;
   position:absolute;
   right:0;
-  margin-right:calc((100% - #{$max_width}) / 2);
+  @media only screen and (min-width:$max_width) {
+    margin-right:calc((100% - #{$max_width}) / 2);
+  }
   &__container {
     width:50%;
     height:50%;

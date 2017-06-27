@@ -192,8 +192,10 @@ header {
   height: 104px;
   z-index: 99;
   position: absolute;
-  right: 0;
-  margin-right: calc((100% - 1600px) / 2); }
+  right: 0; }
+  @media only screen and (min-width: 1600px) {
+    .trigger {
+      margin-right: calc((100% - 1600px) / 2); } }
   .trigger__container {
     width: 50%;
     height: 50%;
