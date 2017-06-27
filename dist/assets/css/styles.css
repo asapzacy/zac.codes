@@ -315,9 +315,12 @@ header {
 main {
   flex: 1;
   opacity: 1;
-  overflow: scroll;
-  padding: 0 calc((100% - 1600px) / 2);
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   transition: flex 0s 0.66s,opacity 0.22s ease-in 0.66s; }
+  @media only screen and (min-width: 1600px) {
+    main {
+      padding: 0 calc((100% - 1600px) / 2); } }
 
 .menu-open + main {
   flex: 0;
@@ -326,9 +329,7 @@ main {
 
 .page {
   width: 100%;
-  padding: 16vh 4% 0;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; }
+  padding: 16vh 4% 0; }
   .page h1 {
     font-size: 2.827em;
     font-family: "Yellowtail", cursive; }

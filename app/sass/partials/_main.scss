@@ -10,9 +10,12 @@
 main {
   flex:1;
   opacity:1;
-  overflow:scroll;
-  padding:0 calc((100% - #{$max_width}) / 2);
+  overflow-y:scroll;
+  -webkit-overflow-scrolling:touch;
   transition:flex 0s 0.66s,opacity 0.22s ease-in 0.66s;
+  @media only screen and (min-width:$max_width) {
+    padding:0 calc((100% - #{$max_width}) / 2);
+  }
 }
 
 .menu-open + main {
@@ -24,8 +27,6 @@ main {
 .page {
   width:100%;
   padding:16vh 4% 0;
-  overflow-y:scroll;
-  -webkit-overflow-scrolling:touch;
   h1 {
     font-size:2.827em;
     font-family:$cursive;
