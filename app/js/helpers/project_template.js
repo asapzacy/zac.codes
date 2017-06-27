@@ -1,8 +1,10 @@
 
 export const formatImgFile = (img) => {
+  let result = ''
   if (img.includes(' ')) {
-    return img.toLowerCase().split(' ').join('-')
+    result = img.toLowerCase().split(' ').join('-')
   } else {
-    return img
+    result = img
   }
+  return result
 }
