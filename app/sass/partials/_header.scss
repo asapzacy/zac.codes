@@ -2,6 +2,7 @@
 header {
   flex:0;
   display:flex;
+  position:relative;
   transition:flex 0s 0.66s;
 }
 
@@ -11,6 +12,7 @@ header {
   z-index:$top;
   position:absolute;
   right:0;
+  margin-right:calc((100% - #{$max_width}) / 2);
   &__container {
     width:50%;
     height:50%;
@@ -25,10 +27,10 @@ header {
     top:25px;left:14px;
   }
   &--menu {
-    background:$white;
+    background:$real_white;
   }
   &__line {
-    background:$black;
+    background:$real_black;
     transition:transform 0.44s $cubic;
     &--top {
       transform:translateY(-4px);

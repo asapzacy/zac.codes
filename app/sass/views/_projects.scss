@@ -4,7 +4,7 @@
     content:'';
     display:block;
     height:2px;
-    background-image:linear-gradient(90deg,transparent,$black,transparent);
+    background-image:linear-gradient(90deg,transparent,$real_black,transparent);
     margin:4em auto;
     width:88%;
   }
@@ -18,11 +18,22 @@
 
   &__preview {
     margin:1em 0;
+    background:$white;
+    border-radius:4px;
+    flex-flow:column;
+    // position:relative;
+    // padding-top:61.45%;
   }
 
   &__image {
-    // background:$black;
-    // padding:1%;
+    // top:0;
+    // position:absolute;
+  }
+
+  &__caption {
+    width:100%;
+    padding-top:1%;
+    background:$real_white;
   }
 
   &__intro {
@@ -34,8 +45,8 @@
     float:right;
     font-weight:600;
     height:2em;
-    border-bottom:1px solid $black;
-    border-right:1px solid $black;
+    border-bottom:1px solid $real_black;
+    border-right:1px solid $real_black;
     padding-left:1em;
     &::after {
       content:'+';
@@ -85,7 +96,7 @@
     font-weight:600;
     &::before {
       display:inline;
-      border-bottom:1px solid $black;
+      border-bottom:1px solid $real_black;
       margin-right:0.4em;
       counter-increment:section;
       content:counter(section,lower-roman)'. ';
@@ -115,7 +126,7 @@
       content:'';
       display:block;
       height:2px;
-      background-image:linear-gradient(90deg,transparent,$black,transparent);
+      background-image:linear-gradient(90deg,transparent,$real_black,transparent);
       margin:0 auto 3em;
       width:60%;
     }
@@ -123,13 +134,13 @@
 }
 
 
-// .project:not(:last-child)::after { content:'';display:block;background:$black;width:66.6%;height:2px;margin:3em auto }
+// .project:not(:last-child)::after { content:'';display:block;background:$real_black;width:66.6%;height:2px;margin:3em auto }
 .project:last-child { margin-bottom:6em }
 .preview { display:flex;align-items:center }
 .preview .x { display:none;width:52px;height:52px;position:absolute;top:0;right:0;cursor:pointer }
 // .preview figure { text-align:center;margin:1em 0 }
 .preview img { cursor:pointer;display:block;margin:0 auto }
 .preview figcaption { color:$grey;font-size:0.9em; }
-.hippify img { border:1px solid $black;padding:2% 4% }
-.klopro img { border:1px solid $black;background:$white;padding:2% 4% 0 }
+.hippify img { border:1px solid $real_black;padding:2% 4% }
+.klopro img { border:1px solid $real_black;background:$real_white;padding:2% 4% 0 }
 .fullscreen img { border:0 }

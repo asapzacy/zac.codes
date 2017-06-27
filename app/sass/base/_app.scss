@@ -1,7 +1,7 @@
 
 body {
-  color:$black;
-  background:$white;
+  color:$real_black;
+  background:$real_white;
   font:400 16px/1.45 $normal;
   text-rendering:optimizeLegibility;
   -webkit-font-smoothing:antialiased;
@@ -21,8 +21,27 @@ body {
   display:flex;
   justify-content:flex-end;
   flex-direction:column;
-  opacity:0;
-  transition:opacity 0.44s 0.22s;
 }
 
-#app.ready { opacity:1; }
+.inner__container, .social {
+  opacity:0;
+  transition:opacity 0.66s 0.66s;
+}
+#app.ready { .inner__container, .social { opacity:1; } }
+
+footer {
+  transform:translateY(110%);
+  transition:transform $cubic 0.44s;
+}
+#app.ready footer { transform:translateY(0); }
+
+img[data-src] {
+  opacity:0;
+  height:0;
+  padding-top:62.5%;
+}
+
+img {
+  opacity:1;
+  transition:opacity 1.2s ease-in 1.2s;
+}

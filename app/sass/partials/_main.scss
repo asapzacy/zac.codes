@@ -4,17 +4,14 @@
   display:flex;
   flex-direction:column;
   margin:0 auto 72px;
-  max-width:$max_width;
   z-index:$bottom;
-  overflow:scroll;
-  position:relative;
-  width:100%;
 }
 
 main {
   flex:1;
   opacity:1;
-  overflow:auto;
+  overflow:scroll;
+  padding:0 calc((100% - #{$max_width}) / 2);
   transition:flex 0s 0.66s,opacity 0.22s ease-in 0.66s;
 }
 
@@ -46,6 +43,6 @@ main {
     font-size:1.0505em;
   }
   a {
-    border-bottom:1px solid $black
+    border-bottom:1px solid $real_black
   }
  }

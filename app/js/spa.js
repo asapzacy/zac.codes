@@ -30,6 +30,7 @@ export const updatePage = () => {
     const newPage = container.querySelector('.page')
     const newTitle = container.getElementsByTagName('title')[0].textContent
     const newDesc = container.getElementsByTagName('meta')['description'].content
+    console.log(newPage, oldPage)
     oldPage.parentNode.replaceChild(newPage, oldPage)
     document.title = newTitle
     document.getElementsByTagName('meta')['description'].content = newDesc

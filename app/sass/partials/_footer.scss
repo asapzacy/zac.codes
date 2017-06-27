@@ -7,7 +7,7 @@ footer {
   background:$purple url('/assets/img/mountains.svg') -1px -1px / 100px 72px repeat-x;
   padding-top:72px;
   margin-top:-72px;
-  box-shadow:0 -1.2em 1.2em 1.2em $white;
+  box-shadow:0 -1.2em 1.2em 1.2em $real_white;
 }
 
 .social {
@@ -31,7 +31,7 @@ footer {
 }
 
 .social__link {
-  color:$white;
+  color:$real_white;
   font-size:0.96em;
   font-weight:600;
   display:block;
@@ -42,7 +42,7 @@ footer {
     height:2px;
     width:2px;
     margin:0 auto;
-    background:$white;
+    background:$real_white;
     opacity:0;
     transform:translateY(-1.6em);
     transition:width $slow,opacity $average,transform $average;

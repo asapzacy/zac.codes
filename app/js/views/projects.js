@@ -1,4 +1,4 @@
-import { scrollToTop } from '../utils'
+import { scrollToTop, lazyLoad } from '../utils'
 
 // projects page - specific functions
 export default function runProjectsPage() {
@@ -6,7 +6,7 @@ export default function runProjectsPage() {
   // set up arrow + scroll to top function
   // TODO: only show arrow if needed [height > 100% viewport]
   const topArrow = document.querySelector('.js-page__arrow--top')
-  topArrow.addEventListener('click', function() {
+  topArrow && topArrow.addEventListener('click', function() {
     scrollToTop(this.parentNode)
   })
 
@@ -14,10 +14,11 @@ export default function runProjectsPage() {
   const projects = Array.from(document.querySelectorAll('.js-project'))
   projects.forEach(project => {
     const expandIcon = project.querySelector('.project__expandIcon')
-    expandIcon.addEventListener('click', expandDetails)
-
     const closeIcon = project.querySelector('.project__closeIcon')
-    closeIcon.addEventListener('click', closeDetails)
+    if (expandIcon && closeIcon) {
+      expandIcon.addEventListener('click', expandDetails)
+      closeIcon.addEventListener('click', closeDetails)
+    }
   })
 
   function closeDetails() {
@@ -35,5 +36,12 @@ export default function runProjectsPage() {
     details.classList.toggle('project__details--expanded')
     details.style.maxHeight = isExpanded ? 0 : `${details.scrollHeight}px`
   }
+
+  const fadeInImages = () => {
+    const projectImages = Array.from(document.querySelectorAll('.js-project__image'))
+    lazyLoad(projectImages)
+  }
+
+  fadeInImages()
 
 }

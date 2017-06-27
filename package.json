@@ -38,7 +38,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-cache": "^0.4.5",
-    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-hb": "^6.0.2",
     "gulp-imagemin": "^3.1.1",
     "gulp-notify": "^3.0.0",
     "gulp-rename": "^1.2.2",
