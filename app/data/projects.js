@@ -66,7 +66,7 @@ const projects = [
   },
   {
     name: 'Long Realty',
-    date: '2013 - 2014',
+    date: '2013 - 2016',
     urls: {
       base: 'http://soldtucson.com'
     }

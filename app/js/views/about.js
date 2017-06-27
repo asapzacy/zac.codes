@@ -6,7 +6,7 @@ export default function runAboutPage() {
   // TODO: only show arrow if needed [height > 100% viewport]
   const topArrow = document.querySelector('.js-page__arrow--top')
 
-  topArrow.addEventListener('click', function() {
+  topArrow && topArrow.addEventListener('click', function() {
     scrollToTop(this.parentNode)
   })
 
