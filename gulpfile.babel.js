@@ -9,7 +9,7 @@ import sass from 'gulp-sass'
 import sourcemaps from 'gulp-sourcemaps'
 import postcss from 'gulp-postcss'
 import base64 from 'gulp-base64'
-import autoprefixer from 'gulp-autoprefixer'
+import autoprefixer from 'autoprefixer'
 import uglifycss from 'gulp-uglifycss'
 import mqpacker from 'css-mqpacker'
 import browserify from 'browserify'
@@ -72,10 +72,15 @@ gulp.task('img', () => {
     .pipe(gulp.dest(PATHS.build + '/assets/img'))
     .pipe(reload({ stream: true }))
 })
+var info = autoprefixer().info()
+console.log(info)
 
 //  sass --> css --> dist
 gulp.task('sass', () => {
-  const plugins = [ mqpacker() ]
+  const plugins = [
+    autoprefixer(),
+    mqpacker()
+  ]
   gulp.src(FILES.sass)
     .pipe(sourcemaps.init())
     .pipe(sass())
@@ -83,12 +88,10 @@ gulp.task('sass', () => {
       baseDir: './app/img',
       debug: true
     }))
+    .pipe(postcss(plugins))
     .on('error', handleErrors)
     .pipe(rename('styles.css'))
     .pipe(gulp.dest(PATHS.build + '/assets/css'))
-    .pipe(postcss(plugins))
-    .pipe(autoprefixer())
-    .pipe(autoprefixer({ remove: false, browsers: ['last 2 versions', '> 1%'] }))
     .pipe(uglifycss())
     .pipe(rename('styles.min.css'))
     .pipe(sourcemaps.write('.'))
@@ -110,6 +113,25 @@ gulp.task('browser-sync', () => {
     open: false
   })
 })
+
+// gulp.task('build', () => {
+//   gulp.src('./dist/assets/js/main.js')
+//     .pipe(hash())
+//     .pipe(gulp.dest(PATHS.build + '/assets/js'))
+//     .pipe(hash.manifest('assets.json', {
+//       deleteOld: true,
+//       sourceDir: PATHS.build + '/assets/js'
+//     }))
+//     .pipe(gulp.dest(PATHS.build))
+//   gulp.src('./dist/assets/css/styles.css')
+//     .pipe(hash())
+//     .pipe(gulp.dest(PATHS.build + '/assets/css'))
+//     .pipe(hash.manifest('assets.json', {
+//       deleteOld: true,
+//       sourceDir: PATHS.build + '/assets/css'
+//     }))
+//     .pipe(gulp.dest(PATHS.build))
+// })
 
 gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync', 'views'], () => {
   gulp.watch(FILES.static, ['static'])
