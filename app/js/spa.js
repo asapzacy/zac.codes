@@ -45,7 +45,7 @@ function loadPage(url) {
   if (cache[url]) {
     return Promise.resolve(cache[url])
   }
-  return fetch(url, { redirect: 'manual' })
+  return fetch(url)
     .then((response) => {
       if (response.ok) {
         cache[url] = response.text()

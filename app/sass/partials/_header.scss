@@ -103,13 +103,13 @@ header {
     background:center center / contain no-repeat;
   }
   &--landing::before {
-    background-image:url('icons/map-signs.svg')
+    background-image:url('/assets/img/icons/map-signs.svg')
   }
   &--about::before {
-    background-image:url('icons/soccer-ball.svg')
+    background-image:url('/assets/img/icons/soccer-ball.svg')
   }
   &--projects::before {
-    background-image:url('icons/floppy-disk.svg')
+    background-image:url('/assets/img/icons/floppy-disk.svg')
   }
   &::after {
     content:'';

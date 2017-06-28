@@ -30,7 +30,7 @@ body {
 #app.ready { .inner__container, .social { opacity:1; } }
 
 footer {
-  transform:translateY(110%);
+  transform:translateY(144%);
   transition:transform $cubic 0.44s;
 }
 #app.ready footer { transform:translateY(0); }

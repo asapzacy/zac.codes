@@ -72,8 +72,6 @@ gulp.task('img', () => {
     .pipe(gulp.dest(PATHS.build + '/assets/img'))
     .pipe(reload({ stream: true }))
 })
-var info = autoprefixer().info()
-console.log(info)
 
 //  sass --> css --> dist
 gulp.task('sass', () => {
@@ -84,10 +82,10 @@ gulp.task('sass', () => {
   gulp.src(FILES.sass)
     .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(base64({
-      baseDir: './app/img',
-      debug: true
-    }))
+    // .pipe(base64({
+    //   baseDir: './app/img',
+    //   debug: true
+    // }))
     .pipe(postcss(plugins))
     .on('error', handleErrors)
     .pipe(rename('styles.css'))
