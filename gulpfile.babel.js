@@ -3,6 +3,7 @@ import source from 'vinyl-source-stream'
 import buffer from 'vinyl-buffer'
 import gutil from 'gulp-util'
 import imagemin from 'gulp-imagemin'
+import imageresize from 'gulp-image-resize'
 import cache from 'gulp-cache'
 import hb from 'gulp-hb'
 import sass from 'gulp-sass'
@@ -68,6 +69,12 @@ gulp.task('views', () => {
     .pipe(reload({ stream: true }))
 })
 
+gulp.task('resize', () => {
+  gulp.src(PATHS.app + '/img/projects/*.jpg')
+    .pipe(imageresize({ width: 1400, upscale: false }))
+    .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
+})
+
 //  images --> minify + cache --> dist
 gulp.task('img', () => {
   gulp.src(FILES.img)
@@ -78,17 +85,11 @@ gulp.task('img', () => {
 
 //  sass --> css --> dist
 gulp.task('sass', () => {
-  const plugins = [
-    // autoprefixer(),
-    mqpacker()
-  ]
+  const plugins = [ mqpacker() ]
   gulp.src(FILES.sass)
     .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(base64({
-      baseDir: './app/img',
-      debug: false
-    }))
+    .pipe(base64({ baseDir: './app/img', debug: false }))
     .pipe(postcss(plugins))
     .on('error', handleErrors)
     .pipe(rename('styles.css'))

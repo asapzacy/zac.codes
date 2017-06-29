@@ -119,7 +119,7 @@ img[data-src] {
 
 img {
   opacity: 1;
-  transition: opacity 1.2s ease-in 1.2s; }
+  transition: opacity 0.44s ease-in 1.22s; }
 
 /* -------  sections  ------- */
 .sections {
@@ -197,11 +197,11 @@ header {
   line-height: 1;
   font-size: 1.2em;
   flex: 1;
-  flex-flow: column;
-  padding: 10% 0; }
+  flex-flow: column; }
 
 .menu__list {
   flex: 1;
+  max-height: 75%;
   overflow: hidden;
   flex-direction: column; }
 
@@ -461,6 +461,10 @@ footer {
   background: #f5f5f5;
   border-radius: 4px;
   flex-flow: column; }
+
+.project__image {
+  width: 100%;
+  max-width: 700px; }
 
 .project__caption {
   width: 100%;

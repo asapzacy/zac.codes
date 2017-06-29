@@ -49,7 +49,6 @@ header {
   font-size:1.2em;
   flex:1;
   flex-flow:column;
-  padding:10% 0;
   @media only screen and (min-width:$small) {
     font-size:1.6em;
   }
@@ -58,6 +57,8 @@ header {
 
 .menu__list {
   flex:1;
+  max-height:75%;
+  // padding:16% 0;
   overflow:hidden;
   flex-direction:column;
   @media only screen and (min-width:$small) {
