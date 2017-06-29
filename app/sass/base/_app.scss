@@ -47,10 +47,11 @@ footer {
 img[data-src] {
   opacity:0;
   height:0;
+  // background:$white;
   padding-top:62.5%;
 }
 
 img {
   opacity:1;
-  transition:opacity 0.44s ease-in 1.22s;
+  transition:opacity 1.22s ease-in 1.22s;
 }

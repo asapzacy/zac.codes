@@ -4,6 +4,8 @@ import buffer from 'vinyl-buffer'
 import gutil from 'gulp-util'
 import imagemin from 'gulp-imagemin'
 import imageresize from 'gulp-image-resize'
+import gm from 'gulp-gm'
+import responsive from 'gulp-responsive-images'
 import cache from 'gulp-cache'
 import hb from 'gulp-hb'
 import sass from 'gulp-sass'
@@ -69,20 +71,42 @@ gulp.task('views', () => {
     .pipe(reload({ stream: true }))
 })
 
+// gulp.task('resize', () => {
+//   gulp.src(PATHS.app + '/img/projects/*.jpg')
+//     .pipe(imageresize({ width: 1400, upscale: false }))
+//     .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
+// })
+
 gulp.task('resize', () => {
-  gulp.src(PATHS.app + '/img/projects/*.jpg')
-    .pipe(imageresize({ width: 1400, upscale: false }))
+  const maxWidth = 800
+  gulp.src(PATHS.app + '/img/projects/*.png')
+    .pipe(gm(file => {
+      return file.fill('white').flatten().opaque('none').setFormat('jpg')
+    }, { imageMagick: true }))
+    .pipe(responsive({
+      '*': [{
+        width: maxWidth,
+        suffix: ''
+      }, {
+        width: maxWidth * 2,
+        suffix: '-2x'
+      }]
+    }))
     .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
 })
+// .pipe(imageresize({ width: 1400, upscale: false }))
+
+// gulp.src(PATHS.app + '/img/projects/*.png')
+//   .pipe(gm(file => file.setFormat('jpg')))
+//   // .pipe(gm(file => file.fill('white').opaque('none').format('jpg')))
+//   // .pipe(imageresize({ width: 1400, upscale: false }))
+//   .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
 
 //  images --> minify + cache --> dist
 gulp.task('img', () => {
-  gulp.src(FILES.img)
+  gulp.src([FILES.img, '!app/img/projects/', '!app/img/projects/**'])
     .pipe(cache(imagemin({ interlaced: true })))
     .pipe(gulp.dest(PATHS.build + '/assets/img'))
-  gulp.src(PATHS.app + '/img/projects/*.jpg')
-    .pipe(imageresize({ width: 1400, upscale: false }))
-    .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
     .pipe(reload({ stream: true }))
 })
 
@@ -124,7 +148,6 @@ gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync', 'views', 'r
   gulp.watch(FILES.img, ['img'])
   gulp.watch(FILES.sass, ['sass'])
   gulp.watch([FILES.data, FILES.hbs], ['views'])
-  // gulp.watch(FILES.img, ['resize'])
   return build(FILES.main, true)
 })
 

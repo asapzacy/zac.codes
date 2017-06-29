@@ -11,13 +11,15 @@
               </h2>
               <h3 class="project__date">{{date}}</h3>
               <figure class="project__preview flexy">
-                <img class="project__image js-project__image" data-src="/assets/img/projects/{{formatImgFile name}}_preview.jpg" alt="{{name}} preview" />
-                {{#if caption}}
+                <img
+                  class="project__image js-project__image"
+                  data-src="/assets/img/projects/{{formatImgFile name}}_preview.jpg"
+                  srcset="/assets/img/projects/{{formatImgFile name}}_preview.jpg 1x, /assets/img/projects/{{formatImgFile name}}_preview-2x.jpg 2x,"
+                  alt="{{name}} preview"
+                />
                   <figcaption class="project__caption">{{caption}}</figcaption>
-                {{else}}
-                  <figcaption class="project__caption">sample data | zac.codes</figcaption>
-                {{/if}}
               </figure>
+              <p class="project__intro">{{info}}</p>
             </section>
           {{/each}}
         </div>

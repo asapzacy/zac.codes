@@ -21,8 +21,6 @@
     background:$white;
     border-radius:4px;
     flex-flow:column;
-    // position:relative;
-    // padding-top:61.45%;
   }
 
   &__image {
@@ -31,6 +29,8 @@
 
   &__caption {
     width:100%;
+    margin-top:-1%;
+    padding-top:2%;
     background:$real_white;
   }
 

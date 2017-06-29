@@ -6,7 +6,8 @@ const projects = [
     urls: {
       base: 'https://uxscoreboard.com'
     },
-    caption: 'NBA scores | uxscoreboard'
+    caption: 'NBA scores | uxscoreboard',
+    info: 'A sports scoreboard web app built on ES6, React, and Node.js—features MLB, NBA, NFL, NHL, and MLS (coming soon) games.'
   },
   {
     name: 'zac.codes',
@@ -22,7 +23,7 @@ const projects = [
     urls: {
       base: 'https://github.com/zacarellano/SimpleLegal'
     },
-    caption: 'sample dashboard coding challenge | SimpleLegal'
+    caption: 'sample dashboard web app | SimpleLegal'
   },
   {
     name: 'PayPal',
@@ -30,7 +31,7 @@ const projects = [
     urls: {
       base: 'https://github.com/zacarellano/PayPal'
     },
-    caption: 'NBA scores | uxscoreboard'
+    caption: 'sample PayPal checkout widget | PayPal'
   },
   {
     name: 'tweeter',
@@ -38,7 +39,7 @@ const projects = [
     urls: {
       base: 'https://github.com/zacarellano/tweeter'
     },
-    caption: 'NBA scores | uxscoreboard'
+    caption: 'find the most common words tweeted | tweeter'
   },
   {
     name: 'home-stream',
@@ -46,7 +47,7 @@ const projects = [
     urls: {
       base: 'https://zac.codes/home-stream'
     },
-    caption: 'NBA scores | uxscoreboard'
+    caption: 'stream of home listings using the SimplyRETS API | home-stream'
   },
   {
     name: 'bullet-graph',
@@ -54,7 +55,7 @@ const projects = [
     urls: {
       base: 'https://zac.codes/bullet-graph'
     },
-    caption: 'NBA scores | uxscoreboard'
+    caption: 'bullet graph implementation using React.js  | bullet-graph'
   },
   {
     name: 'march-madness',
@@ -62,7 +63,7 @@ const projects = [
     urls: {
       base: 'https://github.com/zacarellano/march-madness'
     },
-    caption: 'NBA scores | uxscoreboard'
+    caption: 'UI for a NCAA March Madness bracket | march-madness'
   },
   {
     name: 'tic-tac-toe',
@@ -70,14 +71,16 @@ const projects = [
     urls: {
       base: 'https://github.com/zacarellano/tic-tac-toe'
     },
-    caption: 'NBA scores | uxscoreboard'
+    caption: 'a classic paper-and-pencile game | tic-tac-toe'
   },
   {
     name: 'Long Realty',
     date: '2013 - 2016',
     urls: {
       base: 'http://soldtucson.com'
-    }
+    },
+    caption: 'www.soldtucson.com | Long Realty'
+
   }
 ]
 

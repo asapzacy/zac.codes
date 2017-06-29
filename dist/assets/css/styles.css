@@ -120,7 +120,7 @@ img[data-src] {
 
 img {
   opacity: 1;
-  transition: opacity 0.44s ease-in 1.22s; }
+  transition: opacity 1.22s ease-in 1.22s; }
 
 /* -------  sections  ------- */
 .sections {
@@ -467,6 +467,8 @@ footer {
 
 .project__caption {
   width: 100%;
+  margin-top: -1%;
+  padding-top: 2%;
   background: #ffffff; }
 
 .project__intro {
