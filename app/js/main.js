@@ -1,5 +1,5 @@
 import { updatePage, runNewFunctions } from './spa'
-import { loadFonts, checkBrowser, loadBgImage } from './init'
+import { loadFonts } from './init'
 
 (() => {
 
@@ -15,7 +15,6 @@ import { loadFonts, checkBrowser, loadBgImage } from './init'
   }
 
   const changePage = (e) => {
-    console.dir(e.target)
     if (e.target && e.target.nodeName === 'A') {
       e.preventDefault()
       toggleMenu()
@@ -25,23 +24,12 @@ import { loadFonts, checkBrowser, loadBgImage } from './init'
         updatePage()
       }
     }
-    return false
   }
 
-  checkBrowser()
-  loadBgImage()
   loadFonts()
   runNewFunctions()
 
   triggerMenu.addEventListener('click', toggleMenu)
-  menu.addEventListener('click touchstart', changePage)
-
-  // if ('ontouchstart' in document.documentElement) {
-  //   menu.addEventListener('touchstart', changePage)
-  // } else {
-  //   menu.addEventListener('click', changePage)
-  // }
-
-  // menu.addEventListener('touchstart', function(e) { e.preventDefault();console.dir(e) })
+  menu.addEventListener('ontouchstart' in window ? 'touchstart' : 'click', changePage)
 
 })()

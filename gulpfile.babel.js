@@ -49,12 +49,6 @@ gulp.task('static', () => {
     .pipe(reload({ stream: true }))
 })
 
-gulp.task('fonts', () => {
-  gulp.src(FILES.fonts)
-    .pipe(gulp.dest(PATHS.build + '/assets/fonts'))
-    .pipe(reload({ stream: true }))
-})
-
 gulp.task('views', () => {
   gulp.src(FILES.views)
     .pipe(hb({
@@ -62,7 +56,7 @@ gulp.task('views', () => {
       helpers: './app/js/helpers/*.js',
       partials: './app/templates/partials/**/*.hbs',
       bustCache: true,
-      debug: true
+      debug: false
     }))
     .pipe(rename(path => {
       gutil.log(path)
@@ -93,7 +87,7 @@ gulp.task('sass', () => {
     .pipe(sass())
     .pipe(base64({
       baseDir: './app/img',
-      debug: true
+      debug: false
     }))
     .pipe(postcss(plugins))
     .on('error', handleErrors)
@@ -120,25 +114,6 @@ gulp.task('browser-sync', () => {
     open: false
   })
 })
-
-// gulp.task('build', () => {
-//   gulp.src('./dist/assets/js/main.js')
-//     .pipe(hash())
-//     .pipe(gulp.dest(PATHS.build + '/assets/js'))
-//     .pipe(hash.manifest('assets.json', {
-//       deleteOld: true,
-//       sourceDir: PATHS.build + '/assets/js'
-//     }))
-//     .pipe(gulp.dest(PATHS.build))
-//   gulp.src('./dist/assets/css/styles.css')
-//     .pipe(hash())
-//     .pipe(gulp.dest(PATHS.build + '/assets/css'))
-//     .pipe(hash.manifest('assets.json', {
-//       deleteOld: true,
-//       sourceDir: PATHS.build + '/assets/css'
-//     }))
-//     .pipe(gulp.dest(PATHS.build))
-// })
 
 gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync', 'views'], () => {
   gulp.watch(FILES.static, ['static'])

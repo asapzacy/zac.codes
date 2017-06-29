@@ -25,11 +25,11 @@ body {
 
 .inner__container, .social {
   opacity:0;
-  transition:opacity 0.66s 0.66s;
+  transition:opacity 0.44s;
 }
 footer {
-  transform:translateY(150%);
-  transition:transform $cubic 0.44s 0.44s;
+  transform:translateY(125%);
+  transition:transform $cubic 0.44s;
 }
 
 #app.ready {

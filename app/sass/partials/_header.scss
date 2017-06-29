@@ -70,7 +70,8 @@ header {
 .menu__item {
   flex:1;
   opacity:0;
-  margin:10% 0;
+  width:100%;
+  margin:5% 0;
   max-height:120px;
   flex-direction:column;
   transition:opacity 0.22s ease-in;

@@ -97,11 +97,11 @@ body {
 
 .inner__container, .social {
   opacity: 0;
-  transition: opacity 0.66s 0.66s; }
+  transition: opacity 0.44s; }
 
 footer {
-  transform: translateY(150%);
-  transition: transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.44s 0.44s; }
+  transform: translateY(125%);
+  transition: transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.44s; }
 
 #app.ready .inner__container, #app.ready .social {
   opacity: 1; }
@@ -208,7 +208,8 @@ header {
 .menu__item {
   flex: 1;
   opacity: 0;
-  margin: 10% 0;
+  width: 100%;
+  margin: 5% 0;
   max-height: 120px;
   flex-direction: column;
   transition: opacity 0.22s ease-in; }
@@ -275,7 +276,7 @@ header {
   flex: 8;
   display: flex;
   flex-direction: column;
-  padding-bottom: calc(72px + 2.4em);
+  padding-bottom: 72px;
   z-index: 0; }
 
 main {
