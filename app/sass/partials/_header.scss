@@ -44,13 +44,13 @@ header {
 }
 
 .menu {
-  width:100%;
+  // width:100%;
   line-height:1;
   font-size:1.2em;
   flex:1;
   flex-flow:column;
   @media only screen and (min-width:$small) {
-    font-size:1.6em;
+    font-size:1.4em;
   }
 
 }
@@ -58,13 +58,17 @@ header {
 .menu__list {
   flex:1;
   max-height:75%;
-  // padding:16% 0;
   overflow:hidden;
   flex-direction:column;
   @media only screen and (min-width:$small) {
-    width:66%;
-    height:66%;
+    flex:initial;
     flex-flow:row wrap;
+    width:75%;
+    height:62.5%;
+  }
+  @media only screen and (min-width:$large) {
+    width:62.5%;
+    height:75%;
   }
 }
 
@@ -72,7 +76,7 @@ header {
   flex:1;
   opacity:0;
   width:100%;
-  margin:5% 0;
+  margin:16% 0;
   max-height:120px;
   flex-direction:column;
   transition:opacity 0.22s ease-in;
@@ -83,9 +87,9 @@ header {
   }
 
   @media only screen and (min-width:$small) {
+    margin:0;
     height:100%;
     max-height:160px;
-    flex:1 0 auto;
     &:first-child {
       flex:0 0 100%;
     }
@@ -95,6 +99,8 @@ header {
 
 .menu__link {
   flex:1;
+  // width:100%;
+  // text-align:center;
   font-variant:small-caps;
   display:inline-flex;
   flex-direction:column;

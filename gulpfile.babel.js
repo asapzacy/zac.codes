@@ -80,6 +80,9 @@ gulp.task('img', () => {
   gulp.src(FILES.img)
     .pipe(cache(imagemin({ interlaced: true })))
     .pipe(gulp.dest(PATHS.build + '/assets/img'))
+  gulp.src(PATHS.app + '/img/projects/*.jpg')
+    .pipe(imageresize({ width: 1400, upscale: false }))
+    .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
     .pipe(reload({ stream: true }))
 })
 
@@ -116,11 +119,12 @@ gulp.task('browser-sync', () => {
   })
 })
 
-gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync', 'views'], () => {
+gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync', 'views', 'resize'], () => {
   gulp.watch(FILES.static, ['static'])
   gulp.watch(FILES.img, ['img'])
   gulp.watch(FILES.sass, ['sass'])
   gulp.watch([FILES.data, FILES.hbs], ['views'])
+  // gulp.watch(FILES.img, ['resize'])
   return build(FILES.main, true)
 })
 

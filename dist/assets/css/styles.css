@@ -24,6 +24,7 @@ html, body {
   box-sizing: inherit; }
 
 img {
+  width: 100%;
   max-width: 100%; }
 
 a {
@@ -193,7 +194,6 @@ header {
       transform: translateY(4px); }
 
 .menu {
-  width: 100%;
   line-height: 1;
   font-size: 1.2em;
   flex: 1;
@@ -209,7 +209,7 @@ header {
   flex: 1;
   opacity: 0;
   width: 100%;
-  margin: 5% 0;
+  margin: 16% 0;
   max-height: 120px;
   flex-direction: column;
   transition: opacity 0.22s ease-in; }
@@ -463,12 +463,10 @@ footer {
   flex-flow: column; }
 
 .project__image {
-  width: 100%;
   max-width: 700px; }
 
 .project__caption {
   width: 100%;
-  padding-top: 1%;
   background: #ffffff; }
 
 .project__intro {
@@ -600,15 +598,16 @@ footer {
     body {
       font-size: 18px; }
     .menu {
-      font-size: 1.6em; }
+      font-size: 1.4em; }
     .menu__list {
-      width: 66%;
-      height: 66%;
-      flex-flow: row wrap; }
+      flex: initial;
+      flex-flow: row wrap;
+      width: 75%;
+      height: 62.5%; }
     .menu__item {
+      margin: 0;
       height: 100%;
-      max-height: 160px;
-      flex: 1 0 auto; }
+      max-height: 160px; }
       .menu__item:first-child {
         flex: 0 0 100%; }
     .landing {
@@ -638,6 +637,9 @@ footer {
   @media only screen and (min-width: 70em) {
     body {
       font-size: 20px; }
+    .menu__list {
+      width: 62.5%;
+      height: 75%; }
     .landing {
       width: 75%; }
     .greeting {
