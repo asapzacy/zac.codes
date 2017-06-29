@@ -12,7 +12,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve('dist/404/index.html'))
 })
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`server listening on port ${port}`)
 })
 

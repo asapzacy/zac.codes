@@ -47,6 +47,9 @@ header {
   width:100%;
   line-height:1;
   font-size:1.2em;
+  flex:1;
+  flex-flow:column;
+  padding:10% 0;
   @media only screen and (min-width:$small) {
     font-size:1.6em;
   }
@@ -54,7 +57,7 @@ header {
 }
 
 .menu__list {
-  height:60%;
+  flex:1;
   overflow:hidden;
   flex-direction:column;
   @media only screen and (min-width:$small) {
@@ -67,8 +70,9 @@ header {
 .menu__item {
   flex:1;
   opacity:0;
-  margin:1em 0;
+  margin:10% 0;
   max-height:120px;
+  flex-direction:column;
   transition:opacity 0.22s ease-in;
   @for $i from 3 through 1 {
     &:nth-of-type(#{$i}) {
@@ -88,7 +92,7 @@ header {
 }
 
 .menu__link {
-  height:100%;
+  flex:1;
   font-variant:small-caps;
   display:inline-flex;
   flex-direction:column;
@@ -103,13 +107,16 @@ header {
     background:center center / contain no-repeat;
   }
   &--landing::before {
-    background-image:url('/assets/img/icons/map-signs.svg')
+    // background-image:url('/assets/img/icons/map-signs.svg')
+    background-image:url('/icons/map-signs.svg')
   }
   &--about::before {
-    background-image:url('/assets/img/icons/soccer-ball.svg')
+    // background-image:url('/assets/img/icons/soccer-ball.svg')
+    background-image:url('/icons/soccer-ball.svg')
   }
   &--projects::before {
-    background-image:url('/assets/img/icons/floppy-disk.svg')
+    // background-image:url('/assets/img/icons/floppy-disk.svg')
+    background-image:url('/icons/floppy-disk.svg')
   }
   &::after {
     content:'';

@@ -9,7 +9,7 @@ import sass from 'gulp-sass'
 import sourcemaps from 'gulp-sourcemaps'
 import postcss from 'gulp-postcss'
 import base64 from 'gulp-base64'
-import autoprefixer from 'autoprefixer'
+// import autoprefixer from 'autoprefixer'
 import uglifycss from 'gulp-uglifycss'
 import mqpacker from 'css-mqpacker'
 import browserify from 'browserify'
@@ -28,21 +28,30 @@ const PATHS = {
 }
 
 const FILES = {
-  static: 'app/*.+(ico|pdf)',
-  views: 'app/templates/views/*.hbs',
+  static: './app/**/*.+(ico|pdf)',
+  fonts: './app/fonts/*',
+  views: './app/templates/views/*.hbs',
   hbs: './app/templates/**/*.hbs',
-  data: 'app/data/*.js',
-  img: 'app/img/**/*.+(png|jpg|svg)',
-  icons: 'app/img/icons/*.svg',
-  sass: 'app/sass/**/*.scss',
-  js: 'app/js/**/*.js',
+  data: './app/data/*.js',
+  img: './app/img/**/*.+(png|jpg|svg)',
+  icons: './app/img/icons/*.svg',
+  sass: './app/sass/**/*.scss',
+  js: './app/js/**/*.js',
   main: 'main.js'
 }
 
 //  static files --> dist
 gulp.task('static', () => {
   gulp.src(FILES.static)
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest(PATHS.build))
+  gulp.src(FILES.fonts)
+    .pipe(gulp.dest(PATHS.build + '/assets/fonts'))
+    .pipe(reload({ stream: true }))
+})
+
+gulp.task('fonts', () => {
+  gulp.src(FILES.fonts)
+    .pipe(gulp.dest(PATHS.build + '/assets/fonts'))
     .pipe(reload({ stream: true }))
 })
 
@@ -76,16 +85,16 @@ gulp.task('img', () => {
 //  sass --> css --> dist
 gulp.task('sass', () => {
   const plugins = [
-    autoprefixer(),
+    // autoprefixer(),
     mqpacker()
   ]
   gulp.src(FILES.sass)
     .pipe(sourcemaps.init())
     .pipe(sass())
-    // .pipe(base64({
-    //   baseDir: './app/img',
-    //   debug: true
-    // }))
+    .pipe(base64({
+      baseDir: './app/img',
+      debug: true
+    }))
     .pipe(postcss(plugins))
     .on('error', handleErrors)
     .pipe(rename('styles.css'))

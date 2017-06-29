@@ -3,7 +3,7 @@
   flex:8;
   display:flex;
   flex-direction:column;
-  margin:0 auto 72px;
+  padding-bottom:calc(#{$mountains} + 2.4em);
   z-index:$bottom;
 }
 

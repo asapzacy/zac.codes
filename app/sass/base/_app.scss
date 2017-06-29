@@ -27,13 +27,22 @@ body {
   opacity:0;
   transition:opacity 0.66s 0.66s;
 }
-#app.ready { .inner__container, .social { opacity:1; } }
-
 footer {
-  transform:translateY(144%);
-  transition:transform $cubic 0.44s;
+  transform:translateY(150%);
+  transition:transform $cubic 0.44s 0.44s;
 }
-#app.ready footer { transform:translateY(0); }
+
+#app.ready {
+  .inner__container, .social {
+    opacity:1;
+  }
+  .greeting::first-line {
+    font-family:$cursive;
+  }
+  footer {
+    transform:translateY(0);
+  }
+}
 
 img[data-src] {
   opacity:0;

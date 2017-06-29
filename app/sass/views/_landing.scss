@@ -20,7 +20,7 @@
   text-indent:-0.66em;
   position:relative;
   &::first-line {
-    font:400 3.33em/1 $cursive;
+    font:400 3.33em/1 cursive;
   }
   @media only screen and (min-width:$small) {
     left:-2.5%;
