@@ -2,7 +2,7 @@
 const projects = [
   {
     name: 'uxscoreboard',
-    date: 'July 2016 - Present',
+    date: 'July 2016 - present',
     urls: {
       base: 'https://uxscoreboard.com'
     },
@@ -11,11 +11,13 @@ const projects = [
   },
   {
     name: 'zac.codes',
-    date: 'September 2016 - Present',
+    date: 'September 2016 - present',
     urls: {
       base: 'https://zac.codes'
     },
-    caption: 'personal portfolio | zac.codes'
+    caption: 'personal portfolio | zac.codes',
+    info: 'A minimal, single-page app portfolio built solely on Handlebars.js, sass, vanilla JavaScript and DOM manipulation.'
+
   },
   {
     name: 'SimpleLegal',
@@ -23,7 +25,7 @@ const projects = [
     urls: {
       base: 'https://github.com/zacarellano/SimpleLegal'
     },
-    caption: 'sample dashboard web app | SimpleLegal'
+    caption: 'dashboard web app | SimpleLegal'
   },
   {
     name: 'PayPal',
@@ -31,7 +33,7 @@ const projects = [
     urls: {
       base: 'https://github.com/zacarellano/PayPal'
     },
-    caption: 'sample PayPal checkout widget | PayPal'
+    caption: 'checkout widget | PayPal'
   },
   {
     name: 'tweeter',
@@ -39,7 +41,7 @@ const projects = [
     urls: {
       base: 'https://github.com/zacarellano/tweeter'
     },
-    caption: 'find the most common words tweeted | tweeter'
+    caption: 'most common tweeted words | tweeter'
   },
   {
     name: 'home-stream',
@@ -47,7 +49,7 @@ const projects = [
     urls: {
       base: 'https://zac.codes/home-stream'
     },
-    caption: 'stream of home listings using the SimplyRETS API | home-stream'
+    caption: 'stream of home listings | home-stream'
   },
   {
     name: 'bullet-graph',
@@ -55,7 +57,7 @@ const projects = [
     urls: {
       base: 'https://zac.codes/bullet-graph'
     },
-    caption: 'bullet graph implementation using React.js  | bullet-graph'
+    caption: 'bullet graph using React.js | bullet-graph'
   },
   {
     name: 'march-madness',
@@ -63,7 +65,7 @@ const projects = [
     urls: {
       base: 'https://github.com/zacarellano/march-madness'
     },
-    caption: 'UI for a NCAA March Madness bracket | march-madness'
+    caption: 'NCAA March Madness bracket | march-madness'
   },
   {
     name: 'tic-tac-toe',
@@ -71,7 +73,7 @@ const projects = [
     urls: {
       base: 'https://github.com/zacarellano/tic-tac-toe'
     },
-    caption: 'a classic paper-and-pencile game | tic-tac-toe'
+    caption: 'everyone\'s favorite game | tic-tac-toe'
   },
   {
     name: 'Long Realty',

@@ -3,7 +3,7 @@ import source from 'vinyl-source-stream'
 import buffer from 'vinyl-buffer'
 import gutil from 'gulp-util'
 import imagemin from 'gulp-imagemin'
-import imageresize from 'gulp-image-resize'
+// import imageresize from 'gulp-image-resize'
 import gm from 'gulp-gm'
 import responsive from 'gulp-responsive-images'
 import cache from 'gulp-cache'
@@ -46,7 +46,7 @@ const FILES = {
 //  static files --> dist
 gulp.task('static', () => {
   gulp.src(FILES.static)
-    .pipe(gulp.dest(PATHS.build))
+    .pipe(gulp.dest(PATHS.build + '/assets'))
   gulp.src(FILES.fonts)
     .pipe(gulp.dest(PATHS.build + '/assets/fonts'))
     .pipe(reload({ stream: true }))
@@ -92,6 +92,7 @@ gulp.task('resize', () => {
         suffix: '-2x'
       }]
     }))
+    .pipe(imagemin({ interlaced: true }))
     .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
 })
 // .pipe(imageresize({ width: 1400, upscale: false }))

@@ -20,14 +20,16 @@
 
 /* -------  top arrow  ------- */
 .arrow {
-  height:26px;
-  width:26px;
+  float:right;
+  display:inline-flex;
   margin:-2em -2% 4em auto;
-  padding:4%;
   &::before {
-    content:'\f102';
-    font-family:FontAwesome;
+    content:'';
+    height:1em;
+    width:1em;
+    display:block;
     font-size:1.5em;
+    background:url('icons/arrows-up.svg') center center / contain;
   }
 }
 

@@ -17,20 +17,21 @@
   }
 
   &__preview {
-    margin:1em 0;
+    margin:1em auto;
+    max-width:800px;
     background:$white;
     border-radius:4px;
     flex-flow:column;
   }
 
   &__image {
-    max-width:700px;
+    width:100%;
   }
 
   &__caption {
     width:100%;
-    margin-top:-1%;
-    padding-top:2%;
+    // margin-top:-1%;
+    // padding-top:2%;
     background:$real_white;
   }
 

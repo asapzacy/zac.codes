@@ -1,6 +1,5 @@
 
 //  timing functions  --  source: https://gist.github.com/gre/1650294
-const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
 const easeOutQuart = (t) => 1 - (--t) * t * t * t
 const easeInQuart = (t) => t * t * t * t
 
@@ -11,7 +10,7 @@ export const scrollToTop = (el, duration = 1200) => {
   const scroll = () => {
     const now = Date.now()
     const time = (now - start) / duration
-    const easing = easeInOutCubic(time)
+    const easing = easeOutQuart(time)
     el.scrollTop = (easing * (0 - bottom)) + bottom
     if (el.scrollTop === 0) return
     requestAnimationFrame(scroll)
