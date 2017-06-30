@@ -46,4 +46,16 @@ main {
   a {
     border-bottom:1px solid $real_black
   }
+
+  &__arrow {
+    float:right;
+    margin:-2em 1em 4em auto;
+    &::before {
+      content:'';
+      height:1em;
+      width:1em;
+      font-size:2em;
+      background:url('icons/arrows-up.svg') center center / contain;
+    }
+  }
  }

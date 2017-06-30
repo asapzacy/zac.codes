@@ -13,24 +13,6 @@
 /* -------  icon  ------- */
 .icon {
   cursor:pointer;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-/* -------  top arrow  ------- */
-.arrow {
-  float:right;
-  display:inline-flex;
-  margin:-2em -2% 4em auto;
-  &::before {
-    content:'';
-    height:1em;
-    width:1em;
-    display:block;
-    font-size:1.5em;
-    background:url('icons/arrows-up.svg') center center / contain;
-  }
 }
 
 .transparent .line { background:transparent }

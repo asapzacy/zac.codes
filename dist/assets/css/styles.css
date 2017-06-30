@@ -128,23 +128,7 @@ img {
 
 /* -------  icon  ------- */
 .icon {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-/* -------  top arrow  ------- */
-.arrow {
-  float: right;
-  display: inline-flex;
-  margin: -2em -2% 4em auto; }
-  .arrow::before {
-    content: '';
-    height: 1em;
-    width: 1em;
-    display: block;
-    font-size: 1.5em;
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB3aWR0aD0iMTc5MiIgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMzk1IDEzMTJxMCAxMy0xMCAyM2wtNTAgNTBxLTEwIDEwLTIzIDEwdC0yMy0xMGwtMzkzLTM5My0zOTMgMzkzcS0xMCAxMC0yMyAxMHQtMjMtMTBsLTUwLTUwcS0xMC0xMC0xMC0yM3QxMC0yM2w0NjYtNDY2cTEwLTEwIDIzLTEwdDIzIDEwbDQ2NiA0NjZxMTAgMTAgMTAgMjN6bTAtMzg0cTAgMTMtMTAgMjNsLTUwIDUwcS0xMCAxMC0yMyAxMHQtMjMtMTBsLTM5My0zOTMtMzkzIDM5M3EtMTAgMTAtMjMgMTB0LTIzLTEwbC01MC01MHEtMTAtMTAtMTAtMjN0MTAtMjNsNDY2LTQ2NnExMC0xMCAyMy0xMHQyMyAxMGw0NjYgNDY2cTEwIDEwIDEwIDIzeiIvPjwvc3ZnPg==) center center/contain; }
+  cursor: pointer; }
 
 .transparent .line {
   background: transparent; }
@@ -309,6 +293,15 @@ main {
     font-size: 1.0505em; }
   .page a {
     border-bottom: 1px solid #000000; }
+  .page__arrow {
+    float: right;
+    margin: -2em 1em 4em auto; }
+    .page__arrow::before {
+      content: '';
+      height: 1em;
+      width: 1em;
+      font-size: 2em;
+      background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB3aWR0aD0iMTc5MiIgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMzk1IDEzMTJxMCAxMy0xMCAyM2wtNTAgNTBxLTEwIDEwLTIzIDEwdC0yMy0xMGwtMzkzLTM5My0zOTMgMzkzcS0xMCAxMC0yMyAxMHQtMjMtMTBsLTUwLTUwcS0xMC0xMC0xMC0yM3QxMC0yM2w0NjYtNDY2cTEwLTEwIDIzLTEwdDIzIDEwbDQ2NiA0NjZxMTAgMTAgMTAgMjN6bTAtMzg0cTAgMTMtMTAgMjNsLTUwIDUwcS0xMCAxMC0yMyAxMHQtMjMtMTBsLTM5My0zOTMtMzkzIDM5M3EtMTAgMTAtMjMgMTB0LTIzLTEwbC01MC01MHEtMTAtMTAtMTAtMjN0MTAtMjNsNDY2LTQ2NnExMC0xMCAyMy0xMHQyMyAxMGw0NjYgNDY2cTEwIDEwIDEwIDIzeiIvPjwvc3ZnPg==) center center/contain; }
 
 footer {
   flex: 2;

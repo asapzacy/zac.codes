@@ -3,12 +3,9 @@ import { scrollToTop, lazyLoad } from '../utils'
 // projects page - specific functions
 export default function runProjectsPage() {
 
-  // set up arrow + scroll to top function
-  // TODO: only show arrow if needed [height > 100% viewport]
-  const topArrow = document.querySelector('.js-page__arrow--top')
-  topArrow && topArrow.addEventListener('click', function() {
-    scrollToTop(this.parentNode)
-  })
+  const main = document.querySelector('main')
+  const arrow = main.querySelector('.js-page__arrow')
+  arrow.addEventListener('click', () => scrollToTop(main))
 
   //  loop over every project, add event listener to expand icon button
   const projects = Array.from(document.querySelectorAll('.js-project'))
