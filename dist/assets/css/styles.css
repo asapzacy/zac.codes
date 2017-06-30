@@ -186,7 +186,7 @@ header {
 
 .menu__list {
   flex: 1;
-  max-height: 75%;
+  max-height: 400px;
   overflow: hidden;
   flex-direction: column; }
 
@@ -596,8 +596,9 @@ footer {
       font-size: 1.4em; }
     .menu__list {
       flex-flow: row wrap;
+      max-height: 600px;
       width: 75%;
-      margin: 18.75% 0; }
+      height: 62.5%; }
     .menu__item {
       margin: 0;
       height: 100%;
@@ -636,7 +637,7 @@ footer {
       font-size: 20px; }
     .menu__list {
       width: 62.5%;
-      margin: 12.5% 0; }
+      height: 75%; }
     .landing {
       width: 75%; }
     .greeting {
