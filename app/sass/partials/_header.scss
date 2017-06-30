@@ -44,7 +44,6 @@ header {
 }
 
 .menu {
-  // width:100%;
   line-height:1;
   font-size:1.2em;
   flex:1;
@@ -61,14 +60,13 @@ header {
   overflow:hidden;
   flex-direction:column;
   @media only screen and (min-width:$small) {
-    flex:initial;
     flex-flow:row wrap;
     width:75%;
-    height:62.5%;
+    margin:18.75% 0;
   }
   @media only screen and (min-width:$large) {
     width:62.5%;
-    height:75%;
+    margin:12.5% 0;
   }
 }
 
@@ -80,6 +78,7 @@ header {
   max-height:120px;
   flex-direction:column;
   transition:opacity 0.22s ease-in;
+
   @for $i from 3 through 1 {
     &:nth-of-type(#{$i}) {
       transition-delay:(#{(3 - $i) * 0.11}s);
@@ -89,9 +88,10 @@ header {
   @media only screen and (min-width:$small) {
     margin:0;
     height:100%;
+    flex-basis:50%;
     max-height:160px;
     &:first-child {
-      flex:0 0 100%;
+      flex-basis:100%;
     }
   }
 
@@ -99,13 +99,15 @@ header {
 
 .menu__link {
   flex:1;
-  // width:100%;
-  // text-align:center;
   font-variant:small-caps;
   display:inline-flex;
   flex-direction:column;
   justify-content:center;
   padding:0 1em;
+
+  @media only screen and (min-width:$small) {
+    flex:initial;
+  }
   &::before {
     content:'';
     display:block;
@@ -115,15 +117,12 @@ header {
     background:center center / contain no-repeat;
   }
   &--landing::before {
-    // background-image:url('/assets/img/icons/map-signs.svg')
     background-image:url('/icons/map-signs.svg')
   }
   &--about::before {
-    // background-image:url('/assets/img/icons/soccer-ball.svg')
     background-image:url('/icons/soccer-ball.svg')
   }
   &--projects::before {
-    // background-image:url('/assets/img/icons/floppy-disk.svg')
     background-image:url('/icons/floppy-disk.svg')
   }
   &::after {

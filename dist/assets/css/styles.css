@@ -595,16 +595,18 @@ footer {
     .menu {
       font-size: 1.4em; }
     .menu__list {
-      flex: initial;
       flex-flow: row wrap;
       width: 75%;
-      height: 62.5%; }
+      margin: 18.75% 0; }
     .menu__item {
       margin: 0;
       height: 100%;
+      flex-basis: 50%;
       max-height: 160px; }
       .menu__item:first-child {
-        flex: 0 0 100%; }
+        flex-basis: 100%; }
+    .menu__link {
+      flex: initial; }
     .landing {
       width: 90%; }
     .greeting {
@@ -634,7 +636,7 @@ footer {
       font-size: 20px; }
     .menu__list {
       width: 62.5%;
-      height: 75%; }
+      margin: 12.5% 0; }
     .landing {
       width: 75%; }
     .greeting {
