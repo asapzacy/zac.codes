@@ -72,13 +72,12 @@ export const findArea = () => {
 
 export const lazyLoad = (images) => {
   images.forEach(img => {
-    if (!img.complete) {
-      img.setAttribute('src', img.getAttribute('data-src'))
-      img.addEventListener('load', () => {
-        img.removeAttribute('data-src')
-      })
-    } else {
+    img.setAttribute('src', img.getAttribute('data-src'))
+    img.addEventListener('load', () => {
       img.removeAttribute('data-src')
+    })
+    if (img.complete) {
+      setTimeout(() => img.removeAttribute('data-src'), 0)
     }
   })
 }

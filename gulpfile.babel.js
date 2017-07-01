@@ -3,7 +3,6 @@ import source from 'vinyl-source-stream'
 import buffer from 'vinyl-buffer'
 import gutil from 'gulp-util'
 import imagemin from 'gulp-imagemin'
-// import imageresize from 'gulp-image-resize'
 import gm from 'gulp-gm'
 import responsive from 'gulp-responsive-images'
 import cache from 'gulp-cache'
@@ -71,37 +70,30 @@ gulp.task('views', () => {
     .pipe(reload({ stream: true }))
 })
 
-// gulp.task('resize', () => {
-//   gulp.src(PATHS.app + '/img/projects/*.jpg')
-//     .pipe(imageresize({ width: 1400, upscale: false }))
-//     .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
-// })
-
 gulp.task('resize', () => {
-  const maxWidth = 800
+  const width = 400
   gulp.src(PATHS.app + '/img/projects/*.png')
     .pipe(gm(file => {
       return file.fill('white').flatten().opaque('none').setFormat('jpg')
     }, { imageMagick: true }))
     .pipe(responsive({
       '*': [{
-        width: maxWidth,
+        width: width,
         suffix: ''
       }, {
-        width: maxWidth * 2,
-        suffix: '-2x'
+        width: width * 2,
+        suffix: '-small'
+      }, {
+        width: width * 3,
+        suffix: '-medium'
+      }, {
+        width: width * 4,
+        suffix: '-large'
       }]
     }))
     .pipe(imagemin({ interlaced: true }))
     .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
 })
-// .pipe(imageresize({ width: 1400, upscale: false }))
-
-// gulp.src(PATHS.app + '/img/projects/*.png')
-//   .pipe(gm(file => file.setFormat('jpg')))
-//   // .pipe(gm(file => file.fill('white').opaque('none').format('jpg')))
-//   // .pipe(imageresize({ width: 1400, upscale: false }))
-//   .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
 
 //  images --> minify + cache --> dist
 gulp.task('img', () => {
