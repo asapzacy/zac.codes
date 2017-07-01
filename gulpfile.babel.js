@@ -4,6 +4,7 @@ import buffer from 'vinyl-buffer'
 import gutil from 'gulp-util'
 import imagemin from 'gulp-imagemin'
 import gm from 'gulp-gm'
+import del from 'del'
 import responsive from 'gulp-responsive-images'
 import cache from 'gulp-cache'
 import hb from 'gulp-hb'
@@ -71,7 +72,8 @@ gulp.task('views', () => {
 })
 
 gulp.task('resize', () => {
-  const width = 400
+  const width = 300
+  del(['dist/assets/img/projects'])
   gulp.src(PATHS.app + '/img/projects/*.png')
     .pipe(gm(file => {
       return file.fill('white').flatten().opaque('none').setFormat('jpg')
@@ -89,6 +91,9 @@ gulp.task('resize', () => {
       }, {
         width: width * 4,
         suffix: '-large'
+      }, {
+        width: width * 5,
+        suffix: '-xlarge'
       }]
     }))
     .pipe(imagemin({ interlaced: true }))
