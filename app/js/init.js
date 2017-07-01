@@ -11,6 +11,7 @@ export const loadFonts = () => {
       const app = document.getElementById('app')
       app.querySelector('footer').style.transform = 'translateY(0)'
       setTimeout(() => app.classList.add('ready'), 440)
-    }
+    },
+    inactive() { this.active() }
   })
 }
