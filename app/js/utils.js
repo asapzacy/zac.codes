@@ -70,11 +70,15 @@ export const findArea = () => {
   requestAnimationFrame(pixels)
 }
 
-export const lazyLoad = (arr) => {
-  arr.forEach(img => {
-    img.setAttribute('src', img.getAttribute('data-src'))
-    img.addEventListener('load', () => {
+export const lazyLoad = (images) => {
+  images.forEach(img => {
+    if (!img.complete) {
+      img.setAttribute('src', img.getAttribute('data-src'))
+      img.addEventListener('load', () => {
+        img.removeAttribute('data-src')
+      })
+    } else {
       img.removeAttribute('data-src')
-    })
+    }
   })
 }

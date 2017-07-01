@@ -34,9 +34,15 @@ export default function runProjectsPage() {
     details.style.maxHeight = isExpanded ? 0 : `${details.scrollHeight}px`
   }
 
+  // window.addEventListener('pageshow', (e) => {
+  //   if (e.persisted) {
+  //     window.location.reload()
+  //   }
+  // })
+
   const fadeInImages = () => {
-    const projectImages = Array.from(document.querySelectorAll('.js-project__image'))
-    lazyLoad(projectImages)
+    const images = Array.from(document.querySelectorAll('.js-project__image'))
+    lazyLoad(images)
   }
 
   fadeInImages()
