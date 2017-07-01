@@ -72,7 +72,8 @@ gulp.task('views', () => {
 })
 
 gulp.task('resize', () => {
-  const width = 300
+  const base = 400
+  const increment = 300
   del(['dist/assets/img/projects'])
   gulp.src(PATHS.app + '/img/projects/*.png')
     .pipe(gm(file => {
@@ -80,19 +81,19 @@ gulp.task('resize', () => {
     }, { imageMagick: true }))
     .pipe(responsive({
       '*': [{
-        width: width,
+        width: base + (increment * 0),
         suffix: ''
       }, {
-        width: width * 2,
+        width: base + (increment * 1),
         suffix: '-small'
       }, {
-        width: width * 3,
+        width: base + (increment * 2),
         suffix: '-medium'
       }, {
-        width: width * 4,
+        width: base + (increment * 3),
         suffix: '-large'
       }, {
-        width: width * 5,
+        width: base + (increment * 4),
         suffix: '-xlarge'
       }]
     }))
@@ -141,7 +142,7 @@ gulp.task('browser-sync', () => {
   })
 })
 
-gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync', 'views', 'resize'], () => {
+gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync', 'views'], () => {
   gulp.watch(FILES.static, ['static'])
   gulp.watch(FILES.img, ['img'])
   gulp.watch(FILES.sass, ['sass'])
