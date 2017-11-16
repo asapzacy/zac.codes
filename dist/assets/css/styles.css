@@ -148,6 +148,7 @@ img {
 header {
   flex: 0;
   display: flex;
+  min-height: 0;
   position: relative;
   transition: flex 0s 0.66s; }
 
@@ -261,6 +262,7 @@ header {
 .inner__container {
   flex: 8;
   display: flex;
+  overflow: auto;
   flex-direction: column;
   padding-bottom: 72px;
   z-index: 0; }
