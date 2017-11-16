@@ -2,6 +2,7 @@
 header {
   flex:0;
   display:flex;
+  min-height:0;
   position:relative;
   transition:flex 0s 0.66s;
 }

@@ -2,6 +2,7 @@
 .inner__container {
   flex:8;
   display:flex;
+  overflow:auto;
   flex-direction:column;
   padding-bottom:$mountains;
   z-index:$bottom;
