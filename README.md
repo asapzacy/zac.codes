@@ -1,6 +1,6 @@
 
 # zac.codes
 
-![zac.codes preview](https://raw.githubusercontent.com/zacarellano/zac.codes/master/dist/assets/img/github/zac.codes_preview.jpg)
+![zac.codes preview](https://zac.codes/assets/img/projects/zac.codes_preview-xlarge.jpg)
 
-A personal portfolio and single-page app built solely on handlebars.js, sass, vanilla javascript and DOM manipulation.
+A personal portfolio and single-page web app built solely on handlebars.js, sass, vanilla JavaScript, and DOM manipulation.
