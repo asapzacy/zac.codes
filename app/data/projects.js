@@ -23,7 +23,7 @@ const projects = [
     name: 'SimpleLegal',
     date: 'June 2017',
     urls: {
-      base: 'https://github.com/zacarellano/SimpleLegal'
+      base: 'https://github.com/asapzacy/SimpleLegal'
     },
     caption: 'dashboard web app | SimpleLegal'
   },
@@ -31,7 +31,7 @@ const projects = [
     name: 'PayPal',
     date: 'May 2017',
     urls: {
-      base: 'https://github.com/zacarellano/PayPal'
+      base: 'https://github.com/asapzacy/PayPal'
     },
     caption: 'checkout widget | PayPal'
   },
@@ -39,13 +39,13 @@ const projects = [
     name: 'tweeter',
     date: 'April 2017',
     urls: {
-      base: 'https://github.com/zacarellano/tweeter'
+      base: 'https://github.com/asapzacy/tweeter'
     },
     caption: 'most common tweeted words | tweeter'
   },
   {
     name: 'home-stream',
-    date: 'March 2016',
+    date: 'March 2017',
     urls: {
       base: 'https://zac.codes/home-stream'
     },
@@ -63,7 +63,7 @@ const projects = [
     name: 'march-madness',
     date: 'March 2017',
     urls: {
-      base: 'https://github.com/zacarellano/march-madness'
+      base: 'https://github.com/asapzacy/march-madness'
     },
     caption: 'NCAA March Madness bracket | march-madness'
   },
@@ -71,7 +71,7 @@ const projects = [
     name: 'tic-tac-toe',
     date: 'April 2017',
     urls: {
-      base: 'https://github.com/zacarellano/tic-tac-toe'
+      base: 'https://github.com/asapzacy/tic-tac-toe'
     },
     caption: 'everyone\'s favorite game | tic-tac-toe'
   },
