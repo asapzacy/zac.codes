@@ -20,12 +20,12 @@ export const runNewFunctions = () => {
   }
 }
 
-const removeOldPage = (el) => {
+const removeOldPage = el => {
   el.removeChild(el.querySelector('.page'))
   console.log(el)
 }
 
-const createNewPage = (text) => {
+const createNewPage = text => {
   const html = document.createElement('html')
   html.innerHTML = text
   return {
@@ -46,7 +46,6 @@ const insertNewPage = (el, child) => {
 const updatePageInfo = ({ title, desc }) => {
   document.title = title
   document.getElementsByTagName('meta')['description'].content = desc
-
 }
 
 // update + fade in new page on url change
@@ -78,7 +77,9 @@ function loadPage(url) {
       }
     })
     .catch(err => {
-      console.error(`there has been an error requesting (${url}): ${err.message}`)
+      console.error(
+        `there has been an error requesting (${url}): ${err.message}`
+      )
     })
 }
 

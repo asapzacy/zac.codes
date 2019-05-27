@@ -2,7 +2,6 @@ import { scrollToTop, lazyLoad } from '../utils'
 
 // projects page - specific functions
 export default function runProjectsPage() {
-
   const main = document.querySelector('main')
   const arrow = main.querySelector('.js-page__arrow')
   arrow.addEventListener('click', () => scrollToTop(main))
@@ -40,5 +39,4 @@ export default function runProjectsPage() {
   }
 
   fadeInImages()
-
 }

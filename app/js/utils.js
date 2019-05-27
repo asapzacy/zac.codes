@@ -1,6 +1,5 @@
-
-const easeOutQuart = (t) => 1 - (--t) * t * t * t
-const easeInQuart = (t) => t * t * t * t
+const easeOutQuart = t => 1 - --t * t * t * t
+const easeInQuart = t => t * t * t * t
 
 // scroll-to-top of element.
 export const scrollToTop = (el, duration = 1200) => {
@@ -10,7 +9,7 @@ export const scrollToTop = (el, duration = 1200) => {
     const now = Date.now()
     const time = (now - start) / duration
     const easing = easeOutQuart(time)
-    el.scrollTop = (easing * (0 - bottom)) + bottom
+    el.scrollTop = easing * (0 - bottom) + bottom
     if (el.scrollTop === 0) {
       return
     }
@@ -46,7 +45,7 @@ export const fadeOut = (el, duration = 1200, delay = 0) => {
     const start = Date.now()
     const fade = () => {
       const now = Date.now()
-      const time = 1 - ((now - start) / duration)
+      const time = 1 - (now - start) / duration
       const easing = easeOutQuart(time)
       el.style.opacity = easing
       if (el.style.opacity < 0.0001) {
@@ -70,7 +69,7 @@ export const findArea = () => {
   requestAnimationFrame(pixels)
 }
 
-export const lazyLoad = (images) => {
+export const lazyLoad = images => {
   images.forEach(img => {
     img.setAttribute('src', img.getAttribute('data-src'))
     img.addEventListener('load', () => {

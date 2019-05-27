@@ -3,8 +3,8 @@ import WebFont from 'webfontloader'
 export const loadFonts = () => {
   WebFont.load({
     custom: {
-      families: [ 'Yellowtail' ],
-      urls: [ '/assets/fonts/font.css' ]
+      families: ['Yellowtail'],
+      urls: ['/assets/fonts/font.css']
     },
     classes: false,
     active() {
@@ -12,6 +12,8 @@ export const loadFonts = () => {
       app.querySelector('footer').style.transform = 'translateY(0)'
       setTimeout(() => app.classList.add('ready'), 440)
     },
-    inactive() { this.active() }
+    inactive() {
+      this.active()
+    }
   })
 }

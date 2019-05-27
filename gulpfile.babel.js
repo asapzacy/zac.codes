@@ -12,7 +12,6 @@ import sass from 'gulp-sass'
 import sourcemaps from 'gulp-sourcemaps'
 import postcss from 'gulp-postcss'
 import base64 from 'gulp-base64'
-// import autoprefixer from 'autoprefixer'
 import uglifycss from 'gulp-uglifycss'
 import mqpacker from 'css-mqpacker'
 import browserify from 'browserify'
@@ -45,28 +44,34 @@ const FILES = {
 
 //  static files --> dist
 gulp.task('static', () => {
-  gulp.src(FILES.static)
-    .pipe(gulp.dest(PATHS.build + '/assets'))
-  gulp.src(FILES.fonts)
+  gulp.src(FILES.static).pipe(gulp.dest(PATHS.build + '/assets'))
+  gulp
+    .src(FILES.fonts)
     .pipe(gulp.dest(PATHS.build + '/assets/fonts'))
     .pipe(reload({ stream: true }))
 })
 
 gulp.task('views', () => {
-  gulp.src(FILES.views)
-    .pipe(hb({
-      data: './app/data/**/*.js',
-      helpers: './app/js/helpers/*.js',
-      partials: './app/templates/partials/**/*.hbs',
-      bustCache: true,
-      debug: false
-    }))
-    .pipe(rename(path => {
-      gutil.log(path)
-      path.dirname = path.basename !== 'landing' ? path.basename : path.dirname
-      path.basename = 'index'
-      path.extname = '.html'
-    }))
+  gulp
+    .src(FILES.views)
+    .pipe(
+      hb({
+        data: './app/data/**/*.js',
+        helpers: './app/js/helpers/*.js',
+        partials: './app/templates/partials/**/*.hbs',
+        bustCache: true,
+        debug: false
+      })
+    )
+    .pipe(
+      rename(path => {
+        gutil.log(path)
+        path.dirname =
+          path.basename !== 'landing' ? path.basename : path.dirname
+        path.basename = 'index'
+        path.extname = '.html'
+      })
+    )
     .pipe(gulp.dest('dist'))
     .pipe(reload({ stream: true }))
 })
@@ -75,35 +80,54 @@ gulp.task('resize', () => {
   const base = 400
   const increment = 300
   del(['dist/assets/img/projects'])
-  gulp.src(PATHS.app + '/img/projects/*.png')
-    .pipe(gm(file => {
-      return file.fill('white').flatten().opaque('none').setFormat('jpg')
-    }, { imageMagick: true }))
-    .pipe(responsive({
-      '*': [{
-        width: base + (increment * 0),
-        suffix: ''
-      }, {
-        width: base + (increment * 1),
-        suffix: '-small'
-      }, {
-        width: base + (increment * 2),
-        suffix: '-medium'
-      }, {
-        width: base + (increment * 3),
-        suffix: '-large'
-      }, {
-        width: base + (increment * 4),
-        suffix: '-xlarge'
-      }]
-    }))
+  gulp
+    .src(PATHS.app + '/img/projects/*.png')
+    .pipe(
+      gm(
+        file => {
+          return file
+            .fill('white')
+            .flatten()
+            .opaque('none')
+            .setFormat('jpg')
+        },
+        { imageMagick: true }
+      )
+    )
+    .pipe(
+      responsive({
+        '*': [
+          {
+            width: base + increment * 0,
+            suffix: ''
+          },
+          {
+            width: base + increment * 1,
+            suffix: '-small'
+          },
+          {
+            width: base + increment * 2,
+            suffix: '-medium'
+          },
+          {
+            width: base + increment * 3,
+            suffix: '-large'
+          },
+          {
+            width: base + increment * 4,
+            suffix: '-xlarge'
+          }
+        ]
+      })
+    )
     .pipe(imagemin({ interlaced: true }))
     .pipe(gulp.dest(PATHS.build + '/assets/img/projects'))
 })
 
 //  images --> minify + cache --> dist
 gulp.task('img', () => {
-  gulp.src([FILES.img, '!app/img/projects/', '!app/img/projects/**'])
+  gulp
+    .src([FILES.img, '!app/img/projects/', '!app/img/projects/**'])
     .pipe(cache(imagemin({ interlaced: true })))
     .pipe(gulp.dest(PATHS.build + '/assets/img'))
     .pipe(reload({ stream: true }))
@@ -111,8 +135,9 @@ gulp.task('img', () => {
 
 //  sass --> css --> dist
 gulp.task('sass', () => {
-  const plugins = [ mqpacker() ]
-  gulp.src(FILES.sass)
+  const plugins = [mqpacker()]
+  gulp
+    .src(FILES.sass)
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(base64({ baseDir: './app/img', debug: false }))
@@ -142,26 +167,32 @@ gulp.task('browser-sync', () => {
   })
 })
 
-gulp.task('default', ['static', 'img', 'sass', 'js', 'browser-sync', 'views'], () => {
-  gulp.watch(FILES.static, ['static'])
-  gulp.watch(FILES.img, ['img'])
-  gulp.watch(FILES.sass, ['sass'])
-  gulp.watch([FILES.data, FILES.hbs], ['views'])
-  return build(FILES.main, true)
-})
+gulp.task(
+  'default',
+  ['static', 'img', 'sass', 'js', 'browser-sync', 'views'],
+  () => {
+    gulp.watch(FILES.static, ['static'])
+    gulp.watch(FILES.img, ['img'])
+    gulp.watch(FILES.sass, ['sass'])
+    gulp.watch([FILES.data, FILES.hbs], ['views'])
+    return build(FILES.main, true)
+  }
+)
 
 function handleErrors(...args) {
-  notify.onError({
-    title: 'Compile Error',
-    message: '<%= error.message %>'
-  }).apply(this, args)
+  notify
+    .onError({
+      title: 'Compile Error',
+      message: '<%= error.message %>'
+    })
+    .apply(this, args)
   this.emit('end')
 }
 
 function build(file, watch) {
   const options = {
-    entries: [ PATHS.app + '/js/' + file ],
-    transform: [ babelify ],
+    entries: [PATHS.app + '/js/' + file],
+    transform: [babelify],
     debug: true
   }
   let bundler = watch ? watchify(browserify(options)) : browserify(options)

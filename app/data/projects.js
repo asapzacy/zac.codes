@@ -1,4 +1,3 @@
-
 const projects = [
   {
     name: 'uxscoreboard',
@@ -7,7 +6,8 @@ const projects = [
       base: 'https://uxscoreboard.com'
     },
     caption: 'NBA scores | uxscoreboard',
-    info: 'A sports scoreboard web app built on ES6, React, and Node.js—features MLB, NBA, NFL, NHL, and MLS (coming soon) games.'
+    info:
+      'A sports scoreboard web app built on ES6, React, and Node.js—features MLB, NBA, NFL, NHL, and MLS (coming soon) games.'
   },
   {
     name: 'zac.codes',
@@ -16,8 +16,8 @@ const projects = [
       base: 'https://zac.codes'
     },
     caption: 'personal portfolio | zac.codes',
-    info: 'A minimal, single-page app portfolio built solely on Handlebars.js, sass, vanilla JavaScript and DOM manipulation.'
-
+    info:
+      'A minimal, single-page app portfolio built solely on Handlebars.js, sass, vanilla JavaScript and DOM manipulation.'
   },
   {
     name: 'SimpleLegal',
@@ -73,7 +73,7 @@ const projects = [
     urls: {
       base: 'https://github.com/asapzacy/tic-tac-toe'
     },
-    caption: 'everyone\'s favorite game | tic-tac-toe'
+    caption: "everyone's favorite game | tic-tac-toe"
   },
   {
     name: 'Long Realty',
@@ -82,7 +82,6 @@ const projects = [
       base: 'http://soldtucson.com'
     },
     caption: 'www.soldtucson.com | Long Realty'
-
   }
 ]
 

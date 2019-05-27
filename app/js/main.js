@@ -1,8 +1,7 @@
 import { updatePage, runNewFunctions } from './spa'
 import { loadFonts } from './init'
 
-(() => {
-
+;(() => {
   //  DOM elements
   const header = document.querySelector('header')
   const triggerMenu = document.querySelector('.js-trigger--menu')
@@ -14,7 +13,7 @@ import { loadFonts } from './init'
     header.classList.toggle('menu-open')
   }
 
-  const changePage = (e) => {
+  const changePage = e => {
     if (e.target && e.target.nodeName === 'A') {
       e.preventDefault()
       toggleMenu()
@@ -30,6 +29,8 @@ import { loadFonts } from './init'
   runNewFunctions()
 
   triggerMenu.addEventListener('click', toggleMenu)
-  menu.addEventListener('ontouchstart' in window ? 'touchstart' : 'click', changePage)
-
+  menu.addEventListener(
+    'ontouchstart' in window ? 'touchstart' : 'click',
+    changePage
+  )
 })()

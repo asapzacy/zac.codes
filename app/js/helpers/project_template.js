@@ -1,5 +1,4 @@
-
-export const formatImgFile = (img) => {
+export const formatImgFile = img => {
   let result = img.split(' ')
   if (result.length > 1) {
     result = result.join('-').toLowerCase()
