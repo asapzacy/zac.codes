@@ -10,6 +10,7 @@
     "wipe": "rm -rf node_modules && yarn",
     "lint": "eslint app/.; exit 0",
     "fix": "eslint --fix app/.; exit 0",
+    "pretty": "prettier --write '**/*.js'",
     "images": "find ./dist/assets -name '*.svg' -type f -exec svgo '{}' \\;"
   },
   "author": "Zac Arellano",
@@ -57,6 +58,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-uglifycss": "^1.0.6",
     "gulp-util": "^3.0.7",
+    "prettier": "^1.17.1",
     "standard": "^10.0.2",
     "svgo": "^0.7.2",
     "vinyl-buffer": "^1.0.0",
